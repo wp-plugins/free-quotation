@@ -78,35 +78,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			</p>
 		</form>	
 	
-	<div class="Free_Quotation_wrap4">
-		Zmiany:
-		<?php
-	echo '<br>';
-	if  ($options['option1']=='1') {
-	echo 'Use only Free_Quotation';
-	} elseif ($options['option1']=='2') {
-	echo "Use Wikiquote if you doesn't have FQ for display";
-	}elseif ($options['option1']=='3') {
-	echo "Use Wikiquote always for qotations displaying";
-	}elseif ($options['option1']=='4') {
-	echo "Use one standard quotation";
-	};
-	?>
-			<?php
-	echo '<br>';
-	if  ($options['option2']=='en') {
-	echo 'en';
-	} elseif ($options['option2']=='de') {
-	echo "de";
-	}elseif ($options['option2']=='es') {
-	echo "es";
-	}elseif ($options['option2']=='ru') {
-	echo "ru";
-	}elseif ($options['option2']=='pl') {
-	echo "pl";
-	};
-	?>
-	</div>
+	
 </div>
 	<?php 
 ?>
