@@ -9,7 +9,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 
 	?>
 <div class="wrap">	
-	<div class="Free_Quotation_header"></div> <h2>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_menu_page_add">Add One Free Quotation</a></h2></h2>
+	<div class="Free_Quotation_header"></div> <h2>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_menu_page">Add Free Quotation</a></h2></h2>
 	<h4>Add CSV file</h4>
 	
 	<div class= "Free_Quotation_wrap2">

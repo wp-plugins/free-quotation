@@ -77,8 +77,55 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			<input type="submit" class="button-primary" value="<?php _e('Save') ?>" />
 			</p>
 		</form>	
-	
-	
+ <script>
+jQuery(document).ready( function($){
+    $( "#tabs" ).tabs();
+  });
+  </script>
+
+<div class="Free_Quotation_wrap1">
+
+	<div id="tabs">
+		Changes
+	  <ul>
+		<li><a href="#tabs-1">ver. 1.1</a></li>
+		<li><a href="#tabs-2">ver. 1.0</a></li>
+	  </ul>
+	  <div id="tabs-1">
+			<ul>
+				<li>Add new quotation change location (go to Free Quotation)</li>
+				<li>Table have now new feature. Now:
+					<ul>
+						<li>Table is sortable</li>
+						<li>Table is filterable</li>
+						<li>Table have pagination</li>
+						<li>User can choose how many rows is display</li>
+					</ul>
+				</li>
+				<li>Some small improvement (Wikiquotes mechanism, layout)</li>
+			</ul>
+	  </div>
+	  <div id="tabs-2">
+			<ul>
+				<li><b>Initial release</b></li>
+				<li>Function
+					<ul>
+						<li>Widget for displaying quotation</li>
+						<li>Page for add quotation</li>
+						<li>Import CSV files</li>
+						<li>Displaying quotation from Wikiquotes				
+							<ul>
+								<li>Widget for displaying quotation</li>
+								<li>Page for add quotation</li>
+								<li>Import CSV files</li>
+								<li>User can choose how many rows is display</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+	  </div>
+	</div>	
 </div>
 	<?php 
 ?>

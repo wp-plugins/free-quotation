@@ -4,7 +4,7 @@ Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, wikiquote, wiki, quote, quot., citation, cytaty
 Requires at least: 3.0.1
 Tested up to: 3.7.1
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,8 +83,14 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 
 == Changelog ==
 
-= 1.0.1 =
-Small improvement
+= 1.1.0 =
+Add new quotation change location (go to Free Quotation)
+Table have now new feature. Now:
+Table is sortable
+Table is filterable
+Table have pagination
+User can choose how many rows is display
+Some small improvement (Wikiquotes mechanism, layout)
 
 = 1.0 =
 This is initial relase of this plugin.
