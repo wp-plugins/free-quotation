@@ -71,3 +71,90 @@ list-style-type:disc;
 margin: 0px;
 margin-left:25px;
 }
+
+#sortable_wrapper{
+}
+
+#sortable_length {
+	position:relative;
+    float: left;
+	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	padding: 5px;
+	width: 20%;
+	text-align: center;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-top: solid 1px #DFDFDF;
+	border-left: solid 1px #DFDFDF;
+	border-right: solid 1px #DFDFDF;
+	
+}
+
+#sortable_filter {
+	position:relative;
+    float: right;
+	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	padding: 5px;
+	width: 20%;
+	text-align: center;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top: solid 1px #DFDFDF;
+	border-left: solid 1px #DFDFDF;
+	border-right: solid 1px #DFDFDF;
+	margin-top:1px;
+}
+
+#sortable_info {
+	position:relative;
+    float: left;
+	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	padding: 5px;
+	width: 20%;
+	text-align: center;
+	border-top-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom: solid 1px #DFDFDF;
+	border-left: solid 1px #DFDFDF;
+	border-right: solid 1px #DFDFDF;
+}
+
+#sortable_paginate {
+	position:relative;
+    float: right;
+	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	padding: 5px;
+	width: 20%;
+	text-align: center;
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom: solid 1px #DFDFDF;
+	border-left: solid 1px #DFDFDF;
+	border-right: solid 1px #DFDFDF;
+	margin-top:1px;
+}
+
+#sortable_previous{
+    padding: 3px 6px;
+    text-decoration: none;
+    border-color: #ddd;
+	border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+	margin-right:15px;
+}
+
+#sortable_next{
+    padding: 3px 6px;
+    text-decoration: none;
+    border-color: #ddd;
+	border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+   
