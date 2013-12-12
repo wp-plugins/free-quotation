@@ -92,6 +92,12 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-2">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.1.1
+			<ul>
+				<li>Compability with WordPress 2.8.0</li>
+				<li>Make plugin lighter</li>
+			</ul>
+			1.1.0
 			<ul>
 				<li>Add new quotation change location (go to Free Quotation)</li>
 				<li>Table have now new feature. Now:
