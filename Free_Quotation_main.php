@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation by KRIS_IV
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: v1.1.1
+	Version: v1.2.0
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "1.1.1";
+$Free_Quotation_version = "1.2.0";
 global $today_date;
 $today_date = date('o-m-d');
 global $wikiquotation;
@@ -33,6 +33,35 @@ if ( is_admin() )
 {
 	/* add  css and js */
 	add_action('admin_print_scripts', 'add_admin_scriptserr');
+
+    if($GLOBALS['pagenow'] == 'plugins.php'){ //check if the user is on page plugins.php
+        add_filter('plugin_action_links', 'FQ_plugin_action_links', 10, 2);
+        add_filter('plugin_row_meta', 'FQ_plugin_meta_links', 10, 2);
+    }
+}
+ 
+$FQ_plugin_basename = plugin_basename(__FILE__);
+ 
+function FQ_plugin_action_links($links, $file){
+    global $FQ_plugin_basename;
+ 
+    if($file == $FQ_plugin_basename){
+        //the Settings link will be also translated to different languages
+        $apt_settings_link = '<a href="'. admin_url('admin.php?page=fq_admin_settings') .'">' . __('Settings') . '</a>';
+        $links = array_merge($links, array($apt_settings_link));
+    }
+    return $links;
+}
+ 
+function FQ_plugin_meta_links($links, $file){
+    global $FQ_plugin_basename;
+ 
+    if($file == $FQ_plugin_basename){
+        $links[] = '<a href="http://my-motivator.pl/free-quotation-kris_iv/">Visit plugin site</a>';
+        $links[] = '<a href="http://wordpress.org/plugins/free-quotation/faq/">FAQ</a>';
+        $links[] = '<a href="http://wordpress.org/support/plugin/free-quotation">Support</a>';
+    }
+    return $links;
 }
 
 function add_admin_scriptserr()
@@ -42,19 +71,19 @@ function add_admin_scriptserr()
 	wp_enqueue_script('jquery-ui-tabs');
 	wp_enqueue_script('jquery-datatables', plugins_url('js/jquery.dataTables.min.js', __FILE__) );
 	wp_register_style( 'Free_Quotationadmin-style', plugins_url('css/menu.css', __FILE__) ); 
+	wp_register_style( 'Free_Quotationadmin2-style', plugins_url('css/jquery-ui-smoothness.css', __FILE__) );   
 }
 
-function my_init_method() {         
-	wp_register_style( 'Free_Quotation-style', plugins_url('css/style.css', __FILE__) );          
-	wp_register_style( 'Free_Quotationadmin2-style', plugins_url('css/jquery-ui-smoothness.css', __FILE__) );          
+add_action('init', 'FQ_init_method');
+
+function FQ_init_method() {         
+	wp_register_style( 'Free_Quotation-style', plugins_url('css/style.css', __FILE__) );                 
 }    
  
-add_action('init', 'my_init_method');
-
-function insert_jquery(){
- wp_enqueue_script('jquery');
+function FQ_insert_jquery(){
+	wp_enqueue_script('jquery');
 }
-add_action('init', 'insert_jquery');
+add_action('init', 'FQ_insert_jquery');
 
 // Add menu page
 function Free_Quotation_menu_page(){
