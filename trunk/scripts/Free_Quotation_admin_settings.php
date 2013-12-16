@@ -88,10 +88,17 @@ jQuery(document).ready( function($){
 	<div id="tabs">
 		Changes
 	  <ul>
-		<li><a href="#tabs-1">ver. 1.1</a></li>
-		<li><a href="#tabs-2">ver. 1.0</a></li>
+		<li><a href="#tabs-1">ver. 1.2</a></li>
+		<li><a href="#tabs-2">ver. 1.1</a></li>
+		<li><a href="#tabs-3">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			<ul>
+				<li>Improve navigation (on plugin list)</li>
+				<li>Better organisation in code</li>
+			</ul>
+	  </div>
+	  <div id="tabs-2">			
 			1.1.1
 			<ul>
 				<li>Compability with WordPress 2.8.0</li>
@@ -111,7 +118,8 @@ jQuery(document).ready( function($){
 				<li>Some small improvement (Wikiquotes mechanism, layout)</li>
 			</ul>
 	  </div>
-	  <div id="tabs-2">
+	  <div id="tabs-3">
+			1.0
 			<ul>
 				<li><b>Initial release</b></li>
 				<li>Function
@@ -129,6 +137,10 @@ jQuery(document).ready( function($){
 						</li>
 					</ul>
 				</li>
+			</ul>
+			1.0.1
+			<ul>
+				<li>Small visual improvement</li>
 			</ul>
 	  </div>
 	</div>	
