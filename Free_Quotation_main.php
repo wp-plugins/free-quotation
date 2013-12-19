@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation by KRIS_IV
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: v1.2.0
+	Version: v1.2.1
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "1.2.0";
+$Free_Quotation_version = "1.2.1";
 global $today_date;
 $today_date = date('o-m-d');
 global $wikiquotation;
@@ -115,14 +115,14 @@ function fq_admin_settings() {
 
 // Sanitize and validate input. Accepts an array, return a sanitized array.
 function Free_Quotation_validate($input) {
-	$input['option1'] = ( $input['option1']);
-	$input['option2'] = ( $input['option2']);
-	$input['option3'] = ( $input['option3'] == 1 ? 1 : 0 );
-	$input['option4'] = ( $input['option4'] == 1 ? 1 : 0 );
-	$input['tekst1'] =  ($input['tekst1']);
-	$input['tekst2'] =  ($input['tekst2']);
-	$input['tekst3'] =  ($input['tekst3']);
-	$input['tekst4'] =  ($input['tekst4']);
+if (isset($input['option1'])){	$input['option1'] = ( $input['option1']);}
+if (isset($input['option2'])){	$input['option2'] = ( $input['option2']);}
+if (isset($input['option3'])){	$input['option3'] = ( $input['option3'] == 1 ? 1 : 0 );}
+if (isset($input['option4'])){	$input['option4'] = ( $input['option4'] == 1 ? 1 : 0 );}
+if (isset($input['tekst1'])){	$input['tekst1'] =  ($input['tekst1']);}
+if (isset($input['tekst2'])){	$input['tekst2'] =  ($input['tekst2']);}
+if (isset($input['tekst3'])){	$input['tekst3'] =  ($input['tekst3']);}
+if (isset($input['tekst4'])){	$input['tekst4'] =  ($input['tekst4']);}
 	
 	return $input;
 }

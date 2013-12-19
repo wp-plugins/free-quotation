@@ -2,7 +2,6 @@
 
 global $Free_Quotation_version;
 global $wpdb;
-echo $table_name;
 global $today_date;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 
@@ -14,34 +13,40 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 	
 	<div class= "Free_Quotation_wrap2">
 <?php
-if ($_FILES[csv][size] > 0) {
+if (isset($_FILES['csv'])){
+	if ($_FILES['csv']['size'] > 0) {
 
     //get the csv file
-    $file = $_FILES[csv][tmp_name];
+    $file = $_FILES['csv']['tmp_name'];
     $handle = fopen($file,"r");
     
     //loop through the csv file and insert into database
 	    do {
-        if ($data[0]) {
-            $fqinsert = $wpdb->insert( $table_name, array ('quotation' => addslashes($data[0]), 'author' => addslashes($data[1]),  'display_date' => addslashes($data[2]), 'adding_date' =>addslashes($today_date)), array ('%s', '%s', '%s', '%s'));       
-        }
-    // do {
-        // if ($data[0]) {
-            // mysql_query("INSERT INTO $table_name (quotation, author, display_date, adding_date) VALUES
-                // (
-                    // '".addslashes($data[0])."',
-                    // '".addslashes($data[1])."',
-                    // '".addslashes($data[2])."',
-                    // '".addslashes($today_date)."'
-                // )
-            // ");
-        // }
-	$datasuccess = "Your file has been successfully imported.";
-    } while ($data = fgetcsv($handle,1000,';','"'));
+			if (isset($data)){
+				if ($data[0]) {
+					$fqinsert = $wpdb->insert( $table_name, array ('quotation' => addslashes($data[0]), 'author' => addslashes($data[1]),  'display_date' => addslashes($data[2]), 'adding_date' =>addslashes($today_date)), array ('%s', '%s', '%s', '%s'));       
+				}
+			}
+		// do {
+			// if ($data[0]) {
+				// mysql_query("INSERT INTO $table_name (quotation, author, display_date, adding_date) VALUES
+					// (
+						// '".addslashes($data[0])."',
+						// '".addslashes($data[1])."',
+						// '".addslashes($data[2])."',
+						// '".addslashes($today_date)."'
+					// )
+				// ");
+			// }
+		$datasuccess = "Your file has been successfully imported.";
+		} while ($data = fgetcsv($handle,1000,';','"'));
 
+	}
 }?>
 
-<?php if ($datasuccess==null){echo 'Import is not finish yet. If you try and you doesn\'t see positive message - look for FAQ, forum or ask question<br>';} else {echo '<div style="font-weight:bold; font-size:15px; background:yellow; width: 300px; text-align:center; padding: 5px;">' . $datasuccess . '</div>';}; ?>
+<?php 
+if (isset($datasuccess)){
+if ($datasuccess==null){echo 'Import is not finish yet. If you try and you doesn\'t see positive message - look for FAQ, forum or ask question<br>';} else {echo '<div style="font-weight:bold; font-size:15px; background:yellow; width: 300px; text-align:center; padding: 5px;">' . $datasuccess . '</div>';}}; ?>
 <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
  <br> Choose your file: <br>
   <input name="csv" type="file" id="csv" />
