@@ -1,7 +1,6 @@
 <?php
 global $Free_Quotation_version;
 global $wpdb;
-echo $table_name;
 global $today_date;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 ?>
@@ -13,18 +12,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			<?php settings_fields('Free_Quotation_settings_filed'); ?>
 			<?php $options = get_option('Free_Quotation_options'); ?>
 		</form>
-	<?php
-		global $current_user;
-		$ufUserID = $current_user->ID;
-        $quotation = $_POST["quotation_textarea"];
-        $author = $_POST["autor_text"];
-        $display_date = $_POST["display_date"];
-		$url = $_SERVER['PHP_SELF'];
-		$adding_date = $today_date;
-		if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updateFeedback' ) {
-            $fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date), array('%s', '%s', '%s', '%s') );
-        }
-?>
+
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		jQuery('#display_date').datepicker({
@@ -45,7 +33,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<input type="text" name="autor_text" required></input>
 				</td>
 				<td>    
-				<input type="text" id="display_date" name="display_date" size="30"  <?php if ($options['option3']==null){ echo 'readonly';}?> required>
+				<input type="text" id="display_date" name="display_date" size="30"  <?php if (isset($options['option3'])) {} else {echo 'readonly';}?> required>
 				<div style="margin-left:10px;">(rrrr-mm-dd)</div>
 				</td></th>
 				</tbody>
@@ -58,7 +46,20 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			</table>
 		</form><br>
 	</div>
-
+	<?php
+	if(isset($_POST["quotation_textarea"])){
+		global $current_user;
+		$ufUserID = $current_user->ID;
+        $quotation = $_POST["quotation_textarea"];
+        $author = $_POST["autor_text"];
+        $display_date = $_POST["display_date"];
+		$url = $_SERVER['PHP_SELF'];
+		$adding_date = $today_date;
+		if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updateFeedback' ) {
+            $fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date), array('%s', '%s', '%s', '%s') );
+        }
+		}else{}
+?>
 <script>
 jQuery(document).ready( function($){
     $('#sortable').dataTable( {

@@ -2,7 +2,6 @@
 
 global $Free_Quotation_version;
 global $wpdb;
-echo $table_name;
 global $today_date;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 
@@ -18,13 +17,13 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<tr>
 					<th scope="row">Permit to write date (in Add Free Quotation page)</th>
 					<td>
-						<input name="Free_Quotation_options[option3]" type="checkbox" value="1" <?php checked('1', $options['option3']); ?> /><br>
+						<input name="Free_Quotation_options[option3]" type="checkbox" value="1" <?php if(isset($options['option3'])){checked($options['option3'], 1);}?> /><br>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">Start and end quotation with special characters</th>
 					<td>
-						<input name="Free_Quotation_options[option4]" type="checkbox" value="1" <?php checked('1', $options['option4']); ?> /><br>
+						<input name="Free_Quotation_options[option4]" type="checkbox" value="1" <?php if(isset($options['option4'])){checked($options['option4'], 1);} ?> /><br>
 					</td>
 				</tr>
 			
@@ -93,6 +92,11 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-3">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.2.1
+			<ul>
+				<li>Fix many small issue and improve stable</li>
+			</ul>
+			1.2.0
 			<ul>
 				<li>Improve navigation (on plugin list)</li>
 				<li>Better organisation in code</li>
@@ -101,7 +105,7 @@ jQuery(document).ready( function($){
 	  <div id="tabs-2">			
 			1.1.1
 			<ul>
-				<li>Compability with WordPress 2.8.0</li>
+				<li>Compability with WordPress 3.8.0</li>
 				<li>Make plugin lighter</li>
 			</ul>
 			1.1.0

@@ -59,8 +59,8 @@ if ($options['option1']=='1') {
 	
 }
 ?>  <?php
-
-	echo '<div class="Free_Quotation_quotation">';?><?php if ($options['option4']==null){ } else { echo $options['tekst3'];};?><?php echo $quotation;?><?php if ($options['option4']==null){ } else { echo $options['tekst4'];};?><?php echo '</div>';
+	
+	echo '<div class="Free_Quotation_quotation">';?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst3'];}};?><?php echo $quotation;?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst4'];}};?><?php echo '</div>';
 	echo '<div class="Free_Quotation_author">' . $author . '</div>';
 ?> <?php
 
