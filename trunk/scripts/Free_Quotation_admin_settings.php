@@ -1,14 +1,12 @@
 <?php
-
 global $Free_Quotation_version;
 global $wpdb;
 global $today_date;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
-
-	?>
+?>
 <div class="wrap">	
-	<div class="Free_Quotation_header"></div> <h2>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_menu_page">Free Quotation list</a></h2></h2>
-	<h4>Settings page</h4>
+	 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_menu_page">Free Quotation list</a></h2></h2>
+	<br><h2>Settings page</h2>
 	
 		<form method="post" action="options.php">
 			<?php settings_fields('Free_Quotation_settings_filed'); ?>
@@ -92,6 +90,11 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-3">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.2.2
+			<ul>
+				<li>Fix CSS in table</li>
+				<li>Reorganization of code in few places</li>
+			</ul>
 			1.2.1
 			<ul>
 				<li>Fix many small issue and improve stable</li>

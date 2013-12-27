@@ -29,7 +29,7 @@ height:16px;
 .Free_Quotation_header{
 background-image: url('../images/Free_Quotation_60.png');
 width: 58px;
-height: 63px;
+height: 53px;
 float: left;
 margin-right: 20px;
 margin-top: -7px;
@@ -78,7 +78,7 @@ margin-left:25px;
 #sortable_length {
 	position:relative;
     float: left;
-	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	/* background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1; */
 	padding: 5px;
 	width: 20%;
 	text-align: center;
@@ -94,7 +94,7 @@ margin-left:25px;
 #sortable_filter {
 	position:relative;
     float: right;
-	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	/* background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1; */
 	padding: 5px;
 	width: 20%;
 	text-align: center;
@@ -110,7 +110,7 @@ margin-left:25px;
 #sortable_info {
 	position:relative;
     float: left;
-	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	/* background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1; */
 	padding: 5px;
 	width: 20%;
 	text-align: center;
@@ -120,12 +120,13 @@ margin-left:25px;
 	border-bottom: solid 1px #DFDFDF;
 	border-left: solid 1px #DFDFDF;
 	border-right: solid 1px #DFDFDF;
+	margin-bottom:10px;
 }
 
 #sortable_paginate {
 	position:relative;
     float: right;
-	background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1;
+	/* background: linear-gradient(to top, #ECECEC, #F9F9F9) repeat scroll 0 0 #F1F1F1; */
 	padding: 5px;
 	width: 20%;
 	text-align: center;
