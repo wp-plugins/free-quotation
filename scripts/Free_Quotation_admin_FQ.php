@@ -5,9 +5,11 @@ global $today_date;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 ?>
 <div class="wrap">
-		<div class="Free_Quotation_header"></div> <h2>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_add_CSV">Add file CSV</a></h2>
+		 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_add_CSV">Add file CSV</a></h2>
 		
-	<div class= "Free_Quotation_wrap2">
+	<div id="welcome-panel" class="welcome-panel">
+	
+		<h3>Add quotation</h3><br>
 		<form method="post" action="options.php">
 			<?php settings_fields('Free_Quotation_settings_filed'); ?>
 			<?php $options = get_option('Free_Quotation_options'); ?>
@@ -68,7 +70,7 @@ jQuery(document).ready( function($){
 });
 </script>		
 
-	<div class="Free_Quotation_wrap3">
+	<div id="welcome-panel" class="welcome-panel">
 	
 	<table class="widefat sortable" id="sortable" style="width:100%;" >
 		
@@ -88,7 +90,7 @@ jQuery(document).ready( function($){
 				echo '<tr><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td><td>'.$row->display_date.'</td><td>';?>
 					<form id="delete" method="post" action="">
 						<input type="hidden" name="delete_rec_id" value="<?php print $row->id; ?>"/> 
-						<input type="submit" name="delete" value="Delete!"/>    
+						<input class="button button-primary"  type="submit" name="delete" value="Delete!"/>    
 					</form><?
 				 echo '</td></tr>';
 				 }
