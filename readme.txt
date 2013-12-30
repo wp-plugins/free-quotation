@@ -4,7 +4,7 @@ Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, wikiquote, wiki, quote, quot., citation, cytaty, widget, widgets
 Requires at least: 3.0.1
 Tested up to: 3.8.0
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,10 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 2. Free Quotation widget should be located in widget area
 
 == Changelog ==
+
+= 1.3.1 =
+Fix data problem !IMPORTANT!
+
 
 = 1.3.0 =
 Now is available edition for all of quotes. You can change display date, quotation text or author of quotation

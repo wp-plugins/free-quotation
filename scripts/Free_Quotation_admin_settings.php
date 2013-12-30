@@ -91,6 +91,10 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-4">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.3.1
+			<ul>
+				<li>Fix data problem !IMPORTANT!</li>
+			</ul>
 			1.3.0
 			<ul>
 				<li>Now is available edition for all of quotes. You can change:<ul>
