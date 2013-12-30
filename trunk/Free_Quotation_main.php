@@ -3,16 +3,16 @@
 	Plugin Name: Free Quotation by KRIS_IV
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: v1.3.0
+	Version: v1.3.1
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "1.3.0";
+$Free_Quotation_version = "1.3.1";
 global $today_date;
-$today_date = date('o-m-d');
+$today_date = date('Y-m-d');
 global $wikiquotation;
 
 register_activation_hook( __FILE__, 'Free_Quotation_DB_install' );
