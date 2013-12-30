@@ -22,6 +22,18 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 		});
 	});
 </script>
+<?php
+			if(isset($_POST['edit'])){
+			   $id = $_POST['edit_rec_id'];  
+			   $fqedit = $wpdb->get_results("SELECT * FROM $table_name WHERE id=$id", OBJECT_K);
+			foreach($fqedit as $row);
+			$editid = $row->id;
+			$editquotation = $row->quotation;
+			$editauthor = $row->author;
+			$editdisplay_data = $row->display_date;
+			$editadding_date = $row->adding_date;
+			}
+?>
 		<form id='reloader' method='post' onSubmit="<?php echo $url;?>">
 			<table class="widefat" >
 				<thead>
@@ -29,21 +41,28 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				</thead>
 				<tbody>
 				<tr><td>
-				<textarea style="width:100%;" name="quotation_textarea" required></textarea>
+				<input style="display:none;" type="text" name="quot_id" value="<?php if (isset($editid)){echo $editid;}; ?>">
+				<textarea style="width:100%;" name="quotation_textarea" required><?php if (isset($editquotation)){echo $editquotation;}else{}; ?></textarea>
 				</td>
 				<td>
-				<input type="text" name="autor_text" required></input>
+				</input>
+				<input type="text" name="autor_text" value="<?php if (isset($editauthor)){echo $editauthor;}; ?>"required>
+				</input>
 				</td>
 				<td>    
-				<input type="text" id="display_date" name="display_date" size="30"  <?php if (isset($options['option3'])) {} else {echo 'readonly';}?> required>
+				<input type="text" id="display_date" name="display_date" size="30" value="<?php if (isset($editdisplay_data)){echo $editdisplay_data;}; ?>"  
+				<?php if (isset($options['option3'])) {} else {echo 'readonly';}?> required>
 				<div style="margin-left:10px;">(rrrr-mm-dd)</div>
 				</td></th>
 				</tbody>
 				<tfoot>
-				<tr><th style="width:100%;"></th><th style="width:170px;"></th><th style="width:140px;"><input class="button button-primary" type="submit" name="submit" value="submit"  style="width:140px;"/>
+				<tr><th style="width:100%;"></th><th style="width:170px;"></th><th style="width:140px;">
+				<input class="button button-primary" type="submit" name="submit" value="<?php if (isset($editid)){echo 'Edit';}else{echo 'Submit';}; ?>"  style="width:140px;"/>
 				<input type="hidden" value="<?=md5(time())?>" name="reloader" />
-				<?php wp_nonce_field( 'updateFeedback' ); ?>
-				<input name="action" type="hidden" id="action" value="updateFeedback"/></th></tr>
+				<?php if (isset($editid)){wp_nonce_field( 'updateFeedback' );}else{wp_nonce_field( 'insertFeedbdack' );};  ?>
+				<input name="action" type="hidden" id="action" value="<?php if (isset($editid)){echo 'updateFeedback';}else{echo 'insertFeedback';}; ?>"/>
+				
+				</th></tr>
 				</tfoot>
 			</table>
 		</form><br>
@@ -52,14 +71,18 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 	if(isset($_POST["quotation_textarea"])){
 		global $current_user;
 		$ufUserID = $current_user->ID;
+		$id = $_POST["quot_id"] ;
         $quotation = $_POST["quotation_textarea"];
         $author = $_POST["autor_text"];
         $display_date = $_POST["display_date"];
 		$url = $_SERVER['PHP_SELF'];
 		$adding_date = $today_date;
-		if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updateFeedback' ) {
-            $fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date), array('%s', '%s', '%s', '%s') );
-        }
+			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updateFeedback' ) {
+				$fqinsert = $wpdb->update( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date), array('id'=>$id));
+			}			
+			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'insertFeedback' ) {
+				$fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date), array('%s', '%s', '%s', '%s') );
+			}
 		}else{}
 ?>
 <script>
@@ -80,14 +103,20 @@ jQuery(document).ready( function($){
 			   $fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
 			}
 
+
 				//nagłówek
-			echo '<thead><tr><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
+			echo '<thead><tr><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
 			
 				//treść	foreach ( $Free_Quotation_table as $ogresults ) 
 
 			$fqshowtable = $wpdb->get_results("SELECT * FROM $table_name WHERE id ORDER BY id DESC", OBJECT_K);
 			foreach($fqshowtable as $row){
 				echo '<tr><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td><td>'.$row->display_date.'</td><td>';?>
+					<form id="edit" method="post" action="">
+						<input type="hidden" name="edit_rec_id" value="<?php print $row->id; ?>"/> 
+						<input style="width:50px;" class="button button-primary"  type="submit" name="edit" value="Edit"/>    
+					</form>				
+					</td><td>
 					<form id="delete" method="post" action="">
 						<input type="hidden" name="delete_rec_id" value="<?php print $row->id; ?>"/> 
 						<input class="button button-primary"  type="submit" name="delete" value="Delete!"/>    
@@ -95,7 +124,7 @@ jQuery(document).ready( function($){
 				 echo '</td></tr>';
 				 }
 			
-			echo '</tbody><tfoot><tr><th> ID </td><th> Quotation </td><th> Author </td><th> Display Date </th><th> Delete </td></tr></tfoot>';
+			echo '</tbody><tfoot><tr><th> ID </td><th> Quotation </td><th> Author </td><th> Display Date </th><th style="width:40px;"> Edit </th><th> Delete </td></tr></tfoot>';
 			?>
 		</table>
 	</div>

@@ -85,11 +85,22 @@ jQuery(document).ready( function($){
 	<div id="tabs">
 		Changes
 	  <ul>
-		<li><a href="#tabs-1">ver. 1.2</a></li>
-		<li><a href="#tabs-2">ver. 1.1</a></li>
-		<li><a href="#tabs-3">ver. 1.0</a></li>
+		<li><a href="#tabs-1">ver. 1.3</a></li>
+		<li><a href="#tabs-2">ver. 1.2</a></li>
+		<li><a href="#tabs-3">ver. 1.1</a></li>
+		<li><a href="#tabs-4">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.3.0
+			<ul>
+				<li>Now is available edition for all of quotes. You can change:<ul>
+					<li>Display date</li>
+					<li>Quotation text</li>
+					<li>Author of quotation</li></ul>
+				</li>
+			</ul>
+	  </div>
+	  <div id="tabs-2">
 			1.2.2
 			<ul>
 				<li>Fix CSS in table</li>
@@ -105,7 +116,7 @@ jQuery(document).ready( function($){
 				<li>Better organisation in code</li>
 			</ul>
 	  </div>
-	  <div id="tabs-2">			
+	  <div id="tabs-3">			
 			1.1.1
 			<ul>
 				<li>Compability with WordPress 3.8.0</li>
@@ -125,7 +136,7 @@ jQuery(document).ready( function($){
 				<li>Some small improvement (Wikiquotes mechanism, layout)</li>
 			</ul>
 	  </div>
-	  <div id="tabs-3">
+	  <div id="tabs-4">
 			1.0
 			<ul>
 				<li><b>Initial release</b></li>
