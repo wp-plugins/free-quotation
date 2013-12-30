@@ -84,35 +84,34 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 == Changelog ==
 
 = 1.3.1 =
-Fix data problem !IMPORTANT!
-
+* Fix data problem !IMPORTANT!
 
 = 1.3.0 =
-Now is available edition for all of quotes. You can change display date, quotation text or author of quotation
+* Now is available edition for all of quotes. You can change display date, quotation text or author of quotation
 
 = 1.2.2 =
-Fix CSS in table
-Reorganization of code in few places
+* Fix CSS in table
+* Reorganization of code in few places
 
 = 1.2.1 =
-Fix many small issue and improve stable
+* Fix many small issue and improve stable
 
 = 1.2.0 =
-Improve navigation (on plugin list)
-Better organisation in code
+* Improve navigation (on plugin list)
+* Better organisation in code
 
 = 1.1.1 =
-Compability with WordPress 3.8.0
-Make plugin lighter
+* Compability with WordPress 3.8.0
+* Make plugin lighter
 
 = 1.1.0 =
-Add new quotation change location (go to Free Quotation)
-Table have now new feature. Now:
-Table is sortable
-Table is filterable
-Table have pagination
-User can choose how many rows is display
-Some small improvement (Wikiquotes mechanism, layout)
+* Add new quotation change location (go to Free Quotation)
+* Table have now new feature. Now:
+* Table is sortable
+* Table is filterable
+* Table have pagination
+* User can choose how many rows is display
+* Some small improvement (Wikiquotes mechanism, layout)
 
 = 1.0 =
-This is initial relase of this plugin.
+* This is initial relase of this plugin.
