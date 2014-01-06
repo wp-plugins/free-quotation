@@ -91,6 +91,10 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-4">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.3.2
+			<ul>
+				<li>Now it's demand to accept delete data (for safety) </li>
+			</ul>
 			1.3.1
 			<ul>
 				<li>Fix data problem !IMPORTANT!</li>

@@ -19,7 +19,8 @@ if ($options['option1']=='1') {
 		$quotation = $row['quotation'];
 		$author = $row['author'];
 	} else {
-		echo 'cytat stały';
+	$quotation = $options['tekst1'];
+	$author =  $options['tekst2'];
 	}
 } elseif ($options['option1']=='2') {
 	//Use wiqiquotes if dosn't have normal quotes

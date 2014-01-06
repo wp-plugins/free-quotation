@@ -117,7 +117,7 @@ jQuery(document).ready( function($){
 						<input style="width:50px;" class="button button-primary"  type="submit" name="edit" value="Edit"/>    
 					</form>				
 					</td><td>
-					<form id="delete" method="post" action="">
+					<form id="delete" method="post" action="" onSubmit="return confirm('Are you sure!\nIf you delete this quotation it is imposible to regain it.');">
 						<input type="hidden" name="delete_rec_id" value="<?php print $row->id; ?>"/> 
 						<input class="button button-primary"  type="submit" name="delete" value="Delete!"/>    
 					</form><?
