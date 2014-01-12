@@ -34,7 +34,8 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			$editadding_date = $row->adding_date;
 			}
 ?>
-		<form id='reloader' method='post' onSubmit="<?php echo $url;?>">
+		<form id='reloader' method='post'  onSubmit="<?php if(isset($editid)){
+				echo 'return confirm(\'Are you sure?\nWhen you edit this quotation it is impossible to regain it in previous form.\');';}?>">
 			<table class="widefat" >
 				<thead>
 				<tr><th style="width:100%;">Quotation</th><th style="width:170px;">Author</th><th style="width:140px;">Display Date</th></tr>
@@ -57,7 +58,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				</tbody>
 				<tfoot>
 				<tr><th style="width:100%;"></th><th style="width:170px;"></th><th style="width:140px;">
-				<input class="button button-primary" type="submit" name="submit" value="<?php if (isset($editid)){echo 'Edit';}else{echo 'Submit';}; ?>"  style="width:140px;"/>
+				<input class="button button-primary" type="submit" name="submit" value="<?php if (isset($editid)){echo 'Edit';}else{echo 'Submit';}; ?>" style="width:140px;"/>
 				<input type="hidden" value="<?=md5(time())?>" name="reloader" />
 				<?php if (isset($editid)){wp_nonce_field( 'updateFeedback' );}else{wp_nonce_field( 'insertFeedbdack' );};  ?>
 				<input name="action" type="hidden" id="action" value="<?php if (isset($editid)){echo 'updateFeedback';}else{echo 'insertFeedback';}; ?>"/>
@@ -117,7 +118,7 @@ jQuery(document).ready( function($){
 						<input style="width:50px;" class="button button-primary"  type="submit" name="edit" value="Edit"/>    
 					</form>				
 					</td><td>
-					<form id="delete" method="post" action="" onSubmit="return confirm('Are you sure!\nIf you delete this quotation it is imposible to regain it.');">
+					<form id="delete" method="post" action="" onSubmit="return confirm('Are you sure?\nIf you delete this quotation it is impossible to regain it.');">
 						<input type="hidden" name="delete_rec_id" value="<?php print $row->id; ?>"/> 
 						<input class="button button-primary"  type="submit" name="delete" value="Delete!"/>    
 					</form><?
