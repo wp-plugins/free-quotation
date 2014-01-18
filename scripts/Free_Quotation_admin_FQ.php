@@ -95,39 +95,60 @@ jQuery(document).ready( function($){
 </script>		
 
 	<div id="welcome-panel" class="welcome-panel">
-	
-	<table class="widefat sortable" id="sortable" style="width:100%;" >
+	<?php
+			 if(isset($_POST['gdelete'])){
+					if(isset($_POST['checkbox'])){$checkbox = $_POST['checkbox'];
+						$count = count($checkbox);
+						for($i = 0; $i < $count; $i++) {
+							$id = (int) $checkbox[$i]; // Parse your value to integer
+							if ($id > 0) { // and check if it's bigger then 0
+								$fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
+							} else { echo 'nothing';};
+						}
+					} else {echo '<script type="text/javascript">alert("You should check minimum one checkbox!");</script>'; }
+				}
+		?>
+		<form id="groupdelete" method="post" action="" onSubmit="return confirm('Are you sure?');">	
 		
-		<?php 
-			if(isset($_POST['delete'])){
-			   $id = $_POST['delete_rec_id'];  
-			   $fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
-			}
+		<table class="widefat sortable" id="sortable" style="width:100%;" >
+		
+			<?php 
+				if(isset($_POST['delete'])){
+				   $id = $_POST['delete_rec_id'];  
+				   $fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
+				}
 
+					//nagłówek
+				echo '<thead><tr><th>
+		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
+				
+					//treść	foreach ( $Free_Quotation_table as $ogresults ) 
 
-				//nagłówek
-			echo '<thead><tr><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
-			
-				//treść	foreach ( $Free_Quotation_table as $ogresults ) 
-
-			$fqshowtable = $wpdb->get_results("SELECT * FROM $table_name WHERE id ORDER BY id DESC", OBJECT_K);
-			foreach($fqshowtable as $row){
-				echo '<tr><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td><td>'.$row->display_date.'</td><td>';?>
+				$fqshowtable = $wpdb->get_results("SELECT * FROM $table_name WHERE id ORDER BY id DESC", OBJECT_K);
+				foreach($fqshowtable as $row){
+					echo '<tr><td>';?>
+							<input name="checkbox[]" type="checkbox" id="checkbox[]"  value="<?php print $row->id; ?>">
+			<?php	echo '</td><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td><td>'.$row->display_date.'</td><td>';?>
+					<form id="clerer" method="post" action="">
+					</form>  
 					<form id="edit" method="post" action="">
-						<input type="hidden" name="edit_rec_id" value="<?php print $row->id; ?>"/> 
-						<input style="width:50px;" class="button button-primary"  type="submit" name="edit" value="Edit"/>    
-					</form>				
-					</td><td>
+							<input type="hidden" name="edit_rec_id" value="<?php print $row->id; ?>"/> 
+							<input style="width:50px;" class="button button-primary"  type="submit" name="edit" value="Edit"/>    
+						</form>  		
+						</td><td>
 					<form id="delete" method="post" action="" onSubmit="return confirm('Are you sure?\nIf you delete this quotation it is impossible to regain it.');">
-						<input type="hidden" name="delete_rec_id" value="<?php print $row->id; ?>"/> 
-						<input class="button button-primary"  type="submit" name="delete" value="Delete!"/>    
-					</form><?
-				 echo '</td></tr>';
-				 }
-			
-			echo '</tbody><tfoot><tr><th> ID </td><th> Quotation </td><th> Author </td><th> Display Date </th><th style="width:40px;"> Edit </th><th> Delete </td></tr></tfoot>';
-			?>
+							<input type="hidden" name="delete_rec_id" value="<?php print $row->id; ?>"/> 
+							<input class="button button-primary"  type="submit" name="delete" value="Delete!"/>    
+						</form>  <?
+					 echo '</td></tr>';
+					 }
+				
+				echo '</tbody><tfoot><tr><th>
+		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th> ID </td><th> Quotation </td><th> Author </td><th> Display Date </th><th style="width:40px;"> Edit </th><th> Delete </td></tr></tfoot>';
+				?>
 		</table>
+		
+		</form>
 	</div>
 </div>	<?php 
 
