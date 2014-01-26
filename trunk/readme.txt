@@ -3,8 +3,8 @@ Contributors: kris_IV
 Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, quotations, quotes, random, random quotes, wikiquote, wiki, quote, quot., citation, cytaty, widget, display,widgets
 Requires at least: 3.0.1
-Tested up to: 3.8.0
-Stable tag: 1.5.2
+Tested up to: 3.8.1
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,8 +83,11 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 
 == Changelog ==
 
+= 1.4.1 =
+* Improve option start/end quotation with special characters
+
 = 1.4.0 =
-* Add possibility to delete more than one quotation per one times
+* Add posibility to delete more than one quotation per one times
 
 = 1.3.3 =
 * Now it's demand to accept edit data (for safety)

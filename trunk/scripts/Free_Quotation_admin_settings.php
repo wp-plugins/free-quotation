@@ -4,6 +4,8 @@ global $wpdb;
 global $today_date;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 ?>
+
+
 <div class="wrap">	
 	 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_menu_page">Free Quotation list</a></h2></h2>
 	<br><h2>Settings page</h2>
@@ -21,20 +23,20 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<tr>
 					<th scope="row">Start and end quotation with special characters</th>
 					<td>
-						<input name="Free_Quotation_options[option4]" type="checkbox" value="1" <?php if(isset($options['option4'])){checked($options['option4'], 1);} ?> /><br>
+						<input name="Free_Quotation_options[option4]" id="quotationsign" type="checkbox" value="1" <?php if(isset($options['option4'])){checked($options['option4'], 1);} ?> /><br>
 					</td>
 				</tr>
 			
 				<tr style="background:#ccc; width: 900px; <?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
 					<th scope="row">Start character</th>
 					<td>
-						<input name="Free_Quotation_options[tekst3]" type="input"  value="<?php echo htmlentities($options['tekst3']);?>" maxlength="1" size="1"></input>
+						<input name="Free_Quotation_options[tekst3]" type="text" id="activator1" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst3'])){echo htmlentities($options['tekst3']);}else{};?>" maxlength="1" size="1"></input>
 					</td>
 				</tr>	
 				<tr style="background:#ccc; width: 900px; <?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
 					<th scope="row">End character</th>
 					<td>
-						<input name="Free_Quotation_options[tekst4]" type="input"  value="<?php echo htmlentities($options['tekst4']);?>" maxlength="1" size="1"></input>
+						<input name="Free_Quotation_options[tekst4]" type="text" id="activator2" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst3'])){echo htmlentities($options['tekst3']);}else{};?>" maxlength="1" size="1"></input>
 					</td>
 				</tr>
 			<?php ?>
@@ -74,6 +76,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			<input type="submit" class="button-primary" value="<?php _e('Save') ?>" />
 			</p>
 		</form>	
+
  <script>
 jQuery(document).ready( function($){
     $( "#tabs" ).tabs();
@@ -92,9 +95,13 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-5">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.4.1
+			<ul>
+				<li>Improve option start/end quotation with special characters</li>
+			</ul>
 			1.4.0
 			<ul>
-				<li>Add posibility to delete more than one quotation per one times</li>
+				<li>Add possibility to delete more than one quotation per one times</li>
 			</ul>
 	  </div>
 	  <div id="tabs-2">
@@ -151,7 +158,7 @@ jQuery(document).ready( function($){
 			</ul>	
 			1.1.1
 			<ul>
-				<li>Compability with WordPress 3.8.0</li>
+				<li>Compatibility with WordPress 3.8.0</li>
 				<li>Make plugin lighter</li>
 			</ul>
 	  </div>
@@ -182,5 +189,17 @@ jQuery(document).ready( function($){
 	  </div>
 	</div>	
 </div>
+
+<script>
+
+jQuery(document).ready( function($){
+$('#quotationsign').change(function(){
+   $("#activator1").prop("disabled", !$(this).is(':checked'));
+   $("#activator2").prop("disabled", !$(this).is(':checked'));
+   $("#activator3").prop("disabled", !$(this).is(':checked'));
+});
+});
+
+</script>
 	<?php 
 ?>
