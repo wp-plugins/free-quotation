@@ -93,7 +93,14 @@ jQuery(document).ready( function($){
 	} );
 });
 </script>		
-
+<script language="JavaScript">
+function toggle(source) {
+  checkboxes = document.getElementsByName('checkbox[]');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+</script>
 	<div id="welcome-panel" class="welcome-panel">
 	<?php
 			 if(isset($_POST['gdelete'])){
@@ -119,8 +126,8 @@ jQuery(document).ready( function($){
 				}
 
 					//nagłówek
-				echo '<thead><tr><th>
-		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
+				echo '<thead style="cursor:pointer"><tr><th>
+		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete" style="margin-bottom:2px;"><br/><input type="checkbox" onClick="toggle(this)"  style="margin-top:2px;"/> All</th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
 				
 					//treść	foreach ( $Free_Quotation_table as $ogresults ) 
 
@@ -143,7 +150,7 @@ jQuery(document).ready( function($){
 					 echo '</td></tr>';
 					 }
 				
-				echo '</tbody><tfoot><tr><th>
+				echo '</tbody><tfoot style="cursor:pointer"><tr><th>
 		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th> ID </td><th> Quotation </td><th> Author </td><th> Display Date </th><th style="width:40px;"> Edit </th><th> Delete </td></tr></tfoot>';
 				?>
 		</table>

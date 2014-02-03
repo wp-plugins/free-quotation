@@ -95,6 +95,11 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-5">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.4.2
+			<ul>
+				<li>Add option: select all to delete</li>
+				<li>Improve in CSS</li>
+			</ul>
 			1.4.1
 			<ul>
 				<li>Improve option start/end quotation with special characters</li>
