@@ -38,7 +38,17 @@ if (isset($_FILES['csv'])){
 			// }
 		$datasuccess = "Your file has been successfully imported.";
 		} while ($data = fgetcsv($handle,1000,';','"'));
-
+			
+			$fq_week_no_edit = $wpdb->get_results("SELECT * FROM $table_name WHERE id ORDER BY id DESC", OBJECT_K);
+			foreach($fq_week_no_edit as $row){
+						$operateid = $row->id;
+						$operatedisplay_data = $row->display_date;
+						$operateadding_date = $row->adding_date;
+						$week_no_data = $row->week_no;
+			if ($week_no_data=="0"){			
+			$week_no_data_edit = date('W', strtotime($operatedisplay_data));
+			$fqinsert = $wpdb->update( $table_name, array( 'display_date' => $operatedisplay_data, 'week_no' => $week_no_data_edit), array('id'=>$operateid));
+			}}
 	}
 }?>
 

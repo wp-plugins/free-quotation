@@ -1,9 +1,11 @@
 <?php
 global $wpdb;
 global $today_date;
+global $today_week_no;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 global $wikiuotation;
 
+if ($options['option1']=='1'){
 $Free_Quotation_table = 
 	"
 	SELECT * 
@@ -11,9 +13,20 @@ $Free_Quotation_table =
 	WHERE display_date='$today_date' 
 	ORDER BY RAND() 
 	LIMIT 1;
-	";		$result = mysql_query($Free_Quotation_table);
+	";
+} elseif ($options['option1']=='5'){
+$Free_Quotation_table = 
+	"
+	SELECT * 
+	FROM $table_name 
+	WHERE week_no='$today_week_no' 
+	ORDER BY RAND() 
+	LIMIT 1;
+	";
+}
+	$result = mysql_query($Free_Quotation_table);
 	
-if ($options['option1']=='1') {	
+if ($options['option1']=='1' || $options['option1']=='5') {	
 	//Use only Free_Quotation (if doesn't have it - use standard quotation)
 	if ($row = mysql_fetch_array($result)) { 
 		$quotation = $row['quotation'];

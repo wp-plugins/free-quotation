@@ -2,6 +2,7 @@
 global $Free_Quotation_version;
 global $wpdb;
 global $today_date;
+global $today_week_no;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 ?>
 
@@ -43,7 +44,8 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<tr>
 					<th scope="row">Type of quotation display:</th>
 					<td>
-						<input type="radio" name="Free_Quotation_options[option1]" value="1" <?php checked('1', $options['option1']); ?> />Use only Free_Quotation</br>
+						<input type="radio" name="Free_Quotation_options[option1]" value="1" <?php checked('1', $options['option1']); ?> />Use only Free_Quotation - display by day</br>
+						<input type="radio" name="Free_Quotation_options[option1]" value="5" <?php checked('5', $options['option1']); ?> />Use only Free_Quotation - display by week number</br>
 						<input type="radio" name="Free_Quotation_options[option1]" value="2" <?php checked('2', $options['option1']); ?> />Use Wikiquote if you doesn't have FQ for display<br>
 						<input type="radio" name="Free_Quotation_options[option1]" value="3" <?php checked('3', $options['option1']); ?> />Use Wikiquote always for quotations displaying<br>
 						<input type="radio" name="Free_Quotation_options[option1]" value="4" <?php checked('4', $options['option1']); ?> />Use one standard quotation (always active if Free_Quotation doesn't have quotation for displaying)<br>
@@ -88,13 +90,21 @@ jQuery(document).ready( function($){
 	<div id="tabs">
 		Changes
 	  <ul>
-		<li><a href="#tabs-1">ver. 1.4</a></li>
-		<li><a href="#tabs-2">ver. 1.3</a></li>
-		<li><a href="#tabs-3">ver. 1.2</a></li>
-		<li><a href="#tabs-4">ver. 1.1</a></li>
-		<li><a href="#tabs-5">ver. 1.0</a></li>
+		<li><a href="#tabs-1">ver. 1.5</a></li>
+		<li><a href="#tabs-2">ver. 1.4</a></li>
+		<li><a href="#tabs-3">ver. 1.3</a></li>
+		<li><a href="#tabs-4">ver. 1.2</a></li>
+		<li><a href="#tabs-5">ver. 1.1</a></li>
+		<li><a href="#tabs-6">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			1.5.0
+			<ul>
+				<li>Now you can display quotation not only in accordance with date but also for special week! You can change this value when you want, because system control both option.  Week number for quotation Free Quotation add automatically for selected date. Week starts in Monday, and in Sunday.</li>
+				<li>All your old quotation get week number automatically when you update your plugin to new 1.5 version</li>
+			</ul>
+	  </div>
+	  <div id="tabs-2">
 			1.4.2
 			<ul>
 				<li>Add option: select all to delete</li>
@@ -109,7 +119,7 @@ jQuery(document).ready( function($){
 				<li>Add possibility to delete more than one quotation per one times</li>
 			</ul>
 	  </div>
-	  <div id="tabs-2">
+	  <div id="tabs-3">
 			1.3.3
 			<ul>
 				<li>Now it's demand to accept edit data (for safety) </li>
@@ -131,7 +141,7 @@ jQuery(document).ready( function($){
 				</li>
 			</ul>
 	  </div>
-	  <div id="tabs-3">
+	  <div id="tabs-4">
 			1.2.0
 			<ul>
 				<li>Improve navigation (on plugin list)</li>
@@ -147,7 +157,7 @@ jQuery(document).ready( function($){
 				<li>Reorganization of code in few places</li>
 			</ul>
 	  </div>
-	  <div id="tabs-4">		
+	  <div id="tabs-5">		
 			1.1.0
 			<ul>
 				<li>Add new quotation change location (go to Free Quotation)</li>
@@ -167,7 +177,7 @@ jQuery(document).ready( function($){
 				<li>Make plugin lighter</li>
 			</ul>
 	  </div>
-	  <div id="tabs-5">
+	  <div id="tabs-6">
 			1.0
 			<ul>
 				<li><b>Initial release</b></li>
