@@ -2,6 +2,7 @@
 global $Free_Quotation_version;
 global $wpdb;
 global $today_date;
+global $today_week_no;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 ?>
 <div class="wrap">
@@ -14,7 +15,14 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			<?php settings_fields('Free_Quotation_settings_filed'); ?>
 			<?php $options = get_option('Free_Quotation_options'); ?>
 		</form>
+<?php
+// global $fq_db_version;
+// $fq_installed_ver = get_option("fq_db_version");
+// echo $fq_db_version;
+// echo $fq_installed_ver;
 
+
+?>
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		jQuery('#display_date').datepicker({
@@ -76,13 +84,14 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
         $quotation = $_POST["quotation_textarea"];
         $author = $_POST["autor_text"];
         $display_date = $_POST["display_date"];
+		$week_no = date('W', strtotime($display_date));
 		$url = $_SERVER['PHP_SELF'];
 		$adding_date = $today_date;
 			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updateFeedback' ) {
-				$fqinsert = $wpdb->update( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date), array('id'=>$id));
+				$fqinsert = $wpdb->update( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date, 'week_no' => $week_no), array('id'=>$id));
 			}			
 			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'insertFeedback' ) {
-				$fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date), array('%s', '%s', '%s', '%s') );
+				$fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date, 'week_no' => $week_no), array('%s', '%s', '%s', '%s', '%d') );
 			}
 		}else{}
 ?>
@@ -126,8 +135,8 @@ function toggle(source) {
 				}
 
 					//nagłówek
-				echo '<thead style="cursor:pointer"><tr><th>
-		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete" style="margin-bottom:2px;"><br/><input type="checkbox" onClick="toggle(this)"  style="margin-top:2px;"/> All</th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
+				echo '<thead style="cursor:pointer"><tr><th style="width:20px;">
+		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete" style="margin-bottom:2px;"><br/><input type="checkbox" onClick="toggle(this)"  style="margin-top:2px;"/> All</th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:50px;"> Week no. </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
 				
 					//treść	foreach ( $Free_Quotation_table as $ogresults ) 
 
@@ -135,7 +144,7 @@ function toggle(source) {
 				foreach($fqshowtable as $row){
 					echo '<tr><td>';?>
 							<input name="checkbox[]" type="checkbox" id="checkbox[]"  value="<?php print $row->id; ?>">
-			<?php	echo '</td><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td><td>'.$row->display_date.'</td><td>';?>
+			<?php	echo '</td><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td><td>'.$row->week_no.'</td><td>'.$row->display_date.'</td><td>';?>
 					<form id="clerer" method="post" action="">
 					</form>  
 					<form id="edit" method="post" action="">
@@ -151,7 +160,7 @@ function toggle(source) {
 					 }
 				
 				echo '</tbody><tfoot style="cursor:pointer"><tr><th>
-		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th> ID </td><th> Quotation </td><th> Author </td><th> Display Date </th><th style="width:40px;"> Edit </th><th> Delete </td></tr></tfoot>';
+		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th> ID </td><th> Quotation </td><th> Author </td><th> Week no. </th><th> Display Date </th><th style="width:40px;"> Edit </th><th> Delete </td></tr></tfoot>';
 				?>
 		</table>
 		
