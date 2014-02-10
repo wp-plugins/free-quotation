@@ -4,7 +4,7 @@ Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, quotations, quotes, random, random quotes, wikiquote, wiki, quote, quot., citation, cytaty, widget, display, widgets, tips, tip
 Requires at least: 3.0.1
 Tested up to: 3.8.1
-Stable tag: 1.5.1b
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,7 +83,7 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 
 == Changelog ==
 
-= 1.5.1b =
+= 1.5.2 =
 * Fix one bug
 
 = 1.5.0 =

@@ -5,7 +5,7 @@
 	$fq_installed_ver = get_option("fq_db_version");
 	
 	
-	if(isset($fq_installed_ver)) {
+	// if(isset($fq_installed_ver)) {
 		// if($fq_installed_ver != $fq_db_version) {
 			
 		// if($fq_installed_ver <= 0.7) {
@@ -30,7 +30,7 @@
 			
 		// }
 
-	}else {
+	// }else {
 		$sql = "CREATE TABLE $table_name (
 			  id int(11) NOT NULL AUTO_INCREMENT,
 			  quotation varchar(300) NOT NULL,
@@ -45,7 +45,7 @@
 			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 			dbDelta( $sql );
 			add_option("fq_db_version", $fq_db_version );	
-	}
+	// }
 	
 	
 			$wpdb->query("alter table ". $table_name ." add column week_no int(2) NOT NULL");
