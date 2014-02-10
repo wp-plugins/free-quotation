@@ -98,6 +98,12 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-6">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+	  
+			1.5.1
+			<ul>
+				<li>Fix one bug (problems with rebuild database);</li>
+			</ul>
+			
 			1.5.0
 			<ul>
 				<li>Now you can display quotation not only in accordance with date but also for special week! You can change this value when you want, because system control both option.  Week number for quotation Free Quotation add automatically for selected date. Week starts in Monday, and in Sunday.</li>
