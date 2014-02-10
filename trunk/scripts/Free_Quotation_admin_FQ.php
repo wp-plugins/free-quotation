@@ -20,6 +20,9 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 // $fq_installed_ver = get_option("fq_db_version");
 // echo $fq_db_version;
 // echo $fq_installed_ver;
+// $fq_installed_ver = NULL;
+
+// echo $fq_installed_ver;
 
 
 ?>
