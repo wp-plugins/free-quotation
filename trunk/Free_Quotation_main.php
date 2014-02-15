@@ -10,7 +10,7 @@
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "1.5.4-beta";
+$Free_Quotation_version = "1.5.4beta1";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
