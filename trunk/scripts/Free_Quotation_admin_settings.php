@@ -99,7 +99,7 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="tabs-1">
 	  
-			1.5.1
+			1.5.1-1.5.3
 			<ul>
 				<li>Fix one bug (problems with rebuild database);</li>
 			</ul>
