@@ -3,7 +3,7 @@
 	Plugin Name: Free Quotation by KRIS_IV
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: v1.5.3-beta
+	Version: 1.5.3-beta
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
