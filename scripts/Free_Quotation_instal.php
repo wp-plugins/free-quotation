@@ -2,6 +2,8 @@
     global $wpdb;
 	global $fq_db_version;
 	global $fq_installed_ver ;
+	
+	$fq_installed_ver = get_option("fq_db_version");
     $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 	
 	if(isset($fq_installed_ver)) {
@@ -46,6 +48,4 @@
 			add_option("fq_db_version", $fq_db_version );	
 	}
 	
-	
-	$fq_installed_ver = get_option("fq_db_version");
 ?>
