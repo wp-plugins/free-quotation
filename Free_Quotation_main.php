@@ -17,7 +17,8 @@ global $today_week_no;
 $today_week_no = date('W');
 global $wikiquotation;
 global $fq_db_version;
-$fq_db_version = "0.83";
+global $fq_installed_ver ;
+$fq_db_version = "0.84";
 
 register_activation_hook( __FILE__, 'Free_Quotation_DB_install' );
 
