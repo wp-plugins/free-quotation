@@ -38,7 +38,8 @@
 			
 		}
 
-	} else {
+	}
+		
 		$sql = "CREATE TABLE $table_name (
 			  id int(11) NOT NULL AUTO_INCREMENT,
 			  quotation varchar(300) NOT NULL,
@@ -53,6 +54,6 @@
 			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 			dbDelta( $sql );
 			add_option("fq_db_version", $fq_db_version );	
-	}
+	
 	
 ?>
