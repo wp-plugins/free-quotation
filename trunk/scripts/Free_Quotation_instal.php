@@ -10,12 +10,18 @@
 		if($fq_installed_ver != $fq_db_version) {
 			
 		if($fq_installed_ver <= 0.7) {
-			$wpdb->query("alter table ". $table_name ." add column adding_date int(2) NOT NULL");
+			$wpdb->query("alter table ". $table_name ." add column adding_date int(2) NOT NULL");	
+			
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			dbDelta( $sql );
 			update_option("fq_db_version", $fq_db_version );
 		 } else {};
 					
 		if($fq_installed_ver < 0.9) {
-			$wpdb->query("alter table ". $table_name ." add column week_no int(2) NOT NULL");
+			$wpdb->query("alter table ". $table_name ." add column week_no int(2) NOT NULL");	
+			
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			dbDelta( $sql );
 			update_option("fq_db_version", $fq_db_version );
 			$fq_week_no_edit = $wpdb->get_results("SELECT * FROM $table_name WHERE id ORDER BY id DESC", OBJECT_K);
 			foreach($fq_week_no_edit as $row){
