@@ -2,15 +2,18 @@
 global $wpdb;
 global $today_date;
 global $today_week_no;
+global $today_week_day;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 global $wikiuotation;
+$fq_group_test = $instance['fq_group'];
+$fq_title_to_display = $instance['title'];
 
 if ($options['option1']=='1'){
 $Free_Quotation_table = 
 	"
 	SELECT * 
 	FROM $table_name 
-	WHERE display_date='$today_date' 
+	WHERE (display_date='$today_date' AND quote_group='$fq_group_test')
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
@@ -19,14 +22,23 @@ $Free_Quotation_table =
 	"
 	SELECT * 
 	FROM $table_name 
-	WHERE week_no='$today_week_no' 
+	WHERE (week_no='$today_week_no' AND quote_group='$fq_group_test')
+	ORDER BY RAND() 
+	LIMIT 1;
+	";
+} elseif ($options['option1']=='6'){
+$Free_Quotation_table =
+	"
+	SELECT * 
+	FROM $table_name 
+	WHERE (week_day='$today_week_day' AND quote_group='$fq_group_test')
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
 }
 	$result = mysql_query($Free_Quotation_table);
 	
-if ($options['option1']=='1' || $options['option1']=='5') {	
+if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=='6') {	
 	//Use only Free_Quotation (if doesn't have it - use standard quotation)
 	if ($row = mysql_fetch_array($result)) { 
 		$quotation = $row['quotation'];
@@ -73,9 +85,12 @@ if ($options['option1']=='1' || $options['option1']=='5') {
 	
 }
 ?>  <?php
-	
+if ($instance['fq_ask_title']==1){
+	echo '<h3>'.$fq_title_to_display.'</h3>';
+}
 	echo '<div class="Free_Quotation_quotation">';?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst3'];}};?><?php echo $quotation;?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst4'];}};?><?php echo '</div>';
 	echo '<div class="Free_Quotation_author">' . $author . '</div>';
+	//<xmp></xmp> OFF the HTML
 ?> <?php
 
 
