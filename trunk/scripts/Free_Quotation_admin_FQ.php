@@ -3,6 +3,7 @@ global $Free_Quotation_version;
 global $wpdb;
 global $today_date;
 global $today_week_no;
+global $today_week_day;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 ?>
 <div class="wrap">
@@ -20,16 +21,14 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 // $fq_installed_ver = get_option("fq_db_version");
 // echo $fq_db_version;
 // echo $fq_installed_ver;
-// $fq_installed_ver = NULL;
-
-// echo $fq_installed_ver;
 
 
 ?>
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		jQuery('#display_date').datepicker({
-			dateFormat : 'yy-mm-dd'
+			dateFormat : 'yy-mm-dd',
+			firstDay: 1
 		});
 	});
 </script>
@@ -43,13 +42,14 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			$editauthor = $row->author;
 			$editdisplay_data = $row->display_date;
 			$editadding_date = $row->adding_date;
+			$editgroup = $row->quote_group;
 			}
 ?>
 		<form id='reloader' method='post'  onSubmit="<?php if(isset($editid)){
 				echo 'return confirm(\'Are you sure?\nWhen you edit this quotation it is impossible to regain it in previous form.\');';}?>">
 			<table class="widefat" >
 				<thead>
-				<tr><th style="width:100%;">Quotation</th><th style="width:170px;">Author</th><th style="width:140px;">Display Date</th></tr>
+				<tr><th style="width:100%;">Quotation</th><th>Group</th><th>Author</th><th>Display Date</th></tr>
 				</thead>
 				<tbody>
 				<tr><td>
@@ -57,12 +57,16 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<textarea style="width:100%;" name="quotation_textarea" required><?php if (isset($editquotation)){echo $editquotation;}else{}; ?></textarea>
 				</td>
 				<td>
+				<input type="text" name="group" size="10" maxlength="10" value="<?php if (isset($editgroup)){echo $editgroup;}else{echo "main group";}; ?>"required>
+				</input>
+				</td>
+				<td>
 				</input>
 				<input type="text" name="autor_text" value="<?php if (isset($editauthor)){echo $editauthor;}; ?>"required>
 				</input>
 				</td>
 				<td>    
-				<input type="text" id="display_date" name="display_date" size="30" value="<?php if (isset($editdisplay_data)){echo $editdisplay_data;}; ?>"  
+				<input type="text" id="display_date" name="display_date" size="10" value="<?php if (isset($editdisplay_data)){echo $editdisplay_data;}; ?>"  
 				<?php if (isset($options['option3'])) {} else {echo 'readonly';}?> required>
 				<div style="margin-left:10px;">(rrrr-mm-dd)</div>
 				</td></th>
@@ -74,7 +78,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<?php if (isset($editid)){wp_nonce_field( 'updateFeedback' );}else{wp_nonce_field( 'insertFeedbdack' );};  ?>
 				<input name="action" type="hidden" id="action" value="<?php if (isset($editid)){echo 'updateFeedback';}else{echo 'insertFeedback';}; ?>"/>
 				
-				</th></tr>
+				</th><th></th></tr>
 				</tfoot>
 			</table>
 		</form><br>
@@ -88,13 +92,15 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
         $author = $_POST["autor_text"];
         $display_date = $_POST["display_date"];
 		$week_no = date('W', strtotime($display_date));
+		$week_day = date('N', strtotime($display_date));
+		$group_name = $_POST["group"];
 		$url = $_SERVER['PHP_SELF'];
 		$adding_date = $today_date;
 			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updateFeedback' ) {
-				$fqinsert = $wpdb->update( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date, 'week_no' => $week_no), array('id'=>$id));
+				$fqinsert = $wpdb->update( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date, 'week_no' => $week_no, 'week_day' => $week_day, 'quote_group' => $group_name), array('id'=>$id));
 			}			
 			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'insertFeedback' ) {
-				$fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date, 'week_no' => $week_no), array('%s', '%s', '%s', '%s', '%d') );
+				$fqinsert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date, 'week_no' => $week_no, 'week_day' => $week_day, 'quote_group' => $group_name), array('%s', '%s', '%s', '%s', '%d', '%d', '%s') );
 			}
 		}else{}
 ?>
@@ -136,10 +142,15 @@ function toggle(source) {
 				   $id = $_POST['delete_rec_id'];  
 				   $fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
 				}
-
 					//nagłówek
 				echo '<thead style="cursor:pointer"><tr><th style="width:20px;">
-		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete" style="margin-bottom:2px;"><br/><input type="checkbox" onClick="toggle(this)"  style="margin-top:2px;"/> All</th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th><th style="width:50px;"> Week no. </th><th style="width:100px;"> Display Date </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
+				<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete" style="margin-bottom:2px;"><br/><input type="checkbox" onClick="toggle(this)"  style="margin-top:2px;"/> All</th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th>';
+				if ($options['option1']=='5' || $options['option1']=='6'){
+				if ($options['option1']=='5') {
+				echo '<th style="width:50px;"> Week no. </th>';}
+				if ($options['option1']=='6') {
+				echo '<th style="width:70px;"> Week day </th>';}}
+				echo '<th style="width:100px;"> Display Date </th><th style="width:90px;"> Group </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
 				
 					//treść	foreach ( $Free_Quotation_table as $ogresults ) 
 
@@ -147,7 +158,30 @@ function toggle(source) {
 				foreach($fqshowtable as $row){
 					echo '<tr><td>';?>
 							<input name="checkbox[]" type="checkbox" id="checkbox[]"  value="<?php print $row->id; ?>">
-			<?php	echo '</td><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td><td>'.$row->week_no.'</td><td>'.$row->display_date.'</td><td>';?>
+			<?php	echo '</td><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td>';
+			if ($options['option1']=='5' || $options['option1']=='6'){
+			if ($options['option1']=='5'){
+			echo '<td>'.$row->week_no.'</td>';}
+			if ($options['option1']=='6'){
+			echo '<td>';
+			$week_day_text_var = $row->week_day;
+			if ($week_day_text_var=='1'){
+			echo 'Monday';}
+			elseif ($week_day_text_var=='2'){
+			echo 'Tuesday';}
+			elseif ($week_day_text_var=='3'){
+			echo 'Wednesday';}
+			elseif ($week_day_text_var=='4'){
+			echo 'Thursday';}
+			elseif ($week_day_text_var=='5'){
+			echo 'Friday';}
+			elseif ($week_day_text_var=='6'){
+			echo 'Saturday';}
+			elseif ($week_day_text_var=='7'){
+			echo 'Sunday';}
+			echo '</td>';}
+			}
+			echo '<td>'.$row->display_date.'</td><td>'.$row->quote_group.'</td><td>';?>
 					<form id="clerer" method="post" action="">
 					</form>  
 					<form id="edit" method="post" action="">
@@ -163,7 +197,13 @@ function toggle(source) {
 					 }
 				
 				echo '</tbody><tfoot style="cursor:pointer"><tr><th>
-		<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th> ID </td><th> Quotation </td><th> Author </td><th> Week no. </th><th> Display Date </th><th style="width:40px;"> Edit </th><th> Delete </td></tr></tfoot>';
+				<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th> ID </td><th> Quotation </td><th> Author </td>';
+				if ($options['option1']=='5' || $options['option1']=='6'){
+				if ($options['option1']=='5'){
+				echo '<th> Week no. </th>';}
+				if ($options['option1']=='6') {
+				echo '<th> Week day </th>';}}
+				echo '<th> Display Date </th><th> Group </th><th> Edit </th><th> Delete </td></tr></tfoot>';
 				?>
 		</table>
 		
