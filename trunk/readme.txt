@@ -55,6 +55,9 @@ To install it manually:
 
 == Frequently Asked Questions ==
 
+= After updating I can't add new quotation, and I see empty filed. What can I do? =
+Pleas deactivate and activate this plugin. Everything should work OK after this operation. It's necessary to do it one times after updating process.
+
 = How can I upload CSV file and how prepare it? =
 Whole instruction is available in plugin "Add CSV" page. You have there some examples that help you prepare good CSV file for this plugin.
 
