@@ -90,7 +90,7 @@ jQuery(document).ready( function($){
 	<div id="tabs">
 		Changes
 	  <ul>
-		<li><a href="#tabs-1">ver. 1.6</a></li>
+		<li><a href="#tabs-1">ver. 2.0</a></li>
 		<li><a href="#tabs-2">ver. 1.5</a></li>
 		<li><a href="#tabs-3">ver. 1.4</a></li>
 		<li><a href="#tabs-4">ver. 1.3</a></li>
@@ -99,23 +99,25 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-7">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
-			1.6.0
+			2.0.1
+			<ul>
+				<li>Small functional improvements</li>
+			</ul>
+			2.0.0
 			<ul>
 				<li>Add group for quotation</li>
 				<li>Now you can add title to widget (Free Quotation use headers &lt;h3&gt; to display it)</li>
 				<li>Rebuild widget area</li>
 				<li>Possibility to use many widgets with different value</li>
-			</ul>
-	  </div>
-	  <div id="tabs-2">
-			1.5.2
-			<ul>
+				<li>Hidden week number if you doesn't use this option</li>
 				<li>Now you can display quotation for specific day of week.</li>
 				<li>Improve data selection (now first day of week is Monday)</li>
 			</ul>
-			1.5.1
+	  </div>
+	  <div id="tabs-2">
+			1.5.1-1.5.5
 			<ul>
-				<li>Hidden week number if you doesn't use this option</li>
+				<li>Fix database</li>
 			</ul>
 			1.5.0
 			<ul>
