@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation by KRIS_IV
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 2.0.1
+	Version: 2.0.2
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "2.0.1";
+$Free_Quotation_version = "2.0.2";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -18,6 +18,8 @@ $today_week_no = date('W');
 global $today_week_day;
 $today_week_day = date('N');
 global $wikiquotation;
+global $table_name;
+$table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 
 register_activation_hook( __FILE__, 'Free_Quotation_DB_install' );
 
@@ -194,6 +196,9 @@ else {
 	$fq_disp_group = 'main group';
 }
 
+	global $table_name;
+	global $wpdb;
+	$fqgroup = $wpdb->get_results("SELECT DISTINCT quote_group FROM $table_name");
 		?>
 		<p>
 		<label>Display title on Widget?</label>
@@ -205,9 +210,22 @@ else {
 		<br>
 		<label for="<?php echo $this->get_field_id( 'fq_group' ); ?>"><?php _e( 'Group:' ); ?></label>
 		<br>
-		<input type="text" size="10" maxlength="10" name="<?php echo $this->get_field_name( 'fq_group' ); ?>" id="<?php echo $this->get_field_id( 'fq_group' ); ?>" value="<?php echo esc_attr( $fq_disp_group ); ?>">
+		<select name="<?php echo $this->get_field_name( 'fq_group' ); ?>">
+		<?php
+			foreach($fqgroup as $gropu_name) {
+				$group_value = $gropu_name->quote_group;
+				if ($group_value == esc_attr( $fq_disp_group )) {
+				echo '<option selected="selected">'.$group_value.'</option>';
+				} else {
+				echo '<option>'.$group_value.'</option>';
+				}
+			} 
+		?>
+		</select>
 		</p>
-		<?php 
+
+
+<?php 
 	}
 
 	
