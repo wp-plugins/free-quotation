@@ -99,6 +99,10 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-7">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			2.0.2
+			<ul>
+				<li>Change widget configuation - now you have list insted of text box</li>
+			</ul>
 			2.0.1
 			<ul>
 				<li>Small functional improvements</li>
@@ -110,7 +114,7 @@ jQuery(document).ready( function($){
 				<li>Rebuild widget area</li>
 				<li>Possibility to use many widgets with different value</li>
 				<li>Hidden week number if you doesn't use this option</li>
-				<li>Now you can display quotation for specific day of week.</li>
+				<li>Now you can display quotation for specific day of week</li>
 				<li>Improve data selection (now first day of week is Monday)</li>
 			</ul>
 	  </div>
