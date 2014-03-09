@@ -99,6 +99,10 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-7">ver. 1.0</a></li>
 	  </ul>
 	  <div id="tabs-1">
+			2.0.3
+			<ul>
+				<li>Add new quotation to the group from selected box</li>
+			</ul>
 			2.0.2
 			<ul>
 				<li>Change widget configuation - now you have list insted of text box</li>
