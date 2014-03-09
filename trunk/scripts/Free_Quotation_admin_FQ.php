@@ -44,7 +44,10 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			$editadding_date = $row->adding_date;
 			$editgroup = $row->quote_group;
 			}
-?>
+			
+			$fqgroup = $wpdb->get_results("SELECT DISTINCT quote_group FROM $table_name");
+			?>
+
 		<form id='reloader' method='post'  onSubmit="<?php if(isset($editid)){
 				echo 'return confirm(\'Are you sure?\nWhen you edit this quotation it is impossible to regain it in previous form.\');';}?>">
 			<table class="widefat" >
@@ -57,7 +60,22 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<textarea style="width:100%;" name="quotation_textarea" required><?php if (isset($editquotation)){echo $editquotation;}else{}; ?></textarea>
 				</td>
 				<td>
-				<input type="text" name="group" size="10" maxlength="10" value="<?php if (isset($editgroup)){echo $editgroup;}else{echo "main group";}; ?>"required>
+				<select name="group">
+				<?php
+					if (isset($editgroup)) {
+						echo '<option selected="selected">'.$editgroup.'</option>';
+					}
+					foreach($fqgroup as $gropu_name) {
+						$group_value = $gropu_name->quote_group;
+						if ($group_value == $editgroup) {
+						} else{
+							echo '<option>'.$group_value.'</option>';
+						}
+					} 
+				?>
+				</select>
+				or add new group:
+				<input type="text" name="group_txt" size="10" maxlength="10" value="">
 				</input>
 				</td>
 				<td>
@@ -84,6 +102,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 		</form><br>
 	</div>
 	<?php
+
 	if(isset($_POST["quotation_textarea"])){
 		global $current_user;
 		$ufUserID = $current_user->ID;
@@ -93,7 +112,12 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
         $display_date = $_POST["display_date"];
 		$week_no = date('W', strtotime($display_date));
 		$week_day = date('N', strtotime($display_date));
-		$group_name = $_POST["group"];
+		$grup_tester_trim=trim($_POST["group_txt"]);
+		if(empty($grup_tester_trim)) {
+			$group_name = $_POST["group"];
+		} else {
+			$group_name = trim($_POST["group_txt"]);
+		}	
 		$url = $_SERVER['PHP_SELF'];
 		$adding_date = $today_date;
 			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'updateFeedback' ) {
