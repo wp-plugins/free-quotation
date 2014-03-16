@@ -4,24 +4,27 @@ Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, quotations, quotes, random, random quotes, wikiquote, wiki, quote, quot., citation, cytaty, widget, display,widgets
 Requires at least: 3.0.1
 Tested up to: 3.8.1
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin display quotation in your WordPress page by widget. You can import quote from CSV file, use Wikiquote (Wikicytaty) or add quotes manually.
+Do you need display quotes or tips on your page? Free Quotation give you posibility to use CSV files with quotation, Wiciquotes or add quote manually one by one.
 
 == Description ==
 
-This plugin give you possibility to customize your website in WordPress environmental. Do you wan show some information, quotation or other regularly in small widget?
+If you need a quotation or tips extension (plugin) to your WordPress site you find the best idea! This plugin give you full customization to display a lot of important information. You can use Free Quotation not only to display quotes, but also tips or something else. Open your imagination. If you need something additional what can extend this widget - write to me, and give me few hours :-)
 
-The main destiny of this plugin is showing quotation on your website. It's means that you should provide this plugin with content to show it on your website. But you know, that not always you have good content. Sometimes you doesn't have time to save information (quotation) in plugin. In this moment you can use one of automatic quotation systems Which I add to this Free Quotation plugin.
+The general idea give you possibility to use widgets (not only one - you can use a lot of widgets). Every one widget can display different group of information, and every one is customizable. It is your choice which information you display.
 
-If you want add your privet quotation you can use one of two methods:
+If you think about quotation - this plugin is perfect for it :-) You can add many quotes and decide how often they should be change. For example - you can display tips by day, by weeks, by weekday or use static quotation.
 
-* Add manually new quotation by 'Add Free Quotation' page where you see last 10 added quotation.
-* Add a lot of quotation in one time by 'Add CSV' page, where you should prepare special CSV file in accordance with the roles (I present it 'Add CSV' plugin page)
+If you don't have enough time to prepare your own quotation database, you can use Wikiquote (Wikicytaty or other supported version of free quotation systems). The algorithm will display quotation for you. If you need algorithm for specific quotation website in your language which is not supported by this plugin - write to me ;-)
 
-If you want use automatic quotation system you can select one from the list:
+What is the best in this plugin? You can use your own quotation list from CSV or add it manually. The first system is automatic, but the second is very easy and intuitive. The calendar and table help you to edit your quotation, or change the day to display.
+
+Finally - the last advantage of this plugin: IS FREE and it will be free for the end of World :-)
+
+The list of supported quotation systems (if you need more, pleas write to me):
 
 * Wikiquote EN (http://en.wikiquote.org/wiki/Main_Page - Quote of the day)
 * Wikiquote ES (http://es.wikiquote.org/wiki/Portada - Cita del día)
@@ -30,6 +33,8 @@ If you want use automatic quotation system you can select one from the list:
 * Викицитатник RU (http://ru.wikiquote.org/wiki/Заглавная_страница - Избранная цитата)
 
 If you want use all time your motto, you can use option "Use one standard quotation" and define this Motto in your 'FQ settings' page.
+
+Now display quotations and tips is very easy. If you like this project - pleas give me stars. It's very nice to see this grades :)
 
 == Installation ==
 
@@ -86,6 +91,9 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 3. This panel help you add new quotation manually (you can use also CSV and add it by special page on the left bar)
 
 == Changelog ==
+
+= 2.0.4 =
+* Now you can style your widget quotation (global to all widgets)
 
 = 2.0.3 =
 * Add new quotation to the group from selected box

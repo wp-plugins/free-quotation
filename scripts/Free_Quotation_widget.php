@@ -86,10 +86,59 @@ if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=
 }
 ?>  <?php
 if ($instance['fq_ask_title']==1){
-	echo '<h3>'.$fq_title_to_display.'</h3>';
+	if(isset($options['option5'])) {
+		if ($options['option5']==true){
+			echo '<div style="font-size:';
+			if(isset($options['tekst6'])){echo $options['tekst6'];} else {echo '12';};
+			echo 'px; font-family:';
+			if(isset($options['tekst7'])){echo $options['tekst7'];} else {echo 'Arial';};
+			echo '; font-weight:';
+			if(isset($options['option6'])){if ($options['option6']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
+			echo '; font-style:';
+			if(isset($options['option7'])){if ($options['option7']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
+			echo ';">'.$fq_title_to_display.'</div>';
+		}
+	} else {
+		echo '<h3>'.$fq_title_to_display.'</h3>';
+	}
 }
-	echo '<div class="Free_Quotation_quotation">';?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst3'];}};?><?php echo $quotation;?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst4'];}};?><?php echo '</div>';
+
+//CHANGE THE NAME OF VARIABLES
+
+if(isset($options['option5'])) {
+	if ($options['option5']==true){
+		echo '<div style="font-size:';
+		if(isset($options['tekst8'])){echo $options['tekst8'];} else {echo '12';};
+		echo 'px; font-family:';
+		if(isset($options['tekst9'])){echo $options['tekst9'];} else {echo 'Arial';};
+		echo '; font-weight:';
+		if(isset($options['option8'])){if ($options['option8']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
+		echo '; font-style:';
+		if(isset($options['option9'])){if ($options['option9']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
+		echo ';">';
+	}
+} else {
+	echo '<div class="Free_Quotation_quotation">';
+}
+
+	?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst3'];}};?><?php echo $quotation;?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst4'];}};?><?php echo '</div>';
+
+
+if(isset($options['option5'])) {
+	if ($options['option5']==true){
+		echo '<div style="font-size:';
+		if(isset($options['tekst10'])){echo $options['tekst10'];} else {echo '12';};
+		echo 'px; font-family:';
+		if(isset($options['tekst11'])){echo $options['tekst11'];} else {echo 'Arial';};
+		echo '; font-weight:';
+		if(isset($options['option10'])){if ($options['option10']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
+		echo '; font-style:';
+		if(isset($options['option11'])){if ($options['option11']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
+		echo ';">' . $author . '</div>';
+	}
+} else {
 	echo '<div class="Free_Quotation_author">' . $author . '</div>';
+}
 	//<xmp></xmp> OFF the HTML
 ?> <?php
 

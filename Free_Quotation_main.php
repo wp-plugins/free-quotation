@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation by KRIS_IV
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 2.0.3
+	Version: 2.0.4
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "2.0.3";
+$Free_Quotation_version = "2.0.4";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -135,11 +135,24 @@ if (isset($input['option1'])){	$input['option1'] = ( $input['option1']);}
 if (isset($input['option2'])){	$input['option2'] = ( $input['option2']);}
 if (isset($input['option3'])){	$input['option3'] = ( $input['option3'] == 1 ? 1 : 0 );}
 if (isset($input['option4'])){	$input['option4'] = ( $input['option4'] == 1 ? 1 : 0 );}
+if (isset($input['option5'])){	$input['option5'] = ( $input['option5']);}
+if (isset($input['option6'])){	$input['option6'] = ( $input['option6']);}
+if (isset($input['option7'])){	$input['option7'] = ( $input['option7']);}
+if (isset($input['option8'])){	$input['option8'] = ( $input['option8']);}
+if (isset($input['option9'])){	$input['option9'] = ( $input['option9']);}
+if (isset($input['option10'])){	$input['option10'] = ( $input['option10']);}
+if (isset($input['option11'])){	$input['option11'] = ( $input['option11']);}
 if (isset($input['tekst1'])){	$input['tekst1'] =  ($input['tekst1']);}
 if (isset($input['tekst2'])){	$input['tekst2'] =  ($input['tekst2']);}
 if (isset($input['tekst3'])){	$input['tekst3'] =  ($input['tekst3']);}
 if (isset($input['tekst4'])){	$input['tekst4'] =  ($input['tekst4']);}
 if (isset($input['tekst5'])){	$input['tekst5'] =  ($input['tekst5']);}
+if (isset($input['tekst6'])){	$input['tekst6'] =  ($input['tekst6']);}
+if (isset($input['tekst7'])){	$input['tekst7'] =  ($input['tekst7']);}
+if (isset($input['tekst8'])){	$input['tekst8'] =  ($input['tekst8']);}
+if (isset($input['tekst9'])){	$input['tekst9'] =  ($input['tekst9']);}
+if (isset($input['tekst10'])){	$input['tekst10'] =  ($input['tekst10']);}
+if (isset($input['tekst11'])){	$input['tekst11'] =  ($input['tekst11']);}
 	
 	return $input;
 }
