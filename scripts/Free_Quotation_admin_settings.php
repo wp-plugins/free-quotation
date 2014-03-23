@@ -38,14 +38,14 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 					
-						<tr style="background:#ccc; width: 900px; <?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
-							<th scope="row">Start character</th>
+						<tr style=" <?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
+							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Start character</div></th>
 							<td>
 								<input name="Free_Quotation_options[tekst3]" type="text" id="activator1" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst3'])){echo htmlentities($options['tekst3']);}else{};?>" maxlength="1" size="1"></input>
 							</td>
 						</tr>	
-						<tr style="background:#ccc; width: 900px; <?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
-							<th scope="row">End character</th>
+						<tr style="<?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
+							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">End character</div></th>
 							<td>
 								<input name="Free_Quotation_options[tekst4]" type="text" id="activator2" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst3'])){echo htmlentities($options['tekst3']);}else{};?>" maxlength="1" size="1"></input>
 							</td>
@@ -73,12 +73,12 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 								</select>
 							</td>
 						</tr>
-						<tr style="background:#ccc; width: 900px;">
-							<th scope="row">Standard quotation</th>
+						<tr>
+							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Standard quotation</div></th>
 								<td><textarea name="Free_Quotation_options[tekst1]" type="text" cols="80" rows="2"><?php echo $options['tekst1']; ?></textarea></td>
 						</tr>			
-						<tr style="background:#ccc;">
-							<th scope="row">Quotation author</th>
+						<tr>
+							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Quotation author</div></th>
 							<td>
 								<input name="Free_Quotation_options[tekst2]" type="input" value="<?php echo $options['tekst2']; ?>"></input>
 							</td>
@@ -118,25 +118,25 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 								<input name="Free_Quotation_options[option7]" type="checkbox" value="1" <?php if(isset($options['option7'])){checked($options['option7'], 1);}?> /><br>
 							</td>
 						</tr>
-						<tr style="background:#ccc; width: 900px;">
+						<tr>
 							<th scope="row">Body size:</th>
 							<td>
 								<input name="Free_Quotation_options[tekst8]" type="text" id="activator1" value="<?php if(isset($options['tekst8'])){echo htmlentities($options['tekst8']);}else{};?>" maxlength="2" size="2"></input>px
 							</td>
 						</tr>
-						<tr style="background:#ccc; width: 900px;">
+						<tr>
 							<th scope="row">Body font:</th>
 							<td>
 								<input name="Free_Quotation_options[tekst9]" type="text" id="activator1" value="<?php if(isset($options['tekst9'])){echo htmlentities($options['tekst9']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
-						<tr style="background:#ccc; width: 900px;">
+						<tr>
 							<th scope="row">Body bold:</th>
 							<td>
 								<input name="Free_Quotation_options[option8]" type="checkbox" value="1" <?php if(isset($options['option8'])){checked($options['option8'], 1);}?> /><br>
 							</td>
 						</tr>
-						<tr style="background:#ccc; width: 900px;">
+						<tr>
 							<th scope="row">Body italic:</th>
 							<td>
 								<input name="Free_Quotation_options[option9]" type="checkbox" value="1" <?php if(isset($options['option9'])){checked($options['option9'], 1);}?> /><br>
@@ -182,9 +182,8 @@ jQuery(document).ready( function($){
   </script>
 
 <div class="Free_Quotation_wrap1">
-
+<h2>Backlog</h2>
 	<div id="tabs">
-		Changes
 	  <ul>
 		<li><a href="#tabs-1">ver. 2.0</a></li>
 		<li><a href="#tabs-2">ver. 1.5</a></li>
@@ -194,7 +193,12 @@ jQuery(document).ready( function($){
 		<li><a href="#tabs-6">ver. 1.1</a></li>
 		<li><a href="#tabs-7">ver. 1.0</a></li>
 	  </ul>
+	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			2.0.5
+			<ul>
+				<li>Settings menu redesign (visual and funkcional).</li>
+			</ul>
 			2.0.4
 			<ul>
 				<li>Now you can style your widget quotation (global to all widgets)</li>
@@ -330,6 +334,7 @@ jQuery(document).ready( function($){
 			<ul>
 				<li>Small visual improvement</li>
 			</ul>
+	  </div>
 	  </div>
 	</div>	
 </div>
