@@ -4,6 +4,10 @@ global $wpdb;
 global $today_date;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 ?>
+<script>
+var showInstructionText = "Show instruction";
+</script>
+
 <div class="wrap">	
 	 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_menu_page">Add Free Quotation</a></h2></h2>
 
@@ -74,9 +78,12 @@ if ($datasuccess==null){echo 'Import is not finish yet. If you try and you doesn
 <br>
 </div>
 
-<div id="welcome-panel" class="welcome-panel" style="background:#ffffbb;">
+<div id="welcome-panel" class="welcome-panel" style="background:#ffffbb; padding-bottom: 20px;">
 
-<h2>Instruction for CSV file</h2>
+<h2 style="float:left;">Instruction for CSV file</h2>
+<input class="button button-primary button_show_instruction" type="submit" value="Show or hide" onclick="showInstructionFQ()" />
+
+<div id="hidden_instruction" style="display:none;">
 <h4>The Format of CSV File must be as below :</h4>
 <div style="line-height:2em;border:1px solid #dedede;padding-left:10px; background:#efefef; border-radius:5px;">"Quotation";"Author";"Display date";"";"";"Group"<br>
 "Quotation2";"Author2";"Display date2";"";"";"Group";<br>
@@ -99,5 +106,34 @@ You should remember, that the name of group can't be longer than 10 characters. 
 You can use Microsoft Excel to create CSV in good format in easy way. In every one column you can give different information and you can sum it in special way when you use good formula (=A1&A2&A3 and so on).
 
 </div>
+</div>
+
+<script>
+var showCssInstruction = localStorage.getItem('show-or-hide-css-instruction');
+if (showCssInstruction=='true'){
+	var showInstructionFQdiv = document.getElementById("hidden_instruction");
+	showInstructionFQdiv.style.display = "inline";
+} else if  (showCssInstruction=='false') {
+	var showInstructionFQdiv = document.getElementById("hidden_instruction");
+	showInstructionFQdiv.style.display = "none";
+} else {
+	var showInstructionFQdiv = document.getElementById("hidden_instruction");
+	showInstructionFQdiv.style.display = "none";
+}
+
+function showInstructionFQ() {
+	var showCssInstruction = localStorage.getItem('show-or-hide-css-instruction');
+	if (showCssInstruction=='true')
+	{
+	localStorage.setItem('show-or-hide-css-instruction','false')
+	var showInstructionFQdiv = document.getElementById("hidden_instruction");
+	showInstructionFQdiv.style.display = "none";
+	} else {
+	localStorage.setItem('show-or-hide-css-instruction','true')
+	var showInstructionFQdiv = document.getElementById("hidden_instruction");
+	showInstructionFQdiv.style.display = "inline";
+	}
+}
+</script>
 	<?php 
 ?>

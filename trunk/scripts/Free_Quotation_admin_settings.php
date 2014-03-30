@@ -11,17 +11,30 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 	<br><h2>Settings page</h2>
 
 <script>
+	var zmienna=localStorage.getItem('last-selected-tab-number');
 	jQuery(document).ready( function($){
-		$( "#set_page" ).tabs();
+		$( "#set_page" ).tabs({active:zmienna});
+		$('#set_page').click('tabsselect', function (event, ui) {
+        newZmienna = $("#set_page").tabs('option', 'active');
+		});
 	});
+	
+	function checkVariableValue(){
+		if(zmienna==newZmienna)
+		{}else{
+		localStorage.setItem('last-selected-tab-number',newZmienna);
+		}
+	}
 </script>
+
 		<form method="post" action="options.php">
 			<?php settings_fields('Free_Quotation_settings_filed'); ?>
 			<?php $options = get_option('Free_Quotation_options'); ?>
+
 			<div id="set_page">
 				<ul>
 					<li><a href="#set_page-1">General</a></li>
-					<li><a href="#set_page-2">Viasual</a></li>
+					<li><a href="#set_page-2">Visual</a></li>
 				</ul>
 				<div id="set_page-1">
 					<table class="form-table">
@@ -171,15 +184,19 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			</div>
 			
 			<p class="submit">
-			<input type="submit" class="button-primary" value="<?php _e('Save') ?>" />
+			<input type="submit" class="button-primary" value="<?php _e('Save') ?>" onClick="checkVariableValue()"/>
 			</p>
 		</form>	
 
- <script>
+<script>
+
+</script>		
+		
+<script>
 jQuery(document).ready( function($){
     $( "#tabs" ).tabs();
   });
-  </script>
+</script>
 
 <div class="Free_Quotation_wrap1">
 <h2>Backlog</h2>
@@ -195,26 +212,6 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
-			2.0.5
-			<ul>
-				<li>Settings menu redesign (visual and funkcional).</li>
-			</ul>
-			2.0.4
-			<ul>
-				<li>Now you can style your widget quotation (global to all widgets)</li>
-			</ul>
-			2.0.3
-			<ul>
-				<li>Add new quotation to the group from selected box</li>
-			</ul>
-			2.0.2
-			<ul>
-				<li>Change widget configuation - now you have list insted of text box</li>
-			</ul>
-			2.0.1
-			<ul>
-				<li>Small functional improvements</li>
-			</ul>
 			2.0.0
 			<ul>
 				<li>Add group for quotation</li>
@@ -225,46 +222,59 @@ jQuery(document).ready( function($){
 				<li>Now you can display quotation for specific day of week</li>
 				<li>Improve data selection (now first day of week is Monday)</li>
 			</ul>
+			2.0.1
+			<ul>
+				<li>Small functional improvements</li>
+			</ul>
+			2.0.2
+			<ul>
+				<li>Change widget configuation - now you have list insted of text box</li>
+			</ul>
+			2.0.3
+			<ul>
+				<li>Add new quotation to the group from selected box</li>
+			</ul>
+			2.0.4
+			<ul>
+				<li>Now you can style your widget quotation (global to all widgets)</li>
+			</ul>
+			2.0.5
+			<ul>
+				<li>Settings menu redesign (visual and funkcional).</li>
+			</ul>
+			2.0.6
+			<ul>
+				<li>Now FreeQuotation remember last use settings tab (General or Visual).</li>
+				<li>Put into memory your preferences to CSV instruction.</li>
+			</ul>
 	  </div>
 	  <div id="tabs-2">
-			1.5.1-1.5.5
-			<ul>
-				<li>Fix database</li>
-			</ul>
 			1.5.0
 			<ul>
 				<li>Now you can display quotation not only in accordance with date but also for special week! You can change this value when you want, because system control both option.  Week number for quotation Free Quotation add automatically for selected date. Week starts in Monday, and in Sunday.</li>
 				<li>All your old quotation get week number automatically when you update your plugin to new 1.5 version</li>
 			</ul>
+			1.5.1-1.5.5
+			<ul>
+				<li>Fix database</li>
+			</ul>
 	  </div>
 	  <div id="tabs-3">
-			1.4.2
+			1.4.0
 			<ul>
-				<li>Add option: select all to delete</li>
-				<li>Improve in CSS</li>
+				<li>Add possibility to delete more than one quotation per one times</li>
 			</ul>
 			1.4.1
 			<ul>
 				<li>Improve option start/end quotation with special characters</li>
 			</ul>
-			1.4.0
+			1.4.2
 			<ul>
-				<li>Add possibility to delete more than one quotation per one times</li>
+				<li>Add option: select all to delete</li>
+				<li>Improve in CSS</li>
 			</ul>
 	  </div>
 	  <div id="tabs-4">
-			1.3.3
-			<ul>
-				<li>Now it's demand to accept edit data (for safety) </li>
-			</ul>
-			1.3.2
-			<ul>
-				<li>Now it's demand to accept delete data (for safety) </li>
-			</ul>
-			1.3.1
-			<ul>
-				<li>Fix data problem !IMPORTANT! </li>
-			</ul>
 			1.3.0
 			<ul>
 				<li>Now is available edition for all of quotes. You can change:<ul>
@@ -272,6 +282,18 @@ jQuery(document).ready( function($){
 					<li>Quotation text</li>
 					<li>Author of quotation</li></ul>
 				</li>
+			</ul>
+			1.3.1
+			<ul>
+				<li>Fix data problem !IMPORTANT! </li>
+			</ul>
+			1.3.2
+			<ul>
+				<li>Now it's demand to accept delete data (for safety) </li>
+			</ul>
+			1.3.3
+			<ul>
+				<li>Now it's demand to accept edit data (for safety) </li>
 			</ul>
 	  </div>
 	  <div id="tabs-5">
@@ -311,7 +333,7 @@ jQuery(document).ready( function($){
 			</ul>
 	  </div>
 	  <div id="tabs-7">
-			1.0
+			1.0.0
 			<ul>
 				<li><b>Initial release</b></li>
 				<li>Function

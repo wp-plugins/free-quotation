@@ -251,3 +251,7 @@ a:focus, a:active {
 #backlog_table_fq{
 	font-size:0.7em;
 }
+
+.button_show_instruction{
+	margin-top:6px!important;
+}
