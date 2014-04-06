@@ -8,7 +8,7 @@ global $wikiuotation;
 $fq_group_test = $instance['fq_group'];
 $fq_title_to_display = $instance['title'];
 
-if ($options['option1']=='1'){
+if ($options['option1']=='1'||$options['option1']=='2'){
 $Free_Quotation_table = 
 	"
 	SELECT * 
@@ -17,6 +17,7 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
+$result = mysql_query($Free_Quotation_table);
 } elseif ($options['option1']=='5'){
 $Free_Quotation_table = 
 	"
@@ -26,6 +27,7 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
+$result = mysql_query($Free_Quotation_table);
 } elseif ($options['option1']=='6'){
 $Free_Quotation_table =
 	"
@@ -35,8 +37,8 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
+$result = mysql_query($Free_Quotation_table);
 }
-	$result = mysql_query($Free_Quotation_table);
 	
 if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=='6') {	
 	//Use only Free_Quotation (if doesn't have it - use standard quotation)
@@ -49,10 +51,25 @@ if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=
 	}
 } elseif ($options['option1']=='2') {
 	//Use wiqiquotes if dosn't have normal quotes
-	if ($row = mysql_fetch_array($result)) { 
-		$quotation = $row['quotation'];
-		$author = $row['author'];
+	if(isset($result)){
+		if ($row = mysql_fetch_array($result)) { 
+			$quotation = $row['quotation'];
+			$author = $row['author'];
+		}
 	} else {
+		if ($options['option2']=='en') {
+			require(dirname(__FILE__)."/QuotationSystems/WikiquoteEN.php");
+		} elseif ($options['option2']=='de') {
+			require(dirname(__FILE__)."/QuotationSystems/WikiquoteDE.php");
+		} elseif ($options['option2']=='es') {
+			require(dirname(__FILE__)."/QuotationSystems/WikiquoteES.php");
+		} elseif ($options['option2']=='ru') {
+			require(dirname(__FILE__)."/QuotationSystems/WikiquoteRU.php");
+		} elseif ($options['option2']=='pl') {
+			require(dirname(__FILE__)."/QuotationSystems/WikicytatyPL.php");
+		}
+	}
+	if (isset($quotation)){}else{
 		if ($options['option2']=='en') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteEN.php");
 		} elseif ($options['option2']=='de') {
@@ -121,7 +138,20 @@ if(isset($options['option5'])) {
 	echo '<div class="Free_Quotation_quotation">';
 }
 
-	?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst3'];}};?><?php echo $quotation;?><?php if (isset($options['option4'])) {if ($options['option4']==null){ } else { echo $options['tekst4'];}};?><?php echo '</div>';
+	?><?php if (isset($options['option4'])){
+				if ($options['option4']==null){ 
+				} else {
+					echo $options['tekst3'];
+				}
+			};?>
+	<?php echo $quotation;
+		if (isset($options['option4'])) {
+			if ($options['option4']==null){
+			} else { 
+				echo $options['tekst4'];
+			}
+		};
+		echo '</div>';
 
 
 if(isset($options['option5'])) {
