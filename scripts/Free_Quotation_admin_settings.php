@@ -228,7 +228,7 @@ jQuery(document).ready( function($){
 			</ul>
 			2.0.2
 			<ul>
-				<li>Change widget configuation - now you have list insted of text box</li>
+				<li>Change widget configuration - now you have list instead of text box</li>
 			</ul>
 			2.0.3
 			<ul>
@@ -240,12 +240,24 @@ jQuery(document).ready( function($){
 			</ul>
 			2.0.5
 			<ul>
-				<li>Settings menu redesign (visual and funkcional).</li>
+				<li>Settings menu redesign (visual and functional)</li>
 			</ul>
 			2.0.6
 			<ul>
-				<li>Now FreeQuotation remember last use settings tab (General or Visual).</li>
-				<li>Put into memory your preferences to CSV instruction.</li>
+				<li>Now FreeQuotation remember last use settings tab (General or Visual)</li>
+				<li>Put into memory your preferences to CSV instruction</li>
+			</ul>
+			2.0.7
+			<ul>
+				<li>Wikiquote Fix some issue</li>
+			</ul>
+			2.0.8
+			<ul>
+				<li>Wikiquote Fix</li>
+				<ul>
+					<li>New algorithm for Polish version (fix problem with poetic quotes)</li>
+					<li>Fix algorithm in Spanish and Deutsch version</li>
+				</ul>
 			</ul>
 	  </div>
 	  <div id="tabs-2">
