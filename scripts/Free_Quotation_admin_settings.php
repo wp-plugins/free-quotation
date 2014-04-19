@@ -259,6 +259,10 @@ jQuery(document).ready( function($){
 					<li>Fix algorithm in Spanish and Deutsch version</li>
 				</ul>
 			</ul>
+			2.0.9
+			<ul>
+				<li>Check it to WordPress 3.9.0</li>
+			</ul>
 	  </div>
 	  <div id="tabs-2">
 			1.5.0
