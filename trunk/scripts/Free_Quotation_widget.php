@@ -137,14 +137,13 @@ if(isset($options['option5'])) {
 } else {
 	echo '<div class="Free_Quotation_quotation">';
 }
-
-	?><?php if (isset($options['option4'])){
+?><?php if (isset($options['option4'])){
 				if ($options['option4']==null){ 
 				} else {
 					echo $options['tekst3'];
 				}
-			};?>
-	<?php echo $quotation;
+			};
+		echo $quotation;
 		if (isset($options['option4'])) {
 			if ($options['option4']==null){
 			} else { 
