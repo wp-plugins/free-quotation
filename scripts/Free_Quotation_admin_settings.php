@@ -263,6 +263,10 @@ jQuery(document).ready( function($){
 			<ul>
 				<li>Check it to WordPress 3.9.0</li>
 			</ul>
+			2.0.10
+			<ul>
+				<li>Fix problem with quotation mark</li>
+			</ul>
 	  </div>
 	  <div id="tabs-2">
 			1.5.0
