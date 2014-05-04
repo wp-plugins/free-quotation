@@ -11,6 +11,8 @@ $pure_string = "";
 		$quotation = preg_replace('/'. $pattern_quotation_for_pure .'/', $pure_string, $quotation);
 		$quotation = preg_replace('/'. $pattern_quotation_for_pure_2 .'/', $pure_string, $quotation);
 		$quotation = preg_replace('/'. $pattern_quotation_for_pure_3 .'/', $pure_string, $quotation);
+	} else {
+		$quotation = "";
 	}
 
 $pattern_author = '<td colspan\=\"3\" height\=\"100\%\" bgcolor\=\"\#F4F4F5\"\>[\s\S]*<\/table\>\n<\/div\>\n<\/div\>';
@@ -26,5 +28,7 @@ $pattern_author_for_pure3 = '<[a-zA-Z0-9áóñíé\-\=\/\.\#\_\&\%\,\s\ \"\'\;\:
 		$author = preg_replace('/'. $pattern_author_for_pureX .'/', $pure_string, $author);
 		$author = preg_replace('/'. $pattern_author_for_pure2 .'/', $pure_string, $author);
 		$author = preg_replace('/'. $pattern_author_for_pure3 .'/', $pure_string, $author);
-	};
+	} else {
+		$author = "";
+	}
 ?>

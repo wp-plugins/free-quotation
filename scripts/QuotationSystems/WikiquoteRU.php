@@ -10,6 +10,8 @@ $pure_string = "";
 		$quotation = print_r($matches[0], true);
 		$quotation = preg_replace('/'. $pattern_quotation_for_pure .'/', $pure_string, $quotation);
 		$quotation = preg_replace('/'. $pattern_quotation_for_pure_2 .'/', $pure_string, $quotation);
+	} else {
+		$quotation = "";
 	}
 
 $pattern_author = '<div style\=\"float\:right\"\>.*';
@@ -21,5 +23,7 @@ $pattern_author_for_pure2 = '=".*"';
 		$author = print_r($matches[0], true);
 		$author = preg_replace('/'. $pattern_author_for_pure2 .'/', $pure_string, $author);
 		$author = preg_replace('/'. $pattern_author_for_pure .'/', $pure_string, $author);
-	};
+	} else {
+		$author = "";
+	}
 ?>
