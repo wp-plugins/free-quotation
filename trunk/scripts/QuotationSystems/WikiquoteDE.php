@@ -15,6 +15,8 @@ $make_visible_beter_cor = "\n";
 		$quotation = preg_replace('/'. $make_visible_beter .'/', $make_visible_beter_cor, $quotation);
 		
 		$quotation = substr($quotation, 0, -1);
+	} else {
+		$quotation = "";
 	}
 
 $pattern_author = '<td colspan\=\"3\" style\=\"margin-top\: \.5em\; text\-align\: right\;\"\>[a-zA-Z0-9ÖöẞÜüÄä\-\=\/\.\#\_\&\%\,\s\ \"\'\;\:\(\)\«\»\?\„\<\>]*';
@@ -28,5 +30,7 @@ $pattern_author_for_pure_3 = '<\/a>';
 		$author = preg_replace('/'. $pattern_author_for_pure .'/', $pure_string, $author);
 		$author = preg_replace('/'. $pattern_author_for_pure_2 .'/', $pure_string, $author);
 		$author = preg_replace('/'. $pattern_author_for_pure_3 .'/', $pure_string, $author);
-	};
+	} else {
+		$author = "";
+	}
 ?>
