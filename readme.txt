@@ -3,8 +3,8 @@ Contributors: kris_IV
 Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, quotations, quotes, random, random quotes, wikiquote, wiki, quote, quot., citation, cytaty, widget, display,widgets
 Requires at least: 3.0.1
-Tested up to: 3.9.0
-Stable tag: 2.1.0
+Tested up to: 3.9.1
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,9 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 3. This panel help you add new quotation manually (you can use also CSV and add it by special page on the left bar)
 
 == Changelog ==
+
+= 2.1.1 =
+* Compatible with wordpress 3.9.1
 
 = 2.1.0 =
 * Add export to CSV file function to backup or edit your quotation collection

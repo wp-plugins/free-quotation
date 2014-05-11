@@ -221,6 +221,10 @@ jQuery(document).ready( function($){
 				<li>Correct english Wikiquote (problem with author after last week update)<li>
 				<li>Improve polish Wikicytaty algorithm</li>
 			</ul>
+			2.1.1
+			<ul>
+				<li>Compatible with  WordPress 3.9.1
+			</ul>
 	  </div>
 	  <div id="tabs-2">
 			2.0.0
