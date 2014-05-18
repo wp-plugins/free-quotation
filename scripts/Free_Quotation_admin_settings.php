@@ -67,12 +67,12 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						<tr>
 							<th scope="row">Type of quotation display:</th>
 							<td>
-								<input type="radio" name="Free_Quotation_options[option1]" value="1" <?php checked('1', $options['option1']); ?> />Use only Free_Quotation - display by day</br>
-								<input type="radio" name="Free_Quotation_options[option1]" value="5" <?php checked('5', $options['option1']); ?> />Use only Free_Quotation - display by week number</br>
-								<input type="radio" name="Free_Quotation_options[option1]" value="6" <?php checked('6', $options['option1']); ?> />Use only Free_Quotation - random quotation for specific day</br>
-								<input type="radio" name="Free_Quotation_options[option1]" value="2" <?php checked('2', $options['option1']); ?> />Use Wikiquote if you doesn't have FQ for display<br>
-								<input type="radio" name="Free_Quotation_options[option1]" value="3" <?php checked('3', $options['option1']); ?> />Use Wikiquote always for quotations displaying<br>
-								<input type="radio" name="Free_Quotation_options[option1]" value="4" <?php checked('4', $options['option1']); ?> />Use one standard quotation (always active if Free_Quotation doesn't have quotation for displaying)<br>
+								<input id="toqd-1" type="radio" name="Free_Quotation_options[option1]" value="1" <?php checked('1', $options['option1']); ?> /><label for="toqd-1">Use only Free_Quotation - display by day</label></br>
+								<input id="toqd-2" type="radio" name="Free_Quotation_options[option1]" value="5" <?php checked('5', $options['option1']); ?> /><label for="toqd-2">Use only Free_Quotation - display by week number</label></br>
+								<input id="toqd-3" type="radio" name="Free_Quotation_options[option1]" value="6" <?php checked('6', $options['option1']); ?> /><label for="toqd-3">Use only Free_Quotation - random quotation for specific day</label></br>
+								<input id="toqd-4" type="radio" name="Free_Quotation_options[option1]" value="2" <?php checked('2', $options['option1']); ?> /><label for="toqd-4">Use Wikiquote if you doesn't have FQ for display</label><br>
+								<input id="toqd-5" type="radio" name="Free_Quotation_options[option1]" value="3" <?php checked('3', $options['option1']); ?> /><label for="toqd-5">Use Wikiquote always for quotations displaying</label><br>
+								<input id="toqd-6" type="radio" name="Free_Quotation_options[option1]" value="4" <?php checked('4', $options['option1']); ?> /><label for="toqd-6">Use one standard quotation (always active if Free_Quotation doesn't have quotation for displaying)</label><br>
 							</td>
 						</tr>
 						<tr>
@@ -224,6 +224,12 @@ jQuery(document).ready( function($){
 			2.1.1
 			<ul>
 				<li>Compatible with  WordPress 3.9.1
+			</ul>
+			2.1.2
+			<ul>
+				<li>UX improvement in FQ settings area (label are clickable)</li>
+				<li>Table of quotes in admin menu is now default sortable by date of display<li>
+				<li>Now you can display all quotation in table (admin menu)<li>
 			</ul>
 	  </div>
 	  <div id="tabs-2">
