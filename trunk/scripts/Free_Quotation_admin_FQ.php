@@ -131,7 +131,9 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 <script>
 jQuery(document).ready( function($){
     $('#sortable').dataTable( {
-	        "aaSorting": [[ 0, "desc" ]]
+	        "aaSorting": [[ 4, "desc" ]],
+			"aLengthMenu": [[25, 50, 75, -1], [25, 50, 75, "All"]],
+			"iDisplayLength": 25
 	} );
 });
 </script>		
