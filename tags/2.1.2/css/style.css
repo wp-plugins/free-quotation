@@ -1,0 +1,14 @@
+.Free_Quotation_quotation{
+font-size: 1.4em;
+margin-top: 10px;
+margin-bottom:5px;
+text-align:center;
+font-style: italic;
+}
+
+.Free_Quotation_author{
+font-size: 1.0em;
+text-align:right;
+margin-bottom:10px;
+margin-right: 60px;
+}
