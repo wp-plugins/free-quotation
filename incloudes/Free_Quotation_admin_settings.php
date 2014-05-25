@@ -218,7 +218,7 @@ jQuery(document).ready( function($){
 				<li>Add export to CSV file function to backup or edit your quotation collection</li>
 				<li>Redesign CSV import and change CSV structure</li>
 				<li>Fix error with Wikiquote when it's impossible to find author or quotation</li>
-				<li>Correct english Wikiquote (problem with author after last week update)<li>
+				<li>Correct english Wikiquote (problem with author after last week update)</li>
 				<li>Improve polish Wikicytaty algorithm</li>
 			</ul>
 			2.1.1
@@ -228,8 +228,16 @@ jQuery(document).ready( function($){
 			2.1.2
 			<ul>
 				<li>UX improvement in FQ settings area (label are clickable)</li>
-				<li>Table of quotes in admin menu is now default sortable by date of display<li>
-				<li>Now you can display all quotation in table (admin menu)<li>
+				<li>Table of quotes in admin menu is now default sortable by date of display</li>
+				<li>Now you can display all quotation in table (admin menu)</li>
+			</ul>
+			2.1.3
+			<ul>
+				<li>Rebuild code to WordPress standards</li>
+				<li>Rebuild CSV import/export function</li>
+				<li>Change in installation file (build new database)</li>
+				<li>Now it's possible to use two times the same quotation</li>
+				<li>Quotation size is now 800 characters</li>
 			</ul>
 	  </div>
 	  <div id="tabs-2">

@@ -5,6 +5,7 @@ global $today_date;
 global $today_week_no;
 global $today_week_day;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
+$fq_installed_ver = get_option("fq_db_version");
 ?>
 <div class="wrap">
 		 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_add_CSV">Add file CSV</a></h2>

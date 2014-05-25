@@ -14,61 +14,11 @@ var showInstructionText = "Show instruction";
 <div id="welcome-panel" class="welcome-panel">
 
 	<h3>Import CSV file</h3>
-<?php
-if (isset($_FILES['csv'])){
-	if ($_FILES['csv']['size'] > 0) {
+	
+	<?php
+		require 'Free_Quotation_import_csv.php';
+	?>
 
-    //get the csv file
-    $file = $_FILES['csv']['tmp_name'];
-    $handle = fopen($file,"r");
-    
-    //loop through the csv file and insert into database
-	    do {
-			if (isset($data)){
-				if ($data[0]) {
-					$fqinsert = $wpdb->insert( $table_name, array ('quotation' => addslashes($data[0]), 'author' => addslashes($data[1]),  'display_date' => addslashes($data[2]), 'adding_date' =>addslashes($today_date), 'quote_group' =>addslashes($data[6])), array ('%s', '%s', '%s', '%s', '%s'));       
-				}
-			}
-		// do {
-			// if ($data[0]) {
-				// mysql_query("INSERT INTO $table_name (quotation, author, display_date, adding_date) VALUES
-					// (
-						// '".addslashes($data[0])."',
-						// '".addslashes($data[1])."',
-						// '".addslashes($data[2])."',
-						// '".addslashes($today_date)."'
-					// )
-				// ");
-			// }
-		$datasuccess = "Your file has been successfully imported.";
-		} while ($data = fgetcsv($handle,1000,';','"'));
-			
-			$fq_week_no_edit = $wpdb->get_results("SELECT * FROM $table_name WHERE id ORDER BY id DESC", OBJECT_K);
-			foreach($fq_week_no_edit as $row){
-						$operateid = $row->id;
-						$operatedisplay_data = $row->display_date;
-						$operateadding_date = $row->adding_date;
-						$week_no_data = $row->week_no;
-						$week_no_day = $row->week_day;
-						$display_group = $row->quote_group;
-			if ($week_no_data=="0"){			
-			$week_no_data_edit = date('W', strtotime($operatedisplay_data));
-			$fqinsert = $wpdb->update( $table_name, array( 'display_date' => $operatedisplay_data, 'week_no' => $week_no_data_edit), array('id'=>$operateid));
-			}
-			if ($week_no_day=="0"){			
-			$week_no_day_edit = date('N', strtotime($operatedisplay_data));
-			$fqinsert = $wpdb->update( $table_name, array( 'display_date' => $operatedisplay_data, 'week_day' => $week_no_day_edit), array('id'=>$operateid));
-			}
-			if ($display_group==null){			
-			$display_group_edit = "main group";
-			$fqinsert = $wpdb->update( $table_name, array( 'display_date' => $operatedisplay_data, 'quote_group' => $display_group_edit), array('id'=>$operateid));
-			}}
-	}
-}?>
-
-<?php 
-if (isset($datasuccess)){
-if ($datasuccess==null){echo 'Import is not finish yet. If you try and you doesn\'t see positive message - look for FAQ, forum or ask question<br>';} else {echo '<div style="font-weight:bold; font-size:15px; background:yellow; width: 300px; text-align:center; padding: 5px;">' . $datasuccess . '</div>';}}; ?>
 <br>
 <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
 
@@ -85,30 +35,10 @@ if ($datasuccess==null){echo 'Import is not finish yet. If you try and you doesn
 	<form action="" method="post"> 
 		<input class="button button-primary"  type="submit" name="submit" value="Export"  style="margin-top:20px; margin-bottom:35px;"> 
 	</form> 
-<?php
-$upload_dir = wp_upload_dir();
-// EXPORT
-if(isset($_POST['submit'])) { 
-	ini_set("auto_detect_line_endings", true);
-	$fqexport= $wpdb->get_results("SELECT * FROM $table_name", OBJECT_K);
-	$file_name = date("/m_d_y_H_i_s").'.csv';
-	$path = $upload_dir['path'].$file_name;
-	$path_url = $upload_dir['url'].$file_name;
-	$fp = fopen($path, 'w');
-		foreach($fqexport as $row){
-			$zmienna = '"'.$row->quotation.'";"'.$row->author.'";"'.$row->display_date.'";"'.$row->adding_date.'";"'.$row->week_no.'";"'.$row->week_day.'";"'.$row->quote_group.'";'. PHP_EOL;
-			fwrite($fp, $zmienna);
-			unset($zmienna);
-		}
-	fclose($fp);
-	?>
-	<script type="text/javascript">
-		var pathUrl = "<?php echo $path_url; ?>";
-		window.location=pathUrl;
-	</script>
+	
 	<?php
-}
-?>
+		require 'Free_Quotation_export_csv.php';
+	?>
 
 </div>
 
