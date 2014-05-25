@@ -74,22 +74,21 @@
 
 	}
 		
-	$sql = "CREATE TABLE $table_name (
+	$sql = "CREATE TABLE " . $table_name . " (
 			  id int(11) NOT NULL AUTO_INCREMENT,
-			  quotation varchar(300) NOT NULL,
+			  quotation varchar(800) NOT NULL,
 			  author varchar(50) NOT NULL,
 			  display_date varchar(15) NOT NULL,
 			  adding_date varchar(15) NOT NULL,
 			  week_no int(2) NOT NULL,
 			  week_day int(1) NOT NULL,
 			  quote_group varchar(10) NOT NULL,
-			  PRIMARY KEY id (id),
-			  CONSTRAINT uc_ognewsID UNIQUE (quotation)
+			  PRIMARY KEY (id)
 			) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci";		
-			
-			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-			dbDelta( $sql );
-			add_option("fq_db_version", $fq_db_version );	
+
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	dbDelta( $sql );
+	add_option("fq_db_version", $fq_db_version );	
 
 	
 ?>

@@ -1,4 +1,4 @@
-﻿=== Free Quotation by KRIS_IV===
+﻿=== Free Quotation ===
 Contributors: kris_IV
 Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, quotations, quotes, random, random quotes, wikiquote, wiki, quote, quot., citation, cytaty, widget, display,widgets
@@ -91,6 +91,13 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 3. This panel help you add new quotation manually (you can use also CSV and add it by special page on the left bar)
 
 == Changelog ==
+
+= 2.1.3 =
+* Rebuild code to WordPress standards
+* Rebuild CSV import/export function
+* Change in installation file (build new database)
+* Now it's possible to use two times the same quotation
+* Quotation size is now 800 characters
 
 = 2.1.2 =
 * UX improvement in FQ settings area (label are clickable)
