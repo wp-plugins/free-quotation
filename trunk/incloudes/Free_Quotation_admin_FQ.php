@@ -8,15 +8,21 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 $fq_installed_ver = get_option("fq_db_version");
 ?>
 <div class="wrap">
-		 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_add_CSV">Add file CSV</a></h2>
-		
-	<div id="welcome-panel" class="welcome-panel">
-	
-		<h3>Add quotation</h3><br>
 		<form method="post" action="options.php">
 			<?php settings_fields('Free_Quotation_settings_filed'); ?>
 			<?php $options = get_option('Free_Quotation_options'); ?>
 		</form>
+		 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_add_CSV">Add file CSV</a></h2>
+	<?php if(empty($options['option1'])){?>
+		<div id="welcome-panel" class="welcome-panel">
+			<div style="color: red; font-size: 1.5em;">
+				Pleas configurate Free Quotation. You must chose "Type of quotation display:" before you start use this WordPress plugin!
+			</div>
+		</div>
+	<?php	}?>
+	<div id="welcome-panel" class="welcome-panel">
+		
+		<h3>Add quotation</h3><br>
 <?php
 // global $fq_db_version;
 // $fq_installed_ver = get_option("fq_db_version");
