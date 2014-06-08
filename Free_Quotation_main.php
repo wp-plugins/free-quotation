@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 2.1.4
+	Version: 2.2.0
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "2.1.4";
+$Free_Quotation_version = "2.2.0";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -44,6 +44,21 @@ if ( is_admin() )
         add_filter('plugin_action_links', 'FQ_plugin_action_links', 10, 2);
         add_filter('plugin_row_meta', 'FQ_plugin_meta_links', 10, 2);
     }
+	
+/**
+ * Content of Dashboard-Widget
+ */
+function fq_wp_dashboard_info() {
+	$options = get_option('Free_Quotation_options');
+	require(dirname(__FILE__)."/incloudes/Free_Quotation_admin_widget.php");
+}
+
+function free_quotation_dashboard_setup() {
+	wp_add_dashboard_widget( 'fq_wp_dashboard_info', __( 'Free Quotation Info' ), 'fq_wp_dashboard_info' );
+}
+
+add_action('wp_dashboard_setup', 'free_quotation_dashboard_setup');
+	
 }
  
 $FQ_plugin_basename = plugin_basename(__FILE__);
