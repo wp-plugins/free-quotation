@@ -201,17 +201,24 @@ jQuery(document).ready( function($){
 <h2>Backlog</h2>
 	<div id="tabs">
 	  <ul>
-		<li><a href="#tabs-1">ver. 2.1</a></li>
-		<li><a href="#tabs-2">ver. 2.0</a></li>
-		<li><a href="#tabs-3">ver. 1.5</a></li>
-		<li><a href="#tabs-4">ver. 1.4</a></li>
-		<li><a href="#tabs-5">ver. 1.3</a></li>
-		<li><a href="#tabs-6">ver. 1.2</a></li>
-		<li><a href="#tabs-7">ver. 1.1</a></li>
-		<li><a href="#tabs-8">ver. 1.0</a></li>
+		<li><a href="#tabs-1">ver. 2.2</a></li>
+		<li><a href="#tabs-2">ver. 2.1</a></li>
+		<li><a href="#tabs-3">ver. 2.0</a></li>
+		<li><a href="#tabs-4">ver. 1.5</a></li>
+		<li><a href="#tabs-5">ver. 1.4</a></li>
+		<li><a href="#tabs-6">ver. 1.3</a></li>
+		<li><a href="#tabs-7">ver. 1.2</a></li>
+		<li><a href="#tabs-8">ver. 1.1</a></li>
+		<li><a href="#tabs-9">ver. 1.0</a></li>
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			2.2.0
+			<ul>
+				<li>Now you get a dashboard widget to better control your Free Quotation</li>
+			</ul>
+	  </div>
+	  <div id="tabs-2">
 			2.1.0
 			<ul>
 				<li>Add export to CSV file function to backup or edit your quotation collection</li>
@@ -243,7 +250,7 @@ jQuery(document).ready( function($){
 				<li>Information about lack of settings after instalation</li>
 			</ul>
 	  </div>
-	  <div id="tabs-2">
+	  <div id="tabs-3">
 			2.0.0
 			<ul>
 				<li>Add group for quotation</li>
@@ -300,7 +307,7 @@ jQuery(document).ready( function($){
 				<li>Fix problem with quotation mark</li>
 			</ul>
 	  </div>
-	  <div id="tabs-3">
+	  <div id="tabs-4">
 			1.5.0
 			<ul>
 				<li>Now you can display quotation not only in accordance with date but also for special week! You can change this value when you want, because system control both option.  Week number for quotation Free Quotation add automatically for selected date. Week starts in Monday, and in Sunday.</li>
@@ -311,7 +318,7 @@ jQuery(document).ready( function($){
 				<li>Fix database</li>
 			</ul>
 	  </div>
-	  <div id="tabs-4">
+	  <div id="tabs-5">
 			1.4.0
 			<ul>
 				<li>Add possibility to delete more than one quotation per one times</li>
@@ -326,7 +333,7 @@ jQuery(document).ready( function($){
 				<li>Improve in CSS</li>
 			</ul>
 	  </div>
-	  <div id="tabs-5">
+	  <div id="tabs-6">
 			1.3.0
 			<ul>
 				<li>Now is available edition for all of quotes. You can change:<ul>
@@ -348,7 +355,7 @@ jQuery(document).ready( function($){
 				<li>Now it's demand to accept edit data (for safety) </li>
 			</ul>
 	  </div>
-	  <div id="tabs-6">
+	  <div id="tabs-7">
 			1.2.0
 			<ul>
 				<li>Improve navigation (on plugin list)</li>
@@ -364,7 +371,7 @@ jQuery(document).ready( function($){
 				<li>Reorganization of code in few places</li>
 			</ul>
 	  </div>
-	  <div id="tabs-7">		
+	  <div id="tabs-8">		
 			1.1.0
 			<ul>
 				<li>Add new quotation change location (go to Free Quotation)</li>
@@ -384,7 +391,7 @@ jQuery(document).ready( function($){
 				<li>Make plugin lighter</li>
 			</ul>
 	  </div>
-	  <div id="tabs-8">
+	  <div id="tabs-9">
 			1.0.0
 			<ul>
 				<li><b>Initial release</b></li>

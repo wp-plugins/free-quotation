@@ -1,12 +1,31 @@
-<?php
+<?php 
 global $wpdb;
 global $today_date;
 global $today_week_no;
 global $today_week_day;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 global $wikiuotation;
-$fq_group_test = $instance['fq_group'];
-$fq_title_to_display = $instance['title'];
+
+$fqnumbers = $wpdb->get_results("SELECT COUNT(*) FROM $table_name");
+foreach($fqnumbers as $fqdashbordrow);
+foreach($fqdashbordrow as $fqdashbordnumbers);
+
+
+$fqnumbersmore = $wpdb->get_results("SELECT COUNT(*) FROM $table_name WHERE display_date > '".$today_date."'");
+foreach($fqnumbersmore as $fqdashbordrowmore);
+foreach($fqdashbordrowmore as $fqdashbordnumbersmore);
+
+if($fqdashbordnumbersmore==1||$fqdashbordnumbersmore==0){
+$day_sign='day';
+} else {
+$day_sign='days';
+}
+
+echo 'You have <b>'.$fqdashbordnumbers.'</b> quotes in your database<br>';
+echo 'You have quotes for next <b>'.$fqdashbordnumbersmore.'</b> '.$day_sign.'<br>';
+echo '<br>One of your actaully display quotation:<br><br>';
+
+$options = get_option('Free_Quotation_options');
 
 
 if ($options['option1']=='1'||$options['option1']=='2'){
@@ -14,7 +33,7 @@ $Free_Quotation_table =
 	"
 	SELECT * 
 	FROM $table_name 
-	WHERE (display_date='$today_date' AND quote_group='$fq_group_test')
+	WHERE (display_date='$today_date')
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
@@ -24,7 +43,7 @@ $Free_Quotation_table =
 	"
 	SELECT * 
 	FROM $table_name 
-	WHERE (week_no='$today_week_no' AND quote_group='$fq_group_test')
+	WHERE (week_no='$today_week_no')
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
@@ -34,7 +53,7 @@ $Free_Quotation_table =
 	"
 	SELECT * 
 	FROM $table_name 
-	WHERE (week_day='$today_week_day' AND quote_group='$fq_group_test')
+	WHERE (week_day='$today_week_day')
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
@@ -102,73 +121,9 @@ if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=
 	$author =  $options['tekst2'];
 	
 }
-if ($instance['fq_ask_title']==1){
-	if(isset($options['option5'])) {
-		if ($options['option5']==true){
-			echo '<div style="font-size:';
-			if(isset($options['tekst6'])){echo $options['tekst6'];} else {echo '12';};
-			echo 'px; font-family:';
-			if(isset($options['tekst7'])){echo $options['tekst7'];} else {echo 'Arial';};
-			echo '; font-weight:';
-			if(isset($options['option6'])){if ($options['option6']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
-			echo '; font-style:';
-			if(isset($options['option7'])){if ($options['option7']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
-			echo ';">'.$fq_title_to_display.'</div>';
-		}
-	} else {
-		echo '<h3>'.$fq_title_to_display.'</h3>';
-	}
-}
 
 //CHANGE THE NAME OF VARIABLES
 
-if(isset($options['option5'])) {
-	if ($options['option5']==true){
-		echo '<div style="font-size:';
-		if(isset($options['tekst8'])){echo $options['tekst8'];} else {echo '12';};
-		echo 'px; font-family:';
-		if(isset($options['tekst9'])){echo $options['tekst9'];} else {echo 'Arial';};
-		echo '; font-weight:';
-		if(isset($options['option8'])){if ($options['option8']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
-		echo '; font-style:';
-		if(isset($options['option9'])){if ($options['option9']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
-		echo ';">';
-	}
-} else {
-	echo '<div class="Free_Quotation_quotation">';
-}
-if (isset($options['option4'])){
-				if ($options['option4']==null){ 
-				} else {
-					echo $options['tekst3'];
-				}
-			};
-		echo $quotation;
-		if (isset($options['option4'])) {
-			if ($options['option4']==null){
-			} else { 
-				echo $options['tekst4'];
-			}
-		};
-		echo '</div>';
-
-
-if(isset($options['option5'])) {
-	if ($options['option5']==true){
-		echo '<div style="font-size:';
-		if(isset($options['tekst10'])){echo $options['tekst10'];} else {echo '12';};
-		echo 'px; font-family:';
-		if(isset($options['tekst11'])){echo $options['tekst11'];} else {echo 'Arial';};
-		echo '; font-weight:';
-		if(isset($options['option10'])){if ($options['option10']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
-		echo '; font-style:';
-		if(isset($options['option11'])){if ($options['option11']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
-		echo ';">' . $author . '</div>';
-	}
-} else {
-	echo '<div class="Free_Quotation_author">' . $author . '</div>';
-}
-	//<xmp></xmp> OFF the HTML
-
-
+	echo '"'.$quotation.'"';
+	echo '<div style="text-align:right;"><i>'.$author.'</i></div>';
 ?>
