@@ -58,9 +58,18 @@ $Free_Quotation_table =
 	LIMIT 1;
 	";
 $result = mysql_query($Free_Quotation_table);
+} elseif ($options['option1']=='7'){
+$Free_Quotation_table =
+	"
+	SELECT * 
+	FROM $table_name 
+	ORDER BY RAND() 
+	LIMIT 1;
+	";
+$result = mysql_query($Free_Quotation_table);
 }
 	
-if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=='6') {	
+if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=='6' || $options['option1']=='7') {	
 	//Use only Free_Quotation (if doesn't have it - use standard quotation)
 	if ($row = mysql_fetch_array($result)) { 
 		$quotation = $row['quotation'];

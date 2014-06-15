@@ -68,7 +68,8 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							<td>
 								<input id="toqd-1" type="radio" name="Free_Quotation_options[option1]" value="1" <?php checked('1', $options['option1']); ?> /><label for="toqd-1">Use only Free_Quotation - display by day</label></br>
 								<input id="toqd-2" type="radio" name="Free_Quotation_options[option1]" value="5" <?php checked('5', $options['option1']); ?> /><label for="toqd-2">Use only Free_Quotation - display by week number</label></br>
-								<input id="toqd-3" type="radio" name="Free_Quotation_options[option1]" value="6" <?php checked('6', $options['option1']); ?> /><label for="toqd-3">Use only Free_Quotation - random quotation for specific day</label></br>
+								<input id="toqd-3" type="radio" name="Free_Quotation_options[option1]" value="6" <?php checked('6', $options['option1']); ?> /><label for="toqd-3">Use only Free_Quotation - display by weekday</label></br>
+								<input id="toqd-7" type="radio" name="Free_Quotation_options[option1]" value="7" <?php checked('7', $options['option1']); ?> /><label for="toqd-7">Use only Free_Quotation - display random quotes from database</label><br>
 								<input id="toqd-4" type="radio" name="Free_Quotation_options[option1]" value="2" <?php checked('2', $options['option1']); ?> /><label for="toqd-4">Use Wikiquote if you doesn't have FQ for display</label><br>
 								<input id="toqd-5" type="radio" name="Free_Quotation_options[option1]" value="3" <?php checked('3', $options['option1']); ?> /><label for="toqd-5">Use Wikiquote always for quotations displaying</label><br>
 								<input id="toqd-6" type="radio" name="Free_Quotation_options[option1]" value="4" <?php checked('4', $options['option1']); ?> /><label for="toqd-6">Use one standard quotation (always active if Free_Quotation doesn't have quotation for displaying)</label><br>
@@ -213,6 +214,10 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			2.2.1
+			<ul>
+				<li>Add option to randomize quotation</li>
+			</ul>
 			2.2.0
 			<ul>
 				<li>Now you get a dashboard widget to better control your Free Quotation</li>
