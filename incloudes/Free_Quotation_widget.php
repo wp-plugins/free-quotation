@@ -120,6 +120,8 @@ if ($instance['fq_ask_title']==1){
 			if(isset($options['tekst7'])){echo $options['tekst7'];} else {echo 'Arial';};
 			echo '; font-weight:';
 			if(isset($options['option6'])){if ($options['option6']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
+			echo '; text-align:';
+			if(isset($options['headeralign'])){echo $options['headeralign'];} else {echo 'left';};
 			echo '; font-style:';
 			if(isset($options['option7'])){if ($options['option7']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
 			echo ';">'.$fq_title_to_display.'</div>';
@@ -139,6 +141,8 @@ if(isset($options['option5'])) {
 		if(isset($options['tekst9'])){echo $options['tekst9'];} else {echo 'Arial';};
 		echo '; font-weight:';
 		if(isset($options['option8'])){if ($options['option8']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
+		echo '; text-align:';
+		if(isset($options['bodyalign'])){echo $options['bodyalign'];} else {echo 'left';};
 		echo '; font-style:';
 		if(isset($options['option9'])){if ($options['option9']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
 		echo ';">';
@@ -170,6 +174,8 @@ if(isset($options['option5'])) {
 		if(isset($options['tekst11'])){echo $options['tekst11'];} else {echo 'Arial';};
 		echo '; font-weight:';
 		if(isset($options['option10'])){if ($options['option10']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
+		echo '; text-align:';
+		if(isset($options['signaturealign'])){echo $options['signaturealign'];} else {echo 'left';};
 		echo '; font-style:';
 		if(isset($options['option11'])){if ($options['option11']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
 		echo ';">' . $author . '</div>';

@@ -53,13 +53,13 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						<tr style=" <?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
 							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Start character</div></th>
 							<td>
-								<input name="Free_Quotation_options[tekst3]" type="text" id="activator1" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst3'])){echo htmlentities($options['tekst3']);}else{};?>" maxlength="1" size="1"></input>
+								<input name="Free_Quotation_options[tekst3]" type="text" id="activator1" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst3'])){echo htmlentities($options['tekst3']);}else{};?>" maxlength="10" size="10"></input>
 							</td>
 						</tr>	
 						<tr style="<?php if ($options['option4']==null){ echo 'display:none;';} else {}?>">
 							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">End character</div></th>
 							<td>
-								<input name="Free_Quotation_options[tekst4]" type="text" id="activator2" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst3'])){echo htmlentities($options['tekst3']);}else{};?>" maxlength="1" size="1"></input>
+								<input name="Free_Quotation_options[tekst4]" type="text" id="activator2" <?php if (isset($options['option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['tekst4'])){echo htmlentities($options['tekst4']);}else{};?>" maxlength="10" size="10"></input>
 							</td>
 						</tr>
 					<?php ?>
@@ -132,6 +132,12 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
+							<th scope="row">Header align: (left|center|right)</th>
+							<td>
+								<input name="Free_Quotation_options[headeralign]" type="text" id="activator1" value="<?php if(isset($options['headeralign'])){echo htmlentities($options['headeralign']);}else{};?>" maxlength="20" size="20"></input>
+							</td>
+						</tr>
+						<tr>
 							<th scope="row">Body size:</th>
 							<td>
 								<input name="Free_Quotation_options[tekst8]" type="text" id="activator1" value="<?php if(isset($options['tekst8'])){echo htmlentities($options['tekst8']);}else{};?>" maxlength="2" size="2"></input>px
@@ -156,6 +162,12 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
+							<th scope="row">Body align: (left|center|right)</th>
+							<td>
+								<input name="Free_Quotation_options[bodyalign]" type="text" id="activator1" value="<?php if(isset($options['bodyalign'])){echo htmlentities($options['bodyalign']);}else{};?>" maxlength="20" size="20"></input>
+							</td>
+						</tr>
+						<tr>
 							<th scope="row">Signature size:</th>
 							<td>
 								<input name="Free_Quotation_options[tekst10]" type="text" id="activator1" value="<?php if(isset($options['tekst10'])){echo htmlentities($options['tekst10']);}else{};?>" maxlength="2" size="2"></input>px
@@ -177,6 +189,12 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							<th scope="row">Signature italic:</th>
 							<td>
 								<input name="Free_Quotation_options[option11]" type="checkbox" value="1" <?php if(isset($options['option11'])){checked($options['option11'], 1);}?> /><br>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Signature align: (left|center|right)</th>
+							<td>
+								<input name="Free_Quotation_options[signaturealign]" type="text" id="activator1" value="<?php if(isset($options['signaturealign'])){echo htmlentities($options['signaturealign']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
 					</table>
@@ -214,6 +232,11 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			2.2.2
+			<ul>
+				<li>Now you can edit in your CSS text align for everyone part of quotation widget</li>
+				<li>Can use more sign quotation, like: &ldquo; or &rdquo; sign</li>
+			</ul>
 			2.2.1
 			<ul>
 				<li>Add option to randomize quotation</li>
