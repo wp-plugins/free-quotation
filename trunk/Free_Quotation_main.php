@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 2.2.1
+	Version: 2.2.2
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "2.2.1";
+$Free_Quotation_version = "2.2.2";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -168,6 +168,9 @@ if (isset($input['tekst8'])){	$input['tekst8'] =  ($input['tekst8']);}
 if (isset($input['tekst9'])){	$input['tekst9'] =  ($input['tekst9']);}
 if (isset($input['tekst10'])){	$input['tekst10'] =  ($input['tekst10']);}
 if (isset($input['tekst11'])){	$input['tekst11'] =  ($input['tekst11']);}
+if (isset($input['signaturealign'])){	$input['signaturealign'] =  ($input['signaturealign']);}
+if (isset($input['headeralign'])){	$input['headeralign'] =  ($input['headeralign']);}
+if (isset($input['bodyalign'])){	$input['bodyalign'] =  ($input['bodyalign']);}
 	
 	return $input;
 }
