@@ -4,7 +4,7 @@ Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, quotations, quotes, random, random quotes, wikiquote, wiki, quote, quot., citation, cytaty, widget, display,widgets
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,9 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 3. This panel help you add new quotation manually (you can use also CSV and add it by special page on the left bar)
 
 == Changelog ==
+
+= 2.2.3 =
+* Fix bug with random quotation display
 
 = 2.2.2 =
 * New text align option for: title, quotation and signature (left/center/right)
