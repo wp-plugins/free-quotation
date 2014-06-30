@@ -44,6 +44,7 @@ $Free_Quotation_table =
 	"
 	SELECT * 
 	FROM $table_name 
+	WHERE (quote_group='$fq_group_test')
 	ORDER BY RAND() 
 	LIMIT 1;
 	";

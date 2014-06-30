@@ -232,18 +232,22 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
-			2.2.2
+			2.2.0
 			<ul>
-				<li>Now you can edit in your CSS text align for everyone part of quotation widget</li>
-				<li>Can use more sign quotation, like: &ldquo; or &rdquo; sign</li>
+				<li>Now you get a dashboard widget to better control your Free Quotation</li>
 			</ul>
 			2.2.1
 			<ul>
 				<li>Add option to randomize quotation</li>
 			</ul>
-			2.2.0
+			2.2.2
 			<ul>
-				<li>Now you get a dashboard widget to better control your Free Quotation</li>
+				<li>Now you can edit in your CSS text align for everyone part of quotation widget</li>
+				<li>Can use more sign quotation, like: &ldquo; or &rdquo; sign</li>
+			</ul>
+			2.2.3
+			<ul>
+				<li>Fix bug with random quotation display</li>
 			</ul>
 	  </div>
 	  <div id="tabs-2">
