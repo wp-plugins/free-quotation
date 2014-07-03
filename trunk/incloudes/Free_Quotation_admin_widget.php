@@ -27,8 +27,10 @@ echo '<br>One of your actaully display quotation:<br><br>';
 
 $options = get_option('Free_Quotation_options');
 
+if (!isset($options['fq_kk_option1'])){	$options['fq_kk_option1']='1';};
+if (!isset($options['fq_kk_option2'])){	$options['fq_kk_option2']='en';};
 
-if ($options['option1']=='1'||$options['option1']=='2'){
+if ($options['fq_kk_option1']=='1'||$options['fq_kk_option1']=='2'){
 $Free_Quotation_table = 
 	"
 	SELECT * 
@@ -38,7 +40,7 @@ $Free_Quotation_table =
 	LIMIT 1;
 	";
 $result = mysql_query($Free_Quotation_table);
-} elseif ($options['option1']=='5'){
+} elseif ($options['fq_kk_option1']=='5'){
 $Free_Quotation_table = 
 	"
 	SELECT * 
@@ -48,7 +50,7 @@ $Free_Quotation_table =
 	LIMIT 1;
 	";
 $result = mysql_query($Free_Quotation_table);
-} elseif ($options['option1']=='6'){
+} elseif ($options['fq_kk_option1']=='6'){
 $Free_Quotation_table =
 	"
 	SELECT * 
@@ -58,7 +60,7 @@ $Free_Quotation_table =
 	LIMIT 1;
 	";
 $result = mysql_query($Free_Quotation_table);
-} elseif ($options['option1']=='7'){
+} elseif ($options['fq_kk_option1']=='7'){
 $Free_Quotation_table =
 	"
 	SELECT * 
@@ -69,16 +71,16 @@ $Free_Quotation_table =
 $result = mysql_query($Free_Quotation_table);
 }
 	
-if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=='6' || $options['option1']=='7') {	
+if ($options['fq_kk_option1']=='1' || $options['fq_kk_option1']=='5' || $options['fq_kk_option1']=='6' || $options['fq_kk_option1']=='7') {	
 	//Use only Free_Quotation (if doesn't have it - use standard quotation)
 	if ($row = mysql_fetch_array($result)) { 
 		$quotation = $row['quotation'];
 		$author = $row['author'];
 	} else {
-	$quotation = $options['tekst1'];
-	$author =  $options['tekst2'];
+	$quotation = $options['fq_kk_tekst1'];
+	$author =  $options['fq_kk_tekst2'];
 	}
-} elseif ($options['option1']=='2') {
+} elseif ($options['fq_kk_option1']=='2') {
 	//Use wiqiquotes if dosn't have normal quotes
 	if(isset($result)){
 		if ($row = mysql_fetch_array($result)) { 
@@ -86,48 +88,48 @@ if ($options['option1']=='1' || $options['option1']=='5' || $options['option1']=
 			$author = $row['author'];
 		}
 	} else {
-		if ($options['option2']=='en') {
+		if ($options['fq_kk_option2']=='en') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteEN.php");
-		} elseif ($options['option2']=='de') {
+		} elseif ($options['fq_kk_option2']=='de') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteDE.php");
-		} elseif ($options['option2']=='es') {
+		} elseif ($options['fq_kk_option2']=='es') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteES.php");
-		} elseif ($options['option2']=='ru') {
+		} elseif ($options['fq_kk_option2']=='ru') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteRU.php");
-		} elseif ($options['option2']=='pl') {
+		} elseif ($options['fq_kk_option2']=='pl') {
 			require(dirname(__FILE__)."/QuotationSystems/WikicytatyPL.php");
 		}
 	}
 	if (isset($quotation)){}else{
-		if ($options['option2']=='en') {
+		if ($options['fq_kk_option2']=='en') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteEN.php");
-		} elseif ($options['option2']=='de') {
+		} elseif ($options['fq_kk_option2']=='de') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteDE.php");
-		} elseif ($options['option2']=='es') {
+		} elseif ($options['fq_kk_option2']=='es') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteES.php");
-		} elseif ($options['option2']=='ru') {
+		} elseif ($options['fq_kk_option2']=='ru') {
 			require(dirname(__FILE__)."/QuotationSystems/WikiquoteRU.php");
-		} elseif ($options['option2']=='pl') {
+		} elseif ($options['fq_kk_option2']=='pl') {
 			require(dirname(__FILE__)."/QuotationSystems/WikicytatyPL.php");
 		}
 	}
-} elseif ($options['option1']=='3') {	
+} elseif ($options['fq_kk_option1']=='3') {	
 	//Use QikiQuote always
-	if ($options['option2']=='en') {
+	if ($options['fq_kk_option2']=='en') {
 		require(dirname(__FILE__)."/QuotationSystems/WikiquoteEN.php");
-	} elseif ($options['option2']=='de') {
+	} elseif ($options['fq_kk_option2']=='de') {
 		require(dirname(__FILE__)."/QuotationSystems/WikiquoteDE.php");
-	} elseif ($options['option2']=='es') {
+	} elseif ($options['fq_kk_option2']=='es') {
 		require(dirname(__FILE__)."/QuotationSystems/WikiquoteES.php");
-	} elseif ($options['option2']=='ru') {
+	} elseif ($options['fq_kk_option2']=='ru') {
 		require(dirname(__FILE__)."/QuotationSystems/WikiquoteRU.php");
-	} elseif ($options['option2']=='pl') {
+	} elseif ($options['fq_kk_option2']=='pl') {
 		require(dirname(__FILE__)."/QuotationSystems/WikicytatyPL.php");
 	}
 	
-} elseif ($options['option1']=='4') {	
-	$quotation = $options['tekst1'];
-	$author =  $options['tekst2'];
+} elseif ($options['fq_kk_option1']=='4') {	
+	$quotation = $options['fq_kk_tekst1'];
+	$author =  $options['fq_kk_tekst2'];
 	
 }
 

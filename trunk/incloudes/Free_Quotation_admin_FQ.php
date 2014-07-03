@@ -10,10 +10,14 @@ $fq_installed_ver = get_option("fq_db_version");
 <div class="wrap">
 		<form method="post" action="options.php">
 			<?php settings_fields('Free_Quotation_settings_filed'); ?>
-			<?php $options = get_option('Free_Quotation_options'); ?>
+			<?php $options = get_option('Free_Quotation_options'); 
+			
+			if (!isset($options['fq_kk_option1'])){	$options['fq_kk_option1']='1';};
+			if (!isset($options['fq_kk_option2'])){	$options['fq_kk_option2']='en';};
+			?>
 		</form>
 		 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_add_CSV">Add file CSV</a></h2>
-	<?php if(empty($options['option1'])){?>
+	<?php if(empty($options['fq_kk_option1'])){?>
 		<div id="welcome-panel" class="welcome-panel">
 			<div style="color: red; font-size: 1.5em;">
 				Pleas configurate Free Quotation. You must chose "Type of quotation display:" before you start use this WordPress plugin!
@@ -92,7 +96,7 @@ $fq_installed_ver = get_option("fq_db_version");
 				</td>
 				<td>    
 				<input type="text" id="display_date" name="display_date" size="10" value="<?php if (isset($editdisplay_data)){echo $editdisplay_data;}; ?>"  
-				<?php if (isset($options['option3'])) {} else {echo 'readonly';}?> required>
+				<?php if (isset($options['fq_kk_option3'])) {} else {echo 'readonly';}?> required>
 				<div style="margin-left:10px;">(rrrr-mm-dd)</div>
 				</td></th>
 				</tbody>
@@ -178,10 +182,10 @@ function toggle(source) {
 					//nagłówek
 				echo '<thead style="cursor:pointer"><tr><th style="width:20px;">
 				<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete" style="margin-bottom:2px;"><br/><input type="checkbox" onClick="toggle(this)"  style="margin-top:2px;"/> All</th><th style="width:30px;"> ID </th><th> Quotation </th><th  style="width:170px;"> Author </th>';
-				if ($options['option1']=='5' || $options['option1']=='6'){
-				if ($options['option1']=='5') {
+				if ($options['fq_kk_option1']=='5' || $options['fq_kk_option1']=='6'){
+				if ($options['fq_kk_option1']=='5') {
 				echo '<th style="width:50px;"> Week no. </th>';}
-				if ($options['option1']=='6') {
+				if ($options['fq_kk_option1']=='6') {
 				echo '<th style="width:70px;"> Week day </th>';}}
 				echo '<th style="width:100px;"> Display Date </th><th style="width:90px;"> Group </th><th style="width:40px;"> Edit </th><th style="width:40px;"> Delete </th></tr></thead><tbody>';
 				
@@ -192,10 +196,10 @@ function toggle(source) {
 					echo '<tr><td>';?>
 							<input name="checkbox[]" type="checkbox" id="checkbox[]"  value="<?php print $row->id; ?>">
 			<?php	echo '</td><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td>';
-			if ($options['option1']=='5' || $options['option1']=='6'){
-			if ($options['option1']=='5'){
+			if ($options['fq_kk_option1']=='5' || $options['fq_kk_option1']=='6'){
+			if ($options['fq_kk_option1']=='5'){
 			echo '<td>'.$row->week_no.'</td>';}
-			if ($options['option1']=='6'){
+			if ($options['fq_kk_option1']=='6'){
 			echo '<td>';
 			$week_day_text_var = $row->week_day;
 			if ($week_day_text_var=='1'){
@@ -231,10 +235,10 @@ function toggle(source) {
 				
 				echo '</tbody><tfoot style="cursor:pointer"><tr><th>
 				<input class="button button-primary"  name="gdelete" type="submit" id="gdelete" value="Delete"></th><th> ID </td><th> Quotation </td><th> Author </td>';
-				if ($options['option1']=='5' || $options['option1']=='6'){
-				if ($options['option1']=='5'){
+				if ($options['fq_kk_option1']=='5' || $options['fq_kk_option1']=='6'){
+				if ($options['fq_kk_option1']=='5'){
 				echo '<th> Week no. </th>';}
-				if ($options['option1']=='6') {
+				if ($options['fq_kk_option1']=='6') {
 				echo '<th> Week day </th>';}}
 				echo '<th> Display Date </th><th> Group </th><th> Edit </th><th> Delete </td></tr></tfoot>';
 				?>

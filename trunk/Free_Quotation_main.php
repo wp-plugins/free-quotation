@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 2.2.3
+	Version: 2.3.0
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "2.2.3";
+$Free_Quotation_version = "2.3.0";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -146,31 +146,31 @@ function fq_admin_dev() {
 
 // Sanitize and validate input. Accepts an array, return a sanitized array.
 function Free_Quotation_validate($input) {
-if (isset($input['option1'])){	$input['option1'] = ( $input['option1']);}
-if (isset($input['option2'])){	$input['option2'] = ( $input['option2']);}
-if (isset($input['option3'])){	$input['option3'] = ( $input['option3'] == 1 ? 1 : 0 );}
-if (isset($input['option4'])){	$input['option4'] = ( $input['option4'] == 1 ? 1 : 0 );}
-if (isset($input['option5'])){	$input['option5'] = ( $input['option5']);}
-if (isset($input['option6'])){	$input['option6'] = ( $input['option6']);}
-if (isset($input['option7'])){	$input['option7'] = ( $input['option7']);}
-if (isset($input['option8'])){	$input['option8'] = ( $input['option8']);}
-if (isset($input['option9'])){	$input['option9'] = ( $input['option9']);}
-if (isset($input['option10'])){	$input['option10'] = ( $input['option10']);}
-if (isset($input['option11'])){	$input['option11'] = ( $input['option11']);}
-if (isset($input['tekst1'])){	$input['tekst1'] =  ($input['tekst1']);}
-if (isset($input['tekst2'])){	$input['tekst2'] =  ($input['tekst2']);}
-if (isset($input['tekst3'])){	$input['tekst3'] =  ($input['tekst3']);}
-if (isset($input['tekst4'])){	$input['tekst4'] =  ($input['tekst4']);}
-if (isset($input['tekst5'])){	$input['tekst5'] =  ($input['tekst5']);}
-if (isset($input['tekst6'])){	$input['tekst6'] =  ($input['tekst6']);}
-if (isset($input['tekst7'])){	$input['tekst7'] =  ($input['tekst7']);}
-if (isset($input['tekst8'])){	$input['tekst8'] =  ($input['tekst8']);}
-if (isset($input['tekst9'])){	$input['tekst9'] =  ($input['tekst9']);}
-if (isset($input['tekst10'])){	$input['tekst10'] =  ($input['tekst10']);}
-if (isset($input['tekst11'])){	$input['tekst11'] =  ($input['tekst11']);}
-if (isset($input['signaturealign'])){	$input['signaturealign'] =  ($input['signaturealign']);}
-if (isset($input['headeralign'])){	$input['headeralign'] =  ($input['headeralign']);}
-if (isset($input['bodyalign'])){	$input['bodyalign'] =  ($input['bodyalign']);}
+if (isset($input['fq_kk_option1'])){	$input['fq_kk_option1'] = ( $input['fq_kk_option1']);}
+if (isset($input['fq_kk_option2'])){	$input['fq_kk_option2'] = ( $input['fq_kk_option2']);}
+if (isset($input['fq_kk_option3'])){	$input['fq_kk_option3'] = ( $input['fq_kk_option3'] == 1 ? 1 : 0 );}
+if (isset($input['fq_kk_option4'])){	$input['fq_kk_option4'] = ( $input['fq_kk_option4'] == 1 ? 1 : 0 );}
+if (isset($input['fq_kk_option5'])){	$input['fq_kk_option5'] = ( $input['fq_kk_option5']);}
+if (isset($input['fq_kk_option6'])){	$input['fq_kk_option6'] = ( $input['fq_kk_option6']);}
+if (isset($input['fq_kk_option7'])){	$input['fq_kk_option7'] = ( $input['fq_kk_option7']);}
+if (isset($input['fq_kk_option8'])){	$input['fq_kk_option8'] = ( $input['fq_kk_option8']);}
+if (isset($input['fq_kk_option9'])){	$input['fq_kk_option9'] = ( $input['fq_kk_option9']);}
+if (isset($input['fq_kk_option10'])){	$input['fq_kk_option10'] = ( $input['fq_kk_option10']);}
+if (isset($input['fq_kk_option11'])){	$input['fq_kk_option11'] = ( $input['fq_kk_option11']);}
+if (isset($input['fq_kk_tekst1'])){	$input['fq_kk_tekst1'] =  ($input['fq_kk_tekst1']);}
+if (isset($input['fq_kk_tekst2'])){	$input['fq_kk_tekst2'] =  ($input['fq_kk_tekst2']);}
+if (isset($input['fq_kk_tekst3'])){	$input['fq_kk_tekst3'] =  ($input['fq_kk_tekst3']);}
+if (isset($input['fq_kk_tekst4'])){	$input['fq_kk_tekst4'] =  ($input['fq_kk_tekst4']);}
+if (isset($input['fq_kk_tekst5'])){	$input['fq_kk_tekst5'] =  ($input['fq_kk_tekst5']);}
+if (isset($input['fq_kk_tekst6'])){	$input['fq_kk_tekst6'] =  ($input['fq_kk_tekst6']);}
+if (isset($input['fq_kk_tekst7'])){	$input['fq_kk_tekst7'] =  ($input['fq_kk_tekst7']);}
+if (isset($input['fq_kk_tekst8'])){	$input['fq_kk_tekst8'] =  ($input['fq_kk_tekst8']);}
+if (isset($input['fq_kk_tekst9'])){	$input['fq_kk_tekst9'] =  ($input['fq_kk_tekst9']);}
+if (isset($input['fq_kk_tekst10'])){	$input['fq_kk_tekst10'] =  ($input['fq_kk_tekst10']);}
+if (isset($input['fq_kk_tekst11'])){	$input['fq_kk_tekst11'] =  ($input['fq_kk_tekst11']);}
+if (isset($input['fq_kk_info_signaturealign'])){	$input['fq_kk_info_signaturealign'] =  ($input['fq_kk_info_signaturealign']);}
+if (isset($input['fq_kk_info_headeralign'])){	$input['fq_kk_info_headeralign'] =  ($input['fq_kk_info_headeralign']);}
+if (isset($input['fq_kk_info_bodyalign'])){	$input['fq_kk_info_bodyalign'] =  ($input['fq_kk_info_bodyalign']);}
 	
 	return $input;
 }
