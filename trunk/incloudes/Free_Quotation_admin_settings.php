@@ -243,6 +243,10 @@ jQuery(document).ready( function($){
 			<ul>
 				<li>Fix internal problem (crash with Official StatCounter Plugin) - all settings will be restore to default </li>
 			</ul>
+			2.3.1
+			<ul>
+				<li>Testet up to Wordpress 4.0</li>
+			</ul>
 	  </div>
 	  <div id="tabs-2">
 			2.2.0
