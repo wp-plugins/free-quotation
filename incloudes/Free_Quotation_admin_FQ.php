@@ -195,7 +195,7 @@ function toggle(source) {
 				foreach($fqshowtable as $row){
 					echo '<tr><td>';?>
 							<input name="checkbox[]" type="checkbox" id="checkbox[]"  value="<?php print $row->id; ?>">
-			<?php	echo '</td><td>' . $row->id.'</td><td>'.$row->quotation.'</td><td>'.$row->author.'</td>';
+			<?php	echo '</td><td>' . $row->id.'</td><td>'. stripslashes( $row->quotation ) . '</td><td>' . stripslashes( $row->author ) .'</td>';
 			if ($options['fq_kk_option1']=='5' || $options['fq_kk_option1']=='6'){
 			if ($options['fq_kk_option1']=='5'){
 			echo '<td>'.$row->week_no.'</td>';}

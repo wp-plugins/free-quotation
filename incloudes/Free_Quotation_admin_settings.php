@@ -247,6 +247,11 @@ jQuery(document).ready( function($){
 			<ul>
 				<li>Testet up to Wordpress 4.0</li>
 			</ul>
+			2.3.2
+			<ul>
+				<li>Compatible with php 5.5</li>
+				<li>Fix - problem with stripslashes();</li>
+			</ul>
 	  </div>
 	  <div id="tabs-2">
 			2.2.0

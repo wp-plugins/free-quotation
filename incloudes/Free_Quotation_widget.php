@@ -1,5 +1,7 @@
 <?php
 global $wpdb;
+$Free_Quotation_con=mysqli_connect($wpdb->dbhost,$wpdb->dbuser,$wpdb->dbpassword,$wpdb->dbname);
+mysqli_set_charset ( $Free_Quotation_con, "utf8" );
 global $today_date;
 global $today_week_no;
 global $today_week_day;
@@ -11,6 +13,8 @@ $fq_title_to_display = $instance['title'];
 if (!isset($options['fq_kk_option1'])){	$options['fq_kk_option1']='1';};
 if (!isset($options['fq_kk_option2'])){	$options['fq_kk_option2']='en';};
 
+// print_r($wpdb);
+
 if ($options['fq_kk_option1']=='1'||$options['fq_kk_option1']=='2'){
 $Free_Quotation_table = 
 	"
@@ -20,7 +24,7 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-$result = mysql_query($Free_Quotation_table);
+$result = mysqli_query($wpdb,$Free_Quotation_table);
 } elseif ($options['fq_kk_option1']=='5'){
 $Free_Quotation_table = 
 	"
@@ -30,7 +34,7 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-$result = mysql_query($Free_Quotation_table);
+$result = mysqli_query($wpdb,$Free_Quotation_table);
 } elseif ($options['fq_kk_option1']=='6'){
 $Free_Quotation_table =
 	"
@@ -40,7 +44,8 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-$result = mysql_query($Free_Quotation_table);
+// $result = mysqli_query($wpdb,$Free_Quotation_table);
+$result = mysqli_query($Free_Quotation_con, $Free_Quotation_table);
 } elseif ($options['fq_kk_option1']=='7'){
 $Free_Quotation_table =
 	"
@@ -50,12 +55,12 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-$result = mysql_query($Free_Quotation_table);
+$result = mysqli_query($wpdb,$Free_Quotation_table);
 }
 	
 if ($options['fq_kk_option1']=='1' || $options['fq_kk_option1']=='5' || $options['fq_kk_option1']=='6' || $options['fq_kk_option1']=='7') {	
 	//Use only Free_Quotation (if doesn't have it - use standard quotation)
-	if ($row = mysql_fetch_array($result)) { 
+	if ($row = mysqli_fetch_array($result)) { 
 		$quotation = $row['quotation'];
 		$author = $row['author'];
 	} else {
@@ -65,7 +70,7 @@ if ($options['fq_kk_option1']=='1' || $options['fq_kk_option1']=='5' || $options
 } elseif ($options['fq_kk_option1']=='2') {
 	//Use wiqiquotes if dosn't have normal quotes
 	if(isset($result)){
-		if ($row = mysql_fetch_array($result)) { 
+		if ($row = mysqli_fetch_array($result)) { 
 			$quotation = $row['quotation'];
 			$author = $row['author'];
 		}
@@ -159,7 +164,7 @@ if (isset($options['fq_kk_option4'])){
 					echo $options['fq_kk_tekst3'];
 				}
 			};
-		echo $quotation;
+		echo stripslashes( $quotation );
 		if (isset($options['fq_kk_option4'])) {
 			if ($options['fq_kk_option4']==null){
 			} else { 
@@ -184,7 +189,7 @@ if(isset($options['fq_kk_option5'])) {
 		echo ';">' . $author . '</div>';
 	}
 } else {
-	echo '<div class="Free_Quotation_author">' . $author . '</div>';
+	echo '<div class="Free_Quotation_author">' . stripslashes( $author ) . '</div>';
 }
 	//<xmp></xmp> OFF the HTML
 
