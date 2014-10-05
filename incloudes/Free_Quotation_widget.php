@@ -24,7 +24,7 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-$result = mysqli_query($wpdb,$Free_Quotation_table);
+$result = mysqli_query($Free_Quotation_con,$Free_Quotation_table);
 } elseif ($options['fq_kk_option1']=='5'){
 $Free_Quotation_table = 
 	"
@@ -34,7 +34,7 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-$result = mysqli_query($wpdb,$Free_Quotation_table);
+$result = mysqli_query($Free_Quotation_con,$Free_Quotation_table);
 } elseif ($options['fq_kk_option1']=='6'){
 $Free_Quotation_table =
 	"
@@ -44,7 +44,6 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-// $result = mysqli_query($wpdb,$Free_Quotation_table);
 $result = mysqli_query($Free_Quotation_con, $Free_Quotation_table);
 } elseif ($options['fq_kk_option1']=='7'){
 $Free_Quotation_table =
@@ -55,7 +54,7 @@ $Free_Quotation_table =
 	ORDER BY RAND() 
 	LIMIT 1;
 	";
-$result = mysqli_query($wpdb,$Free_Quotation_table);
+$result = mysqli_query($Free_Quotation_con,$Free_Quotation_table);
 }
 	
 if ($options['fq_kk_option1']=='1' || $options['fq_kk_option1']=='5' || $options['fq_kk_option1']=='6' || $options['fq_kk_option1']=='7') {	

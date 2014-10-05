@@ -252,6 +252,10 @@ jQuery(document).ready( function($){
 				<li>Compatible with php 5.5</li>
 				<li>Fix - problem with stripslashes();</li>
 			</ul>
+			2.3.3
+			<ul>
+				<li>Fix a bug</li>
+			</ul>
 	  </div>
 	  <div id="tabs-2">
 			2.2.0
