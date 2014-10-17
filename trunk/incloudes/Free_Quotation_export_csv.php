@@ -9,7 +9,18 @@ if(isset($_POST['submit'])) {
 	$path_url = $upload_dir['url'].$file_name;
 	$fp = fopen($path, 'w');
 		foreach($fqexport as $row){
-			$zmienna = '"'.$row->quotation.'";"'.$row->author.'";"'.$row->display_date.'";"'.$row->adding_date.'";"'.$row->week_no.'";"'.$row->week_day.'";"'.$row->quote_group.'";'. PHP_EOL;
+			
+			$tag_line='';
+			$fqtags = $wpdb->get_results("SELECT * FROM $table_name_tags WHERE id = '$row->id'", OBJECT_K);
+			foreach($fqtags as $tag_row){
+				if ($tag_line==''){
+					$tag_line = $tag_row->tag;
+				} else {
+					$tag_line = $tag_line . ',' . $tag_row->tag;
+				}
+			}
+			
+			$zmienna = '"'.$row->quotation.'";"'.$row->author.'";"'.$row->display_date.'";"'.$row->adding_date.'";"'.$row->week_no.'";"'.$row->week_day.'";"'.$row->quote_group.'";"'.$row->birth_year.'";"'.$row->death_year.'";"'.$row->job_position.'";"'.$tag_line.'";'. PHP_EOL;
 			fwrite($fp, $zmienna);
 			unset($zmienna);
 		}

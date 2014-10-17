@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 2.3.3
+	Version: 3.0.0
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "2.3.3";
+$Free_Quotation_version = "3.0.0";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -20,12 +20,27 @@ $today_week_day = date('N');
 global $wikiquotation;
 global $table_name;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
-
+$table_name_tags = $wpdb->prefix . 'free_quotation_tags';
+global $fq_installed_ver;
+$fq_installed_ver = get_option("fq_db_version");
+global $fq_db_version;
+$fq_db_version = "1.11";
+				
 register_activation_hook( __FILE__, 'Free_Quotation_DB_install' );
-
 function Free_Quotation_DB_install() {
 	require(dirname(__FILE__)."/incloudes/Free_Quotation_instal.php");
 }
+
+function Free_Quotation_update_db_check() {
+	global $fq_installed_ver;
+	global $fq_db_version;
+	
+    if ($fq_installed_ver != $fq_db_version) {
+		require(dirname(__FILE__)."/incloudes/Free_Quotation_update.php");
+    }
+}
+add_action( 'plugins_loaded', 'Free_Quotation_update_db_check' );
+
 
 add_action('admin_init', 'Free_Quotation_settings_init' );
 add_action('admin_menu', 'Free_Quotation_menu_page');
@@ -196,6 +211,13 @@ class Free_Quotation_widget extends WP_Widget {
 	
 	public function form( $instance ) {
 	
+if(isset($instance['id_rand'])){
+	$id_rand = esc_attr($instance['id_rand']);
+} 
+else { 
+	$id_rand= rand();
+};	
+
 if(isset($instance['fq_ask_title'])){
 	$fq_ask_title = esc_attr($instance['fq_ask_title']);
 } 
@@ -203,16 +225,47 @@ else {
 	$fq_ask_title=0;
 };
 
+if(isset($instance['fq_display_date'])){
+	$fq_display_date = esc_attr($instance['fq_display_date']);
+} 
+else { 
+	$fq_display_date=0;
+};
+
+if(isset($instance['fq_display_author'])){
+	$fq_display_author = esc_attr($instance['fq_display_author']);
+} 
+else { 
+	$fq_display_author=1;
+};
+
+if(isset($instance['fq_display_note'])){
+	$fq_display_note = esc_attr($instance['fq_display_note']);
+} 
+else { 
+	$fq_display_note=0;
+};
+
 if(isset($instance['title'])){
 	if ($instance['title'] == ""){
 		$fq_title = 'Quote for you';
-	}
-	else {
+	} else {
 		$fq_title = esc_attr($instance['title']);
 	}
 } 
 else { 
 	$fq_title = 'Quote for you';
+}
+
+if(isset($instance['fq_group_or_tags'])){
+	if ($instance['fq_group_or_tags'] == ""){
+		$fq_g_o_t = 0;
+	} else {
+		$fq_g_o_t = $instance['fq_group_or_tags'];
+	}
+} 
+else { 
+	$fq_g_o_t = 0;
 }
 
 if(isset($instance['fq_group'])){
@@ -227,21 +280,83 @@ else {
 	$fq_disp_group = 'main group';
 }
 
+if(isset($instance['fq_tags'])){
+	if ($instance['fq_tags'] == ""){
+		$fq_tags = '';
+	}
+	else {
+		$fq_tags = esc_attr($instance['fq_tags']);
+	}
+} 
+else { 
+	$fq_tags = '';
+}
+
+if(isset($instance['fq_display_type'])){
+	if ($instance['fq_display_type'] == ""){
+		$fq_display_type = '';
+	}
+	else {
+		$fq_display_type = esc_attr($instance['fq_display_type']);
+	}
+} 
+else { 
+	$fq_display_type = '1';
+}
+
 	global $table_name;
 	global $wpdb;
 	$fqgroup = $wpdb->get_results("SELECT DISTINCT quote_group FROM $table_name");
 		?>
+		<script>
+		function checkbox_check(val, rand, fqGroup, fqTags){
+			if(val===0){
+				document.getElementById(fqGroup + rand).disabled = false;
+				document.getElementById(fqTags + rand).disabled = true;
+			} else {
+				document.getElementById(fqGroup + rand).disabled = true;
+				document.getElementById(fqTags + rand).disabled = false;
+			}
+		}
+		</script>
 		<p>
-		<label>Display title on Widget?</label>
-		<input id="<?php echo $this->get_field_id('fq_ask_title'); ?>" name="<?php echo $this->get_field_name('fq_ask_title'); ?>" type="checkbox" value="1" <?php checked( '1', $fq_ask_title ); ?>/>
+		<input type="hidden" name="<?php echo $this->get_field_name('id_rand'); ?>" value="<?php echo $id_rand; ?>">
+		<input id="<?php echo $this->get_field_id('fq_ask_title'); ?>" name="<?php echo $this->get_field_name('fq_ask_title'); ?>" type="checkbox" value="1" <?php checked( '1', $fq_ask_title ); ?>/><label>Display Widget title</label>
+		<br>
+		<br>
+		<input type="hidden" name="<?php echo $this->get_field_name('fq_display_author'); ?>" value="<?php echo $id_rand; ?>">
+		<input id="<?php echo $this->get_field_id('fq_display_author'); ?>" name="<?php echo $this->get_field_name('fq_display_author'); ?>" type="checkbox" value="1" <?php checked( '1', $fq_display_author ); ?>/><label>Display author</label>
+		<br>
+		<br>
+		<input type="hidden" name="<?php echo $this->get_field_name('fq_display_date'); ?>" value="<?php echo $id_rand; ?>">
+		<input id="<?php echo $this->get_field_id('fq_display_date'); ?>" name="<?php echo $this->get_field_name('fq_display_date'); ?>" type="checkbox" value="1" <?php checked( '1', $fq_display_date ); ?>/><label>Display birth-death date (if define)</label>
+		<br>
+		<br>
+		<input type="hidden" name="<?php echo $this->get_field_name('fq_display_note'); ?>" value="<?php echo $id_rand; ?>">
+		<input id="<?php echo $this->get_field_id('fq_display_note'); ?>" name="<?php echo $this->get_field_name('fq_display_note'); ?>" type="checkbox" value="1" <?php checked( '1', $fq_display_note ); ?>/><label>Display additional notes (if define)</label>
+		<br>
 		<br>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 		<br>
 		<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $fq_title ); ?>">
 		<br>
+		<br>
+		<input id="toqd-1" type="radio" name="<?php echo $this->get_field_name( 'fq_display_type' ); ?>" value="1" <?php checked('1', $fq_display_type); ?> /><label for="toqd-1">Use only FQ - display by quotation display day</label></br>
+		<input id="toqd-2" type="radio" name="<?php echo $this->get_field_name( 'fq_display_type' ); ?>" value="5" <?php checked('5', $fq_display_type); ?> /><label for="toqd-2">Use only FQ - display by quotation week number</label></br>
+		<input id="toqd-3" type="radio" name="<?php echo $this->get_field_name( 'fq_display_type' ); ?>" value="6" <?php checked('6', $fq_display_type); ?> /><label for="toqd-3">Use only FQ - display by quotation weekday</label></br>
+		<input id="toqd-7" type="radio" name="<?php echo $this->get_field_name( 'fq_display_type' ); ?>" value="7" <?php checked('7', $fq_display_type); ?> /><label for="toqd-7">Use only FQ - display random quotes from database</label><br>
+		<input id="toqd-4" type="radio" name="<?php echo $this->get_field_name( 'fq_display_type' ); ?>" value="2" <?php checked('2', $fq_display_type); ?> /><label for="toqd-4">Use Wikiquote if you doesn't have quotation display daily (instead standard quot)</label><br>
+		<input id="toqd-5" type="radio" name="<?php echo $this->get_field_name( 'fq_display_type' ); ?>" value="3" <?php checked('3', $fq_display_type); ?> /><label for="toqd-5">Use Wikiquote always for quotations displaying</label><br>
+		<input id="toqd-6" type="radio" name="<?php echo $this->get_field_name( 'fq_display_type' ); ?>" value="4" <?php checked('4', $fq_display_type); ?> /><label for="toqd-6">Use one standard quotation</label><br><br>
+		<label for="<?php echo $this->get_field_id( 'fq_group_or_tags' ); ?>"><?php _e( 'Group or Tags' ); ?></label>
+		<br>
+		<input type="radio" name="<?php echo $this->get_field_name( 'fq_group_or_tags' ); ?>" value="0" onchange="checkbox_check(0, <?php echo $id_rand; ?>, '<?php echo $this->get_field_id( 'fq_group' ); ?>', '<?php echo $this->get_field_id( 'fq_tags' ); ?>')" <?php if($fq_g_o_t==0){echo 'checked';} ?>>Group<br>
+		<input type="radio" name="<?php echo $this->get_field_name( 'fq_group_or_tags' ); ?>" value="1" onchange="checkbox_check(1, <?php echo $id_rand; ?>, '<?php echo $this->get_field_id( 'fq_group' ); ?>', '<?php echo $this->get_field_id( 'fq_tags' ); ?>')" <?php if($fq_g_o_t==1){echo 'checked';} ?>>Tags (the best work with: "Use only FQ - display random quotes from database")
+		<br>
+		<br>
 		<label for="<?php echo $this->get_field_id( 'fq_group' ); ?>"><?php _e( 'Group:' ); ?></label>
 		<br>
-		<select name="<?php echo $this->get_field_name( 'fq_group' ); ?>">
+		<select name="<?php echo $this->get_field_name( 'fq_group' ); ?>" id="<?php echo $this->get_field_id( 'fq_group' ).$id_rand; ?>" <?php if($fq_g_o_t==1){echo 'disabled';} ?>>
 		<?php
 			foreach($fqgroup as $gropu_name) {
 				$group_value = $gropu_name->quote_group;
@@ -252,7 +367,9 @@ else {
 				}
 			} 
 		?>
-		</select>
+		</select><br><br>
+		<label for="<?php echo $this->get_field_id( 'fq_tags' ); ?>"><?php _e( 'Tags (separate by coma ,' ); ?></label><br>
+		<input type="text" name="<?php echo $this->get_field_name( 'fq_tags' ); ?>"  id="<?php echo $this->get_field_id( 'fq_tags' ).$id_rand; ?>" value="<?php echo esc_attr( $fq_tags ); ?>"<?php if($fq_g_o_t==0){echo 'disabled';} ?>>
 		</p>
 
 
@@ -263,9 +380,17 @@ else {
 	
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
+		
+		$instance['id_rand'] =  strip_tags( $new_instance['id_rand'] ); 
 		$instance['title'] =  strip_tags( $new_instance['title'] ); 
 		$instance['fq_group'] =  strip_tags( $new_instance['fq_group'] ); 
 		$instance['fq_ask_title'] = strip_tags($new_instance['fq_ask_title']);
+		$instance['fq_group_or_tags'] = strip_tags($new_instance['fq_group_or_tags']);
+		$instance['fq_tags'] = strip_tags($new_instance['fq_tags']);
+		$instance['fq_display_type'] = strip_tags($new_instance['fq_display_type']);
+		$instance['fq_display_date'] = strip_tags($new_instance['fq_display_date']);
+		$instance['fq_display_note'] = strip_tags($new_instance['fq_display_note']);
+		$instance['fq_display_author'] = strip_tags($new_instance['fq_display_author']);
 
 
 		return $instance;

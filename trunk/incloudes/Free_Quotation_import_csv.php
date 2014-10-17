@@ -10,7 +10,21 @@
 			do {
 				if (isset($data)){
 					if ($data[0]) {
-						$fqinsert = $wpdb->insert( $table_name, array ('quotation' => addslashes($data[0]), 'author' => addslashes($data[1]),  'display_date' => addslashes($data[2]), 'adding_date' =>addslashes($today_date), 'week_no' => addslashes($data[4]), 'week_day' => addslashes($data[5]), 'quote_group' =>addslashes($data[6])), array ('%s', '%s', '%s', '%s', '%s', '%s', '%s'));       
+						$fqinsert = $wpdb->insert( $table_name, array ('quotation' => addslashes($data[0]), 'author' => addslashes($data[1]),  'display_date' => addslashes($data[2]), 'adding_date' =>addslashes($today_date), 'week_no' => addslashes($data[4]), 'week_day' => addslashes($data[5]), 'quote_group' =>addslashes($data[6]), 'birth_year' =>addslashes($data[7]), 'death_year' =>addslashes($data[8]), 'job_position' =>addslashes($data[9])), array ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'));  
+						
+						$inserted_id = mysql_insert_id();
+						
+						$tag_test_res = trim(addslashes($data[10]));
+						$tag_test_res = str_replace(', ',',',$tag_test_res);
+						$tag_test_res = str_replace(' ,',',',$tag_test_res);
+						$tag_array = explode(",", $tag_test_res);
+						$tag_size = count($tag_array);
+
+						for( $i=0 ; $i<$tag_size ; $i++){
+							if($tag_array[$i]!=''){
+								$fq_quote_insert = $wpdb->insert( $table_name_tags, array( 'id' => $inserted_id, 'tag' =>$tag_array[$i]), array('%d', '%s') );
+							}
+						}						
 					}
 				}
 			$datasuccess = "Your file has been successfully imported.";
