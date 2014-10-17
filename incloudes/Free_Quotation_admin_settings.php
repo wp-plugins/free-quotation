@@ -4,6 +4,7 @@ global $wpdb;
 global $today_date;
 global $today_week_no;
 $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
+    $table_name_tags = $wpdb->prefix . 'free_quotation_tags';
 ?>
 <div class="wrap">	
 	 <h2><div class="Free_Quotation_header"></div>Free Quotation <?php echo $Free_Quotation_version; ?><a class="add-new-h2" href="admin.php?page=fq_menu_page">Free Quotation list</a></h2></h2>
@@ -69,7 +70,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 					<?php ?>
-						<tr>
+	<!--					<tr>
 							<th scope="row">Type of quotation display:</th>
 							<td>
 								<input id="toqd-1" type="radio" name="Free_Quotation_options[fq_kk_option1]" value="1" <?php checked('1', $options['fq_kk_option1']); ?> /><label for="toqd-1">Use only Free_Quotation - display by day</label></br>
@@ -81,6 +82,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 								<input id="toqd-6" type="radio" name="Free_Quotation_options[fq_kk_option1]" value="4" <?php checked('4', $options['fq_kk_option1']); ?> /><label for="toqd-6">Use one standard quotation (always active if Free_Quotation doesn't have quotation for displaying)</label><br>
 							</td>
 						</tr>
+	-->
 						<tr>
 							<th scope="row">Choose Wikiquote system:</th>
 							<td><select name="Free_Quotation_options[fq_kk_option2]">
@@ -140,7 +142,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						<tr>
 							<th scope="row">Header align: (left|center|right)</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_headeralign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_headeralign'])){echo htmlentities($options['fq_kk_info_headeralign']);}else{};?>" maxlength="20" size="20"></input>
+								<input name="Free_Quotation_options[fq_kk_info_headeralign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_headeralign'])){echo htmlentities($options['fq_kk_info_headeralign']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
 						<tr>
@@ -170,7 +172,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						<tr>
 							<th scope="row">Body align: (left|center|right)</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_bodyalign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_bodyalign'])){echo htmlentities($options['fq_kk_info_bodyalign']);}else{};?>" maxlength="20" size="20"></input>
+								<input name="Free_Quotation_options[fq_kk_info_bodyalign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_bodyalign'])){echo htmlentities($options['fq_kk_info_bodyalign']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
 						<tr>
@@ -200,7 +202,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						<tr>
 							<th scope="row">Signature align: (left|center|right)</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_signaturealign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_signaturealign'])){echo htmlentities($options['fq_kk_info_signaturealign']);}else{};?>" maxlength="20" size="20"></input>
+								<input name="Free_Quotation_options[fq_kk_info_signaturealign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_signaturealign'])){echo htmlentities($options['fq_kk_info_signaturealign']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
 					</table>
@@ -226,19 +228,31 @@ jQuery(document).ready( function($){
 <h2>Backlog</h2>
 	<div id="tabs">
 	  <ul>
-		<li><a href="#tabs-1">ver. 2.3</a></li>
-		<li><a href="#tabs-2">ver. 2.2</a></li>
-		<li><a href="#tabs-3">ver. 2.1</a></li>
-		<li><a href="#tabs-4">ver. 2.0</a></li>
-		<li><a href="#tabs-5">ver. 1.5</a></li>
-		<li><a href="#tabs-6">ver. 1.4</a></li>
-		<li><a href="#tabs-7">ver. 1.3</a></li>
-		<li><a href="#tabs-8">ver. 1.2</a></li>
-		<li><a href="#tabs-9">ver. 1.1</a></li>
-		<li><a href="#tabs-10">ver. 1.0</a></li>
+		<li><a href="#tabs-1">ver. 3.0</a></li>
+		<li><a href="#tabs-2">ver. 2.3</a></li>
+		<li><a href="#tabs-3">ver. 2.2</a></li>
+		<li><a href="#tabs-4">ver. 2.1</a></li>
+		<li><a href="#tabs-5">ver. 2.0</a></li>
+		<li><a href="#tabs-6">ver. 1.5</a></li>
+		<li><a href="#tabs-7">ver. 1.4</a></li>
+		<li><a href="#tabs-8">ver. 1.3</a></li>
+		<li><a href="#tabs-9">ver. 1.2</a></li>
+		<li><a href="#tabs-10">ver. 1.1</a></li>
+		<li><a href="#tabs-11">ver. 1.0</a></li>
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.0.0
+			<ul>
+				<li>Add tag support</li>
+				<li>Reorganization of widget customization</li>
+				<li>Add new filed - birth date, death date, additional notes</li>
+				<li>Finally improve database (100% in accordance with WordPress regulation)</li>
+				<li>Rebuild import/export CSV mechanizm</li>
+				<li>Rebuild add new quotation area</li>
+			</ul>
+	  </div>	
+	  <div id="tabs-2">
 			2.3.0
 			<ul>
 				<li>Fix internal problem (crash with Official StatCounter Plugin) - all settings will be restore to default </li>
@@ -257,7 +271,7 @@ jQuery(document).ready( function($){
 				<li>Fix a bug</li>
 			</ul>
 	  </div>
-	  <div id="tabs-2">
+	  <div id="tabs-3">
 			2.2.0
 			<ul>
 				<li>Now you get a dashboard widget to better control your Free Quotation</li>
@@ -276,7 +290,7 @@ jQuery(document).ready( function($){
 				<li>Fix bug with random quotation display</li>
 			</ul>
 	  </div>
-	  <div id="tabs-3">
+	  <div id="tabs-4">
 			2.1.0
 			<ul>
 				<li>Add export to CSV file function to backup or edit your quotation collection</li>
@@ -308,7 +322,7 @@ jQuery(document).ready( function($){
 				<li>Information about lack of settings after instalation</li>
 			</ul>
 	  </div>
-	  <div id="tabs-4">
+	  <div id="tabs-5">
 			2.0.0
 			<ul>
 				<li>Add group for quotation</li>
@@ -365,7 +379,7 @@ jQuery(document).ready( function($){
 				<li>Fix problem with quotation mark</li>
 			</ul>
 	  </div>
-	  <div id="tabs-5">
+	  <div id="tabs-6">
 			1.5.0
 			<ul>
 				<li>Now you can display quotation not only in accordance with date but also for special week! You can change this value when you want, because system control both option.  Week number for quotation Free Quotation add automatically for selected date. Week starts in Monday, and in Sunday.</li>
@@ -376,7 +390,7 @@ jQuery(document).ready( function($){
 				<li>Fix database</li>
 			</ul>
 	  </div>
-	  <div id="tabs-6">
+	  <div id="tabs-7">
 			1.4.0
 			<ul>
 				<li>Add possibility to delete more than one quotation per one times</li>
@@ -391,7 +405,7 @@ jQuery(document).ready( function($){
 				<li>Improve in CSS</li>
 			</ul>
 	  </div>
-	  <div id="tabs-7">
+	  <div id="tabs-8">
 			1.3.0
 			<ul>
 				<li>Now is available edition for all of quotes. You can change:<ul>
@@ -413,7 +427,7 @@ jQuery(document).ready( function($){
 				<li>Now it's demand to accept edit data (for safety) </li>
 			</ul>
 	  </div>
-	  <div id="tabs-8">
+	  <div id="tabs-9">
 			1.2.0
 			<ul>
 				<li>Improve navigation (on plugin list)</li>
@@ -429,7 +443,7 @@ jQuery(document).ready( function($){
 				<li>Reorganization of code in few places</li>
 			</ul>
 	  </div>
-	  <div id="tabs-9">		
+	  <div id="tabs-10">		
 			1.1.0
 			<ul>
 				<li>Add new quotation change location (go to Free Quotation)</li>
@@ -449,7 +463,7 @@ jQuery(document).ready( function($){
 				<li>Make plugin lighter</li>
 			</ul>
 	  </div>
-	  <div id="tabs-10">
+	  <div id="tabs-11">
 			1.0.0
 			<ul>
 				<li><b>Initial release</b></li>
