@@ -210,7 +210,7 @@ $fq_installed_ver = get_option("fq_db_version");
 			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'insertFeedback' ) {
 				$fq_quote_insert = $wpdb->insert( $table_name, array( 'quotation' => $quotation, 'author' => $author, 'display_date' => $display_date, 'adding_date' => $adding_date, 'week_no' => $week_no, 'week_day' => $week_day, 'quote_group' => $group_name, 'birth_year' => $birth_date, 'death_year' => $death_date, 'job_position' => $job_position), array('%s', '%s', '%s', '%s', '%d', '%d', '%s', '%s', '%s', '%s') );
 				
-				$inserted_id = mysql_insert_id();
+				$inserted_id = $wpdb->insert_id;
 				
 				$tag_test_res = trim($tag_separate_by_coma);
 				$tag_test_res = str_replace(', ',',',$tag_test_res);
