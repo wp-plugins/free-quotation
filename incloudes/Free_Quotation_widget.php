@@ -85,7 +85,6 @@ if($fq_group_or_tags==0){
 		ORDER BY RAND() 
 		LIMIT 1;
 		";
-	//$result = mysqli_query($Free_Quotation_con,$Free_Quotation_table);
 	$fqgroup = $wpdb->get_results($Free_Quotation_table);
 	}
 } else {
@@ -137,7 +136,6 @@ if($fq_group_or_tags==0){
 		ORDER BY RAND() 
 		LIMIT 1;
 		";
-	//$result = mysqli_query($Free_Quotation_con,$Free_Quotation_table);
 	$fqgroup = $wpdb->get_results($Free_Quotation_table);
 	}
 

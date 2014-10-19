@@ -242,6 +242,10 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.0.1
+			<ul>
+				<li>Fix small bug</li>
+			</ul>
 			3.0.0
 			<ul>
 				<li>Add tag support</li>
