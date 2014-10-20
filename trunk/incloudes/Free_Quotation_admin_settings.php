@@ -208,7 +208,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						<tr>
 							<th scope="row">Signature bottom margin:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_tekst12]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst12'])){echo htmlentities($options['fq_kk_tekst12']);}else{};?>" maxlength="3" size="3"></input>
+								<input name="Free_Quotation_options[fq_kk_tekst12]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst12'])){echo htmlentities($options['fq_kk_tekst12']);}else{};?>" maxlength="3" size="3"></input>px
 							</td>
 						</tr>
 					</table>
