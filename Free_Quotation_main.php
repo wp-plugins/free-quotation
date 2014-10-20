@@ -3,14 +3,14 @@
 	Plugin Name: Free Quotation
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 3.0.1
+	Version: 3.0.2
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "3.0.1";
+$Free_Quotation_version = "3.0.2";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -125,15 +125,15 @@ function FQ_init_method() {
 
 // Add menu page
 function Free_Quotation_menu_page(){
-    add_menu_page( 'Free Quotation', 'Free Quotation', 'manage_options', 'fq_menu_page', '', plugins_url('images/Free_Quotation_16.png',__FILE__), 98 );
-	add_submenu_page( 'fq_menu_page', 'Free Quotation', 'Free Quotation', 'manage_options', 'fq_menu_page', 'fq_menu_page');
+    add_menu_page( 'Free Quotation', 'Free Quotation', 'manage_options', 'fq_menu_page', 'fq_add_page', plugins_url('images/Free_Quotation_16.png',__FILE__), 98 );
+	// add_submenu_page( 'fq_menu_page', 'Free Quotation', 'Free Quotation', 'manage_options', 'fq_add_page', 'fq_add_page');
 	add_submenu_page( 'fq_menu_page', 'CSV', 'CSV', 'manage_options', 'fq_add_CSV', 'fq_add_CSV');
 	add_submenu_page( 'fq_menu_page', 'FQ settings', 'FQ settings', 'manage_options', 'fq_admin_settings', 'fq_admin_settings');
 	//add_submenu_page( 'fq_menu_page', 'FQ DEV', 'FQ DEV', 'manage_options', 'fq_admin_dev', 'fq_admin_dev');
 }
 
 // Draw the menu page itself
-function fq_menu_page() {
+function fq_add_page() {
 	wp_enqueue_style( 'Free_Quotationadmin-style' );
 	wp_enqueue_style( 'Free_Quotationadmin2-style' );
 	require(dirname(__FILE__)."/incloudes/Free_Quotation_admin_FQ.php");
@@ -183,6 +183,7 @@ if (isset($input['fq_kk_tekst8'])){	$input['fq_kk_tekst8'] =  ($input['fq_kk_tek
 if (isset($input['fq_kk_tekst9'])){	$input['fq_kk_tekst9'] =  ($input['fq_kk_tekst9']);}
 if (isset($input['fq_kk_tekst10'])){	$input['fq_kk_tekst10'] =  ($input['fq_kk_tekst10']);}
 if (isset($input['fq_kk_tekst11'])){	$input['fq_kk_tekst11'] =  ($input['fq_kk_tekst11']);}
+if (isset($input['fq_kk_tekst12'])){	$input['fq_kk_tekst12'] =  ($input['fq_kk_tekst12']);}
 if (isset($input['fq_kk_info_signaturealign'])){	$input['fq_kk_info_signaturealign'] =  ($input['fq_kk_info_signaturealign']);}
 if (isset($input['fq_kk_info_headeralign'])){	$input['fq_kk_info_headeralign'] =  ($input['fq_kk_info_headeralign']);}
 if (isset($input['fq_kk_info_bodyalign'])){	$input['fq_kk_info_bodyalign'] =  ($input['fq_kk_info_bodyalign']);}
