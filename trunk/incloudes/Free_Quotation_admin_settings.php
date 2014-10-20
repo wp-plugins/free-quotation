@@ -205,6 +205,12 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 								<input name="Free_Quotation_options[fq_kk_info_signaturealign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_signaturealign'])){echo htmlentities($options['fq_kk_info_signaturealign']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
+						<tr>
+							<th scope="row">Signature bottom margin:</th>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_tekst12]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst12'])){echo htmlentities($options['fq_kk_tekst12']);}else{};?>" maxlength="3" size="3"></input>
+							</td>
+						</tr>
 					</table>
 				</div>
 			</div>
@@ -242,9 +248,14 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.0.2
+			<ul>
+				<li>Fix small bug (problem with AddPage on some WP instance)</li>
+				<li>Add margin-bottom to Quotation Displayer</li>
+			</ul>
 			3.0.1
 			<ul>
-				<li>Fix small bug</li>
+				<li>Fix small bug (db)</li>
 			</ul>
 			3.0.0
 			<ul>
