@@ -289,7 +289,7 @@ if($fq_display_author==1){
 			echo '; font-weight:';
 			if(isset($options['fq_kk_option10'])){if ($options['fq_kk_option10']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
 			echo '; margin-bottom:';
-			if(isset($options['fq_kk_option12'])){echo $options['fq_kk_tekst11'];} else {echo '20';};
+			if(isset($options['fq_kk_tekst12'])){echo $options['fq_kk_tekst12'];} else {echo '20';};
 			echo 'px; text-align:';
 			if(isset($options['fq_kk_info_signaturealign'])){echo $options['fq_kk_info_signaturealign'];} else {echo 'left';};
 			echo '; font-style:';
@@ -311,7 +311,7 @@ if($fq_display_life==1 && isset($life)){
 			echo '; font-weight:';
 			if(isset($options['fq_kk_option10'])){if ($options['fq_kk_option10']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
 			echo '; margin-bottom:';
-			if(isset($options['fq_kk_option12'])){echo $options['fq_kk_tekst11'];} else {echo '20';};
+			if(isset($options['fq_kk_tekst12'])){echo $options['fq_kk_tekst12'];} else {echo '20';};
 			echo 'px; text-align:';
 			if(isset($options['fq_kk_info_signaturealign'])){echo $options['fq_kk_info_signaturealign'];} else {echo 'left';};
 			echo '; font-style:';
@@ -333,7 +333,7 @@ if($fq_display_note==1 && isset($note)){
 			echo '; font-weight:';
 			if(isset($options['fq_kk_option10'])){if ($options['fq_kk_option10']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
 			echo '; margin-bottom:';
-			if(isset($options['fq_kk_option12'])){echo $options['fq_kk_tekst11'];} else {echo '20';};
+			if(isset($options['fq_kk_tekst12'])){echo $options['fq_kk_tekst12'];} else {echo '20';};
 			echo 'px; text-align:';
 			if(isset($options['fq_kk_info_signaturealign'])){echo $options['fq_kk_info_signaturealign'];} else {echo 'left';};
 			echo '; font-style:';
