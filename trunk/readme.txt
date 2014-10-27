@@ -4,7 +4,8 @@ Donate link: http://my-motivator.pl/free-quotation-kris_iv/
 Tags: quotation, quotations, quotes, random, random quotes, wikiquote, wiki, quote, quot., citation, cytaty, widget, display,widgets
 Requires at least: 3.0.1
 Tested up to: 4.0.0
-Stable tag: 3.0.2
+Stable tag: 3.1.0
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +92,11 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 3. This panel help you add new quotation manually (you can use also CSV and add it by special page on the left bar)
 
 == Changelog ==
+
+= 3.1.0 =
+* Add BETA Ajax widget - user can choose quotation by tag
+* Rebuild displayer option
+* Add Signature line height option
 
 = 3.0.2 =
 * Fix small bug (problem with AddPage on some WP instance)
