@@ -252,6 +252,8 @@ function toggle(source) {
 							$id = (int) $checkbox[$i]; // Parse your value to integer
 							if ($id > 0) { // and check if it's bigger then 0
 								$fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
+								
+								$fqdelete = $wpdb->delete( $table_name_tags, array( 'id' => $id), array( '%d' ));
 							} else { echo 'nothing';};
 						}
 					} else {echo '<script type="text/javascript">alert("You should check minimum one checkbox!");</script>'; }
@@ -263,8 +265,10 @@ function toggle(source) {
 		
 			<?php 
 				if(isset($_POST['delete'])){
-				   $id = $_POST['delete_rec_id'];  
-				   $fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
+					$id = $_POST['delete_rec_id'];  
+					$fqdelete = $wpdb->delete( $table_name, array( 'id' => $id), array( '%d' ));
+					
+					$fqdelete = $wpdb->delete( $table_name_tags, array( 'id' => $id), array( '%d' ));
 				}
 					//nagłówek
 				echo '<thead style="cursor:pointer"><tr><th style="width:20px;">
