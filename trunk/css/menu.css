@@ -8,17 +8,6 @@ margin-right: 20px;
 background: #eee;
 border-radius: 10px;
 }
-
-.Free_Quotation_wrap_ {
-margin-top: 10px;
-margin-bottom: 20px;
-border: 1px solid #168acc;
-padding: 7px;
-width: 254px;
-margin-right: 20px;
-background: #eee;
-border-radius: 10px;
-}
  
 .Free_Quotation_remove{
 background-image: url('../images/delete.gif');
@@ -184,6 +173,7 @@ background:#fff;
 }
 
 .ui-tabs .ui-tabs-nav li{
+	width: auto!important;
 	border:0;
 	margin:0!important;
 }

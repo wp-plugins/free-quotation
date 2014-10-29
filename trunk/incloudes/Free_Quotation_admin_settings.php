@@ -40,7 +40,8 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 			<div id="set_page">
 				<ul>
 					<li><a href="#set_page-1">General</a></li>
-					<li><a href="#set_page-2">Visual</a></li>
+					<li><a href="#set_page-2">CSS quotation editor</a></li>
+					<li><a href="#set_page-3">CSS shortcode editor</a></li>
 				</ul>
 				<div id="set_page-1">
 					<table class="form-table">
@@ -219,6 +220,67 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						</tr>
 					</table>
 				</div>
+				<div id="set_page-3">
+					<?php
+					if(isset($options['fq_kk_sc_color'])){htmlentities($tag_background_color = $options['fq_kk_sc_color']);}else{$tag_background_color = '#666666';};
+					if(isset($options['fq_kk_sc_color_2'])){htmlentities($tag_border_color = $options['fq_kk_sc_color_2']);}else{$tag_border_color = '#000000';};
+					if(isset($options['fq_kk_sc_color_3'])){htmlentities($tag_text_color = $options['fq_kk_sc_color_3']);}else{$tag_text_color = '#000000';};
+					if(isset($options['fq_kk_sc_border_size'])){htmlentities($tag_border_size = $options['fq_kk_sc_border_size']);}else{$tag_border_size = '1';};
+					if(isset($options['fq_kk_sc_width'])){htmlentities($tag_width = $options['fq_kk_sc_width']);}else{$tag_width = 'auto';};
+					if(isset($options['fq_kk_sc_align'])){htmlentities($tag_align = $options['fq_kk_sc_align']);}else{$tag_align = 'center';};
+
+					$tag_style_variable = 'background: ' . $tag_background_color . '; border: ' . $tag_border_size . 'px ' . 'solid ' . $tag_border_color . '; color: ' . $tag_text_color . '; width: ' . $tag_width . 'px; text-align: ' . $tag_align . ';';
+					?>
+					Tested tag:<br> <div class="tag_to_select" style="<?php echo $tag_style_variable;?>">TAG</div><div class="tag_to_select" style="<?php echo $tag_style_variable;?>">Very_Long_TAG</div>
+					<table class="form-table">
+						<tr>
+							<th scope="row">Tag background:</th>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_sc_color]"  type="color" name="favcolor" value="<?php if(isset($options['fq_kk_sc_color'])){echo htmlentities($options['fq_kk_sc_color']);}else{echo '#666666';};?>">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Tag border color:</th>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_sc_color_2]"  type="color" name="favcolor" value="<?php if(isset($options['fq_kk_sc_color_2'])){echo htmlentities($options['fq_kk_sc_color_2']);}else{echo '#000000';};?>">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Tag text color:</th>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_sc_color_3]"  type="color" name="favcolor" value="<?php if(isset($options['fq_kk_sc_color_3'])){echo htmlentities($options['fq_kk_sc_color_3']);}else{echo '#000000';};?>">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Tag border size:</th>
+							<td>
+								<select name="Free_Quotation_options[fq_kk_sc_border_size]">
+									<option value="0" <?php if(isset($options['fq_kk_sc_border_size'])){ if($options['fq_kk_sc_border_size']=='0'){echo "selected=\"selected\""; }} ?> >0</option>
+									<option value="1" <?php if(isset($options['fq_kk_sc_border_size'])){ if($options['fq_kk_sc_border_size']=='1'){echo "selected=\"selected\""; }} else {echo "selected=\"selected\""; } ?> >1</option>
+									<option value="2" <?php if(isset($options['fq_kk_sc_border_size'])){ if($options['fq_kk_sc_border_size']=='2'){echo "selected=\"selected\""; }} ?> >2</option>
+									<option value="3" <?php if(isset($options['fq_kk_sc_border_size'])){ if($options['fq_kk_sc_border_size']=='3'){echo "selected=\"selected\""; }} ?> >3</option>
+									<option value="4" <?php if(isset($options['fq_kk_sc_border_size'])){ if($options['fq_kk_sc_border_size']=='4'){echo "selected=\"selected\""; }}?> >4</option>
+								</select>px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Tag width (auto or px number)</th>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_sc_width]" type="text" value="<?php if(isset($options['fq_kk_sc_width'])){echo htmlentities($options['fq_kk_sc_width']);}else{echo 'auto';};?>" maxlength="4" size="4">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Tag text align</th>
+							<td>
+								<select name="Free_Quotation_options[fq_kk_sc_align]">
+									<option value="left" <?php if(isset($options['fq_kk_sc_align'])){ if($options['fq_kk_sc_align']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
+									<option value="right" <?php if(isset($options['fq_kk_sc_align'])){ if($options['fq_kk_sc_align']=='right'){echo "selected=\"selected\""; }} ?> >right</option>
+									<option value="center" <?php if(isset($options['fq_kk_sc_align'])){ if($options['fq_kk_sc_align']=='center'){echo "selected=\"selected\""; }} else {echo "selected=\"selected\""; } ?> >center</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 			
 			<p class="submit">
@@ -255,6 +317,12 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.1.1
+			<ul>
+				<li>BETA Ajax tag selector widget - protect empty db, to small elements</li>
+				<li>BETA Ajax tag selector widget - add visual editor</li>
+				<li>FIX - remove quotation, remove tag for this quotes</li>
+			</ul>
 			3.1.0
 			<ul>
 				<li>Add BETA Ajax widget - user can choose quotation by tag</li>

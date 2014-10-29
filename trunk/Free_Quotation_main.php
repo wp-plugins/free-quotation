@@ -3,7 +3,7 @@
 	Plugin Name: Free Quotation
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 3.1.0
+	Version: 3.1.1
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -11,7 +11,7 @@
 
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "3.1.0";
+$Free_Quotation_version = "3.1.1";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -108,6 +108,7 @@ function add_admin_scriptserr()
 	wp_enqueue_script('jquery-ui-tabs');
 	wp_enqueue_script('jquery-ui-autocomplete');
 	wp_enqueue_script('jquery-datatables', plugins_url('js/jquery.dataTables.min.js', __FILE__) );
+	wp_register_style( 'Free_Quotation-style', plugins_url('css/style.css', __FILE__) );       
 	wp_register_style( 'Free_Quotationadmin-style', plugins_url('css/menu.css', __FILE__) ); 
 	wp_register_style( 'Free_Quotationadmin2-style', plugins_url('css/jquery-ui-smoothness.css', __FILE__) );   
 }
@@ -141,6 +142,7 @@ function fq_add_CSV() {
 }
 
 function fq_admin_settings() {
+	wp_enqueue_style( 'Free_Quotation-style' );
 	wp_enqueue_style( 'Free_Quotationadmin-style' );
 	wp_enqueue_style( 'Free_Quotationadmin2-style' );
 	require(dirname(__FILE__)."/incloudes/Free_Quotation_admin_settings.php");
@@ -183,6 +185,11 @@ if (isset($input['fq_kk_tekst13'])){	$input['fq_kk_tekst13'] =  ($input['fq_kk_t
 if (isset($input['fq_kk_info_signaturealign'])){	$input['fq_kk_info_signaturealign'] =  ($input['fq_kk_info_signaturealign']);}
 if (isset($input['fq_kk_info_headeralign'])){	$input['fq_kk_info_headeralign'] =  ($input['fq_kk_info_headeralign']);}
 if (isset($input['fq_kk_info_bodyalign'])){	$input['fq_kk_info_bodyalign'] =  ($input['fq_kk_info_bodyalign']);}
+if (isset($input['fq_kk_sc_color'])){	$input['fq_kk_sc_color'] =  ($input['fq_kk_sc_color']);}
+if (isset($input['fq_kk_sc_color_2'])){	$input['fq_kk_sc_color_2'] =  ($input['fq_kk_sc_color_2']);}
+if (isset($input['fq_kk_sc_color_3'])){	$input['fq_kk_sc_color_3'] =  ($input['fq_kk_sc_color_3']);}
+if (isset($input['fq_kk_sc_border_size'])){	$input['fq_kk_sc_border_size'] =  ($input['fq_kk_sc_border_size']);}
+if (isset($input['fq_kk_sc_width'])){	$input['fq_kk_sc_width'] =  ($input['fq_kk_sc_width']);}
 	
 	return $input;
 }
