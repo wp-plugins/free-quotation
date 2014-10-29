@@ -95,6 +95,7 @@ Next time: Of course:) Visit <a href="http://my-motivator.pl/free-quotation-kris
 = 3.1.1 =
 * BETA Ajax tag selector widget - protect empty db
 * BETA Ajax tag selector widget - add visual editor
+* FIX - remove quotation, remove tag for this quotes
 
 = 3.1.0 =
 * Add BETA Ajax widget - user can choose quotation by tag
