@@ -380,10 +380,13 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.1.3
+			<ul>
+				<li>CSS editor - add new option for header, body and signature</li>
+			</ul>
 			3.1.2
 			<ul>
 				<li>CSS quotation editor (improve)</li>
-				<li>CSS editor - add new option for header, body and signature</li>
 			</ul>
 			3.1.1
 			<ul>
