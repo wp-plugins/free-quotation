@@ -234,7 +234,13 @@ if ($instance['fq_ask_title']==1){
 			if(isset($options['fq_kk_tekst7'])){echo $options['fq_kk_tekst7'];} else {echo 'Arial';};
 			echo '; font-weight:';
 			if(isset($options['fq_kk_option6'])){if ($options['fq_kk_option6']==true){echo 'bold';} else {echo 'normal';}} else {echo 'normal';};
-			echo '; text-align:';
+			echo '; margin-bottom:';
+			if(isset($options['fq_kk_tekst18'])){echo $options['fq_kk_tekst18'];} else {echo '0';};
+			echo 'px; margin-top:';
+			if(isset($options['fq_kk_tekst19'])){echo $options['fq_kk_tekst19'];} else {echo '0';};
+			echo 'px; line-height:';
+			if(isset($options['fq_kk_tekst20'])){echo $options['fq_kk_tekst20'];} else {echo '20';};
+			echo 'px; text-align:';
 			if(isset($options['fq_kk_info_headeralign'])){echo $options['fq_kk_info_headeralign'];} else {echo 'left';};
 			echo '; font-style:';
 			if(isset($options['fq_kk_option7'])){if ($options['fq_kk_option7']==true){echo 'italic';} else {echo 'normal';}} else {echo 'normal';};
