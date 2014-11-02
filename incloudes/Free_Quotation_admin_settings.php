@@ -42,6 +42,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 					<li><a href="#set_page-1">General</a></li>
 					<li><a href="#set_page-2">CSS quotation editor</a></li>
 					<li><a href="#set_page-3">CSS shortcode editor</a></li>
+<!--					<li><a href="#set_page-4">Facebook publisher</a></li>  -->
 				</ul>
 				<div id="set_page-1">
 					<table class="form-table">
@@ -117,13 +118,13 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header size:</th>
+							<th scope="row">Header  font size:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_tekst6]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst6'])){echo htmlentities($options['fq_kk_tekst6']);}else{};?>" maxlength="2" size="2"></input>px
+								<input type="number" min="1" name="Free_Quotation_options[fq_kk_tekst6]" id="activator1" value="<?php if(isset($options['fq_kk_tekst6'])){echo htmlentities($options['fq_kk_tekst6']);}else{};?>" size="2">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header font:</th>
+							<th scope="row">Header font family:</th>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst7]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst7'])){echo htmlentities($options['fq_kk_tekst7']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
@@ -141,19 +142,41 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header align: (left|center|right)</th>
+							<th scope="row">Header align:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_info_headeralign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_headeralign'])){echo htmlentities($options['fq_kk_info_headeralign']);}else{};?>" maxlength="20" size="20"></input>
+								<select name="Free_Quotation_options[fq_kk_info_headeralign]">
+									<option value="left" <?php if(isset($options['fq_kk_info_headeralign'])){ if($options['fq_kk_info_headeralign']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
+									<option value="right" <?php if(isset($options['fq_kk_info_headeralign'])){ if($options['fq_kk_info_headeralign']=='right'){echo "selected=\"selected\""; }} ?> >right</option>
+									<option value="center" <?php if(isset($options['fq_kk_info_headeralign'])){ if($options['fq_kk_info_headeralign']=='center'){echo "selected=\"selected\""; }} else {echo "selected=\"selected\""; } ?> >center</option>
+								</select>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body size:</th>
+							<th scope="row">Header bottom margin:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_tekst8]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst8'])){echo htmlentities($options['fq_kk_tekst8']);}else{};?>" maxlength="2" size="2"></input>px
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst18]" id="activator1" value="<?php if(isset($options['fq_kk_tekst18'])){echo htmlentities($options['fq_kk_tekst18']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body font:</th>
+							<th scope="row">Header top margin:</th>
+							<td>
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst19]" id="activator1" value="<?php if(isset($options['fq_kk_tekst19'])){echo htmlentities($options['fq_kk_tekst19']);}else{};?>">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Header line height:</th>
+							<td>
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst20]" id="activator1" value="<?php if(isset($options['fq_kk_tekst20'])){echo htmlentities($options['fq_kk_tekst20']);}else{};?>">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Body  font size:</th>
+							<td>
+								<input type="number" min="1" name="Free_Quotation_options[fq_kk_tekst8]" id="activator1" value="<?php if(isset($options['fq_kk_tekst8'])){echo htmlentities($options['fq_kk_tekst8']);}else{};?>" size="2">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Body font family:</th>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst9]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst9'])){echo htmlentities($options['fq_kk_tekst9']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
@@ -171,19 +194,41 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body align: (left|center|right)</th>
+							<th scope="row">Body align:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_info_bodyalign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_bodyalign'])){echo htmlentities($options['fq_kk_info_bodyalign']);}else{};?>" maxlength="20" size="20"></input>
+								<select name="Free_Quotation_options[fq_kk_info_bodyalign]">
+									<option value="left" <?php if(isset($options['fq_kk_info_bodyalign'])){ if($options['fq_kk_info_bodyalign']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
+									<option value="right" <?php if(isset($options['fq_kk_info_bodyalign'])){ if($options['fq_kk_info_bodyalign']=='right'){echo "selected=\"selected\""; }} ?> >right</option>
+									<option value="center" <?php if(isset($options['fq_kk_info_bodyalign'])){ if($options['fq_kk_info_bodyalign']=='center'){echo "selected=\"selected\""; }} else {echo "selected=\"selected\""; } ?> >center</option>
+								</select>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature size:</th>
+							<th scope="row">Body bottom margin:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_tekst10]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst10'])){echo htmlentities($options['fq_kk_tekst10']);}else{};?>" maxlength="2" size="2"></input>px
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst15]" id="activator1" value="<?php if(isset($options['fq_kk_tekst15'])){echo htmlentities($options['fq_kk_tekst15']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature font:</th>
+							<th scope="row">Body top margin:</th>
+							<td>
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst16]" id="activator1" value="<?php if(isset($options['fq_kk_tekst16'])){echo htmlentities($options['fq_kk_tekst16']);}else{};?>">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Body line height:</th>
+							<td>
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst17]" id="activator1" value="<?php if(isset($options['fq_kk_tekst17'])){echo htmlentities($options['fq_kk_tekst17']);}else{};?>">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Signature  font size:</th>
+							<td>
+								<input type="number" min="1" name="Free_Quotation_options[fq_kk_tekst10]" id="activator1" value="<?php if(isset($options['fq_kk_tekst10'])){echo htmlentities($options['fq_kk_tekst10']);}else{};?>" size="2">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Signature font family:</th>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst11]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst11'])){echo htmlentities($options['fq_kk_tekst11']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
@@ -201,21 +246,31 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature align: (left|center|right)</th>
+							<th scope="row">Signature align:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_info_signaturealign]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_info_signaturealign'])){echo htmlentities($options['fq_kk_info_signaturealign']);}else{};?>" maxlength="20" size="20"></input>
+								<select name="Free_Quotation_options[fq_kk_info_signaturealign]">
+									<option value="left" <?php if(isset($options['fq_kk_info_signaturealign'])){ if($options['fq_kk_info_signaturealign']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
+									<option value="right" <?php if(isset($options['fq_kk_info_signaturealign'])){ if($options['fq_kk_info_signaturealign']=='right'){echo "selected=\"selected\""; }} ?> >right</option>
+									<option value="center" <?php if(isset($options['fq_kk_info_signaturealign'])){ if($options['fq_kk_info_signaturealign']=='center'){echo "selected=\"selected\""; }} else {echo "selected=\"selected\""; } ?> >center</option>
+								</select>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">Signature bottom margin:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_tekst12]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst12'])){echo htmlentities($options['fq_kk_tekst12']);}else{};?>" maxlength="3" size="3"></input>px
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst12]" id="activator1" value="<?php if(isset($options['fq_kk_tekst12'])){echo htmlentities($options['fq_kk_tekst12']);}else{};?>">px
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">Signature top margin:</th>
+							<td>
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst14]" id="activator1" value="<?php if(isset($options['fq_kk_tekst14'])){echo htmlentities($options['fq_kk_tekst14']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">Signature line height:</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_tekst13]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst13'])){echo htmlentities($options['fq_kk_tekst13']);}else{};?>" maxlength="3" size="3"></input>px
+								<input type="number" name="Free_Quotation_options[fq_kk_tekst13]" id="activator1" value="<?php if(isset($options['fq_kk_tekst13'])){echo htmlentities($options['fq_kk_tekst13']);}else{};?>">px
 							</td>
 						</tr>
 					</table>
@@ -231,8 +286,13 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 
 					$tag_style_variable = 'background: ' . $tag_background_color . '; border: ' . $tag_border_size . 'px ' . 'solid ' . $tag_border_color . '; color: ' . $tag_text_color . '; width: ' . $tag_width . 'px; text-align: ' . $tag_align . ';';
 					?>
-					Tested tag:<br> <div class="tag_to_select" style="<?php echo $tag_style_variable;?>">TAG</div><div class="tag_to_select" style="<?php echo $tag_style_variable;?>">Very_Long_TAG</div>
 					<table class="form-table">
+						<tr>
+							<th scope="row">Tag preview:</th>
+							<td>
+								<div class="tag_to_select" style="<?php echo $tag_style_variable;?>">TAG</div><div class="tag_to_select" style="<?php echo $tag_style_variable;?>">Very_Long_TAG</div>
+							</td>
+						</tr>
 						<tr>
 							<th scope="row">Tag background:</th>
 							<td>
@@ -264,9 +324,9 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Tag width (auto or px number)</th>
+							<th scope="row">Tag width (empty = auto)</th>
 							<td>
-								<input name="Free_Quotation_options[fq_kk_sc_width]" type="text" value="<?php if(isset($options['fq_kk_sc_width'])){echo htmlentities($options['fq_kk_sc_width']);}else{echo 'auto';};?>" maxlength="4" size="4">px
+								<input type="number" name="Free_Quotation_options[fq_kk_sc_width]" id="activator1" value="<?php if(isset($options['fq_kk_sc_width'])){echo htmlentities($options['fq_kk_sc_width']);}else{};?>" size="2">px
 							</td>
 						</tr>
 						<tr>
@@ -281,6 +341,9 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						</tr>
 					</table>
 				</div>
+<!--				<div id="set_page-4">
+					FB
+				</div> -->
 			</div>
 			
 			<p class="submit">
@@ -317,6 +380,11 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.1.2
+			<ul>
+				<li>CSS quotation editor (improve)</li>
+				<li>CSS editor - add new option for header, body and signature</li>
+			</ul>
 			3.1.1
 			<ul>
 				<li>BETA Ajax tag selector widget - protect empty db, to small elements</li>
