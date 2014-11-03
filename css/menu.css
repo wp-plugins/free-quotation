@@ -150,7 +150,7 @@ margin-left:25px;
 .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all{
 border:0;
 background: #fff;
-border-bottom:0px solid #E5E5E5;
+border-bottom:1px solid #E5E5E5;
 border-radius:0;
 } 
 
@@ -187,7 +187,7 @@ a:focus, a:active {
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
 	background:#fff!important;
-	background: url('images/ess.png') no-repeat scroll 50% bottom rgba(0, 0, 0, 0)!important;
+	background: rgba(0, 0, 0, 0)!important;
 	height: 39px!important;
 	width: 72px !important;
 }
@@ -196,7 +196,7 @@ a:focus, a:active {
 }
 
 .ui-state-default, .ui-corner-top {
-	background: url('images/eos.png') no-repeat scroll 50% bottom rgba(0, 0, 0, 0)!important;
+	background: rgba(0, 0, 0, 0)!important;
 	height:39px!important;
 	padding:0px;
 }
@@ -208,7 +208,11 @@ a:focus, a:active {
 
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-tabs-loading a {
     cursor: pointer;
-	border-right:1px dashed #E5E5E5;
+	font-weight: bold;
+}
+
+.ui-state-focus{
+	outline: none!important;
 }
 
 .ui-tabs .ui-tabs-nav li a {
@@ -238,10 +242,21 @@ a:focus, a:active {
     vertical-align: middle;
 }
 
+.form-table tr {
+border-top: 1px solid #e5e5e5;
+border-left: 1px solid #e5e5e5;
+border-right: 1px solid #e5e5e5;
+}
+
 #backlog_table_fq{
 	font-size:0.7em;
 }
 
 .button_show_instruction{
 	margin-top:6px!important;
+}
+
+a:focus{
+-webkit-box-shadow: none;
+box-shadow: none;
 }

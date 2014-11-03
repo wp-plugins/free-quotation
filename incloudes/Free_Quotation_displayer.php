@@ -1,6 +1,22 @@
 <?php
 //CHANGE THE NAME OF VARIABLES
 
+if(isset($options['fq_kk_body_class'])){
+	if(empty($options['fq_kk_body_class'])){
+		$options['fq_kk_body_class'] = 'Free_Quotation_quotation';
+	}
+} else {
+	$options['fq_kk_body_class'] = 'Free_Quotation_quotation';
+}
+
+if(isset($options['fq_kk_signature_class'])){
+	if(empty($options['fq_kk_signature_class'])){
+		$options['fq_kk_signature_class'] = 'Free_Quotation_author';
+	}
+} else {
+	$options['fq_kk_signature_class'] = 'Free_Quotation_author';
+}
+
 if(isset($options['fq_kk_option5'])) {
 	if ($options['fq_kk_option5']==true){
 		echo '<div style="font-size:';
@@ -22,7 +38,7 @@ if(isset($options['fq_kk_option5'])) {
 		echo ';">';
 	}
 } else {
-	echo '<div class="Free_Quotation_quotation">';
+	echo '<div class="'.$options['fq_kk_body_class'].'">';
 }
 if (isset($options['fq_kk_option4'])){
 				if ($options['fq_kk_option4']==null){ 
@@ -61,7 +77,7 @@ if($fq_display_author==1){
 			echo ';">' . $author . '</div>';
 		}
 	} else {
-		echo '<div class="Free_Quotation_author">' . stripslashes( $author ) . '</div>';
+		echo '<div class="'.$options['fq_kk_signature_class'].'">' . stripslashes( $author ) . '</div>';
 	}
 }
 
@@ -87,7 +103,7 @@ if($fq_display_life==1 && isset($life) && $life ){
 			echo ';">' . $life . '</div>';
 		}
 	} else {
-		echo '<div class="Free_Quotation_author">' . stripslashes( $life ) . '</div>';
+		echo '<div class="'.$options['fq_kk_signature_class'].'">' . stripslashes( $life ) . '</div>';
 	}
 }
 
@@ -113,7 +129,7 @@ if($fq_display_note==1 && isset($note) && $note){
 			echo ';">' . $note . '</div>';
 		}
 	} else {
-		echo '<div class="Free_Quotation_author">' . stripslashes( $note ) . '</div>';
+		echo '<div class="'.$options['fq_kk_signature_class'].'">' . stripslashes( $note ) . '</div>';
 	}
 }
 ?>

@@ -225,6 +225,16 @@ if ($instance['fq_display_type']=='1' || $instance['fq_display_type']=='5' || $i
 	$author =  $options['fq_kk_tekst2'];
 }
 
+if(isset($options['fq_kk_header_value'])){
+} else {
+	$options['fq_kk_header_value'] = 'h3';
+}
+
+if(isset($options['fq_kk_header_class'])){
+} else {
+	$options['fq_kk_header_class'] = '';
+}
+
 if ($instance['fq_ask_title']==1){
 	if(isset($options['fq_kk_option5'])) {
 		if ($options['fq_kk_option5']==true){
@@ -247,7 +257,7 @@ if ($instance['fq_ask_title']==1){
 			echo ';">'.$fq_title_to_display.'</div>';
 		}
 	} else {
-		echo '<h3>'.$fq_title_to_display.'</h3>';
+		echo '<'.$options['fq_kk_header_value'].' class="'.$options['fq_kk_header_class'].'">'.$fq_title_to_display.'</'.$options['fq_kk_header_value'].'>';
 	}
 }
 

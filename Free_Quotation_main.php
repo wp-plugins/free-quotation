@@ -3,7 +3,7 @@
 	Plugin Name: Free Quotation
 	Description: Quotation displayer for any WordPress page
 	Author: Krzysztof Kubiak
-	Version: 3.1.3
+	Version: 3.1.4
 	Author URI: http://my-motivator.pl/Free_Quotation
 	License: GPLv2
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -11,7 +11,7 @@
 
 global $wpdb;
 global $Free_Quotation_version;
-$Free_Quotation_version = "3.1.3";
+$Free_Quotation_version = "3.1.4";
 global $today_date;
 $today_date = date('Y-m-d');
 global $today_week_no;
@@ -189,6 +189,10 @@ if (isset($input['fq_kk_tekst17'])){	$input['fq_kk_tekst17'] =  ($input['fq_kk_t
 if (isset($input['fq_kk_tekst18'])){	$input['fq_kk_tekst18'] =  ($input['fq_kk_tekst18']);}
 if (isset($input['fq_kk_tekst19'])){	$input['fq_kk_tekst19'] =  ($input['fq_kk_tekst19']);}
 if (isset($input['fq_kk_tekst20'])){	$input['fq_kk_tekst20'] =  ($input['fq_kk_tekst20']);}
+if (isset($input['fq_kk_header_value'])){	$input['fq_kk_header_value'] =  ($input['fq_kk_header_value']);}
+if (isset($input['fq_kk_header_class'])){	$input['fq_kk_header_class'] =  ($input['fq_kk_header_class']);}
+if (isset($input['fq_kk_body_class'])){	$input['fq_kk_body_class'] =  ($input['fq_kk_body_class']);}
+if (isset($input['fq_kk_signature_class'])){	$input['fq_kk_signature_class'] =  ($input['fq_kk_signature_class']);}
 if (isset($input['fq_kk_info_signaturealign'])){	$input['fq_kk_info_signaturealign'] =  ($input['fq_kk_info_signaturealign']);}
 if (isset($input['fq_kk_info_headeralign'])){	$input['fq_kk_info_headeralign'] =  ($input['fq_kk_info_headeralign']);}
 if (isset($input['fq_kk_info_bodyalign'])){	$input['fq_kk_info_bodyalign'] =  ($input['fq_kk_info_bodyalign']);}

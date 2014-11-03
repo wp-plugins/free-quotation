@@ -47,33 +47,33 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<div id="set_page-1">
 					<table class="form-table">
 						<tr>
-							<th scope="row">Permit to write date (in Add Free Quotation page)</th>
+							<td scope="row">Permit to write date (in Add Free Quotation page)</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option3]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option3'])){checked($options['fq_kk_option3'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Start and end quotation with special characters</th>
+							<td scope="row">Start and end quotation with special characters</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option4]" id="quotationsign" type="checkbox" value="1" <?php if(isset($options['fq_kk_option4'])){checked($options['fq_kk_option4'], 1);} ?> /><br>
 							</td>
 						</tr>
 					
 						<tr style=" <?php if ($options['fq_kk_option4']==null){ echo 'display:none;';} else {}?>">
-							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Start character</div></th>
+							<td scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Start character</div></td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst3]" type="text" id="activator1" <?php if (isset($options['fq_kk_option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['fq_kk_tekst3'])){echo htmlentities($options['fq_kk_tekst3']);}else{};?>" maxlength="10" size="10"></input>
 							</td>
 						</tr>	
 						<tr style="<?php if ($options['fq_kk_option4']==null){ echo 'display:none;';} else {}?>">
-							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">End character</div></th>
+							<td scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">End character</div></td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst4]" type="text" id="activator2" <?php if (isset($options['fq_kk_option4'])) {} else {echo 'disabled=""';};?> value="<?php if(isset($options['fq_kk_tekst4'])){echo htmlentities($options['fq_kk_tekst4']);}else{};?>" maxlength="10" size="10"></input>
 							</td>
 						</tr>
 					<?php ?>
 	<!--					<tr>
-							<th scope="row">Type of quotation display:</th>
+							<td scope="row">Type of quotation display:</td>
 							<td>
 								<input id="toqd-1" type="radio" name="Free_Quotation_options[fq_kk_option1]" value="1" <?php checked('1', $options['fq_kk_option1']); ?> /><label for="toqd-1">Use only Free_Quotation - display by day</label></br>
 								<input id="toqd-2" type="radio" name="Free_Quotation_options[fq_kk_option1]" value="5" <?php checked('5', $options['fq_kk_option1']); ?> /><label for="toqd-2">Use only Free_Quotation - display by week number</label></br>
@@ -86,7 +86,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						</tr>
 	-->
 						<tr>
-							<th scope="row">Choose Wikiquote system:</th>
+							<td scope="row">Choose Wikiquote system:</td>
 							<td><select name="Free_Quotation_options[fq_kk_option2]">
 								<option <?php if($options['fq_kk_option2']=="en" ){ echo "selected"; } ?> value="en">Wikiquote [en] (Quote of the day)</option>
 								<option <?php if($options['fq_kk_option2']=="de"){ echo "selected";} ?> value="de">Wikiquote [de] (Zitat der Woche)</option>
@@ -97,11 +97,11 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Standard quotation</div></th>
+							<td scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Standard quotation</div></td>
 								<td><textarea name="Free_Quotation_options[fq_kk_tekst1]" type="text" cols="80" rows="2"><?php echo $options['fq_kk_tekst1']; ?></textarea></td>
 						</tr>			
 						<tr>
-							<th scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Quotation author</div></th>
+							<td scope="row"><div style="border-left: 1px dashed #E5E5E5;margin-left: 20px;padding-left: 5px;">Quotation author</div></td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst2]" type="input" value="<?php echo $options['fq_kk_tekst2']; ?>"></input>
 							</td>
@@ -112,37 +112,71 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 				<div id="set_page-2">
 					<table class="form-table">
 						<tr>
-							<th scope="row">Do you want use your own style?</th>
+							<td rowspan="4"></td>
+							<td scope="row">Choose header value (h3 is default FQ CSS)</td>
+							<td>
+								<select name="Free_Quotation_options[fq_kk_header_value]">
+									<option value="h1" <?php if(isset($options['fq_kk_header_value'])){ if($options['fq_kk_header_value']=='h1'){echo "selected=\"selected\""; }} ?> >h1</option>
+									<option value="h2" <?php if(isset($options['fq_kk_header_value'])){ if($options['fq_kk_header_value']=='h2'){echo "selected=\"selected\""; }} ?> >h2</option>
+									<option value="h3" <?php if(isset($options['fq_kk_header_value'])){ if($options['fq_kk_header_value']=='h3'){echo "selected=\"selected\""; }} else {echo "selected=\"selected\""; } ?> >h3</option>
+									<option value="h4" <?php if(isset($options['fq_kk_header_value'])){ if($options['fq_kk_header_value']=='h4'){echo "selected=\"selected\""; }} ?> >h4</option>
+									<option value="h5" <?php if(isset($options['fq_kk_header_value'])){ if($options['fq_kk_header_value']=='h5'){echo "selected=\"selected\""; }} ?> >h5</option>
+									<option value="h6" <?php if(isset($options['fq_kk_header_value'])){ if($options['fq_kk_header_value']=='h6'){echo "selected=\"selected\""; }} ?> >h6</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Header class (empty is default FQ CSS)</td>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_header_class]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_header_class'])){echo htmlentities($options['fq_kk_header_class']);}else{};?>" maxlength="40" size="40"></input>
+							</td>
+						</tr>
+						<tr>
+							<td>Body class (empty is default FQ CSS)</td>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_body_class]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_body_class'])){echo htmlentities($options['fq_kk_body_class']);}else{};?>" maxlength="40" size="40"></input>
+							</td>
+						</tr>
+						<tr>
+							<td>Signature class (empty is default FQ CSS)</td>
+							<td>
+								<input name="Free_Quotation_options[fq_kk_signature_class]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_signature_class'])){echo htmlentities($options['fq_kk_signature_class']);}else{};?>" maxlength="40" size="40"></input>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td scope="row"><b>Do you want define below your own style?</b></td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option5]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option5'])){checked($options['fq_kk_option5'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header  font size:</th>
+							<td rowspan="8"></td>
+							<td scope="row">Header  font size:</td>
 							<td>
 								<input type="number" min="1" name="Free_Quotation_options[fq_kk_tekst6]" id="activator1" value="<?php if(isset($options['fq_kk_tekst6'])){echo htmlentities($options['fq_kk_tekst6']);}else{};?>" size="2">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header font family:</th>
+							<td scope="row">Header font family:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst7]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst7'])){echo htmlentities($options['fq_kk_tekst7']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header bold:</th>
+							<td scope="row">Header bold:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option6]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option6'])){checked($options['fq_kk_option6'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header italic:</th>
+							<td scope="row">Header italic:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option7]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option7'])){checked($options['fq_kk_option7'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header align:</th>
+							<td scope="row">Header align:</td>
 							<td>
 								<select name="Free_Quotation_options[fq_kk_info_headeralign]">
 									<option value="left" <?php if(isset($options['fq_kk_info_headeralign'])){ if($options['fq_kk_info_headeralign']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
@@ -152,49 +186,50 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header bottom margin:</th>
+							<td scope="row">Header bottom margin:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst18]" id="activator1" value="<?php if(isset($options['fq_kk_tekst18'])){echo htmlentities($options['fq_kk_tekst18']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header top margin:</th>
+							<td scope="row">Header top margin:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst19]" id="activator1" value="<?php if(isset($options['fq_kk_tekst19'])){echo htmlentities($options['fq_kk_tekst19']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Header line height:</th>
+							<td scope="row">Header line height:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst20]" id="activator1" value="<?php if(isset($options['fq_kk_tekst20'])){echo htmlentities($options['fq_kk_tekst20']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body  font size:</th>
+							<td rowspan="8"></td>
+							<td scope="row">Body  font size:</td>
 							<td>
 								<input type="number" min="1" name="Free_Quotation_options[fq_kk_tekst8]" id="activator1" value="<?php if(isset($options['fq_kk_tekst8'])){echo htmlentities($options['fq_kk_tekst8']);}else{};?>" size="2">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body font family:</th>
+							<td scope="row">Body font family:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst9]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst9'])){echo htmlentities($options['fq_kk_tekst9']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body bold:</th>
+							<td scope="row">Body bold:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option8]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option8'])){checked($options['fq_kk_option8'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body italic:</th>
+							<td scope="row">Body italic:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option9]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option9'])){checked($options['fq_kk_option9'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body align:</th>
+							<td scope="row">Body align:</td>
 							<td>
 								<select name="Free_Quotation_options[fq_kk_info_bodyalign]">
 									<option value="left" <?php if(isset($options['fq_kk_info_bodyalign'])){ if($options['fq_kk_info_bodyalign']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
@@ -204,49 +239,50 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body bottom margin:</th>
+							<td scope="row">Body bottom margin:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst15]" id="activator1" value="<?php if(isset($options['fq_kk_tekst15'])){echo htmlentities($options['fq_kk_tekst15']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body top margin:</th>
+							<td scope="row">Body top margin:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst16]" id="activator1" value="<?php if(isset($options['fq_kk_tekst16'])){echo htmlentities($options['fq_kk_tekst16']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Body line height:</th>
+							<td scope="row">Body line height:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst17]" id="activator1" value="<?php if(isset($options['fq_kk_tekst17'])){echo htmlentities($options['fq_kk_tekst17']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature  font size:</th>
+							<td rowspan="8"></td>
+							<td scope="row">Signature  font size:</td>
 							<td>
 								<input type="number" min="1" name="Free_Quotation_options[fq_kk_tekst10]" id="activator1" value="<?php if(isset($options['fq_kk_tekst10'])){echo htmlentities($options['fq_kk_tekst10']);}else{};?>" size="2">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature font family:</th>
+							<td scope="row">Signature font family:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_tekst11]" type="text" id="activator1" value="<?php if(isset($options['fq_kk_tekst11'])){echo htmlentities($options['fq_kk_tekst11']);}else{};?>" maxlength="20" size="20"></input>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature bold:</th>
+							<td scope="row">Signature bold:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option10]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option10'])){checked($options['fq_kk_option10'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature italic:</th>
+							<td scope="row">Signature italic:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option11]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option11'])){checked($options['fq_kk_option11'], 1);}?> /><br>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature align:</th>
+							<td scope="row">Signature align:</td>
 							<td>
 								<select name="Free_Quotation_options[fq_kk_info_signaturealign]">
 									<option value="left" <?php if(isset($options['fq_kk_info_signaturealign'])){ if($options['fq_kk_info_signaturealign']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
@@ -256,19 +292,19 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature bottom margin:</th>
+							<td scope="row">Signature bottom margin:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst12]" id="activator1" value="<?php if(isset($options['fq_kk_tekst12'])){echo htmlentities($options['fq_kk_tekst12']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature top margin:</th>
+							<td scope="row">Signature top margin:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst14]" id="activator1" value="<?php if(isset($options['fq_kk_tekst14'])){echo htmlentities($options['fq_kk_tekst14']);}else{};?>">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Signature line height:</th>
+							<td scope="row">Signature line height:</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_tekst13]" id="activator1" value="<?php if(isset($options['fq_kk_tekst13'])){echo htmlentities($options['fq_kk_tekst13']);}else{};?>">px
 							</td>
@@ -288,31 +324,31 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 					?>
 					<table class="form-table">
 						<tr>
-							<th scope="row">Tag preview:</th>
+							<td scope="row">Tag preview:</td>
 							<td>
 								<div class="tag_to_select" style="<?php echo $tag_style_variable;?>">TAG</div><div class="tag_to_select" style="<?php echo $tag_style_variable;?>">Very_Long_TAG</div>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Tag background:</th>
+							<td scope="row">Tag background:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_sc_color]"  type="color" name="favcolor" value="<?php if(isset($options['fq_kk_sc_color'])){echo htmlentities($options['fq_kk_sc_color']);}else{echo '#666666';};?>">
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Tag border color:</th>
+							<td scope="row">Tag border color:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_sc_color_2]"  type="color" name="favcolor" value="<?php if(isset($options['fq_kk_sc_color_2'])){echo htmlentities($options['fq_kk_sc_color_2']);}else{echo '#000000';};?>">
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Tag text color:</th>
+							<td scope="row">Tag text color:</td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_sc_color_3]"  type="color" name="favcolor" value="<?php if(isset($options['fq_kk_sc_color_3'])){echo htmlentities($options['fq_kk_sc_color_3']);}else{echo '#000000';};?>">
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Tag border size:</th>
+							<td scope="row">Tag border size:</td>
 							<td>
 								<select name="Free_Quotation_options[fq_kk_sc_border_size]">
 									<option value="0" <?php if(isset($options['fq_kk_sc_border_size'])){ if($options['fq_kk_sc_border_size']=='0'){echo "selected=\"selected\""; }} ?> >0</option>
@@ -324,13 +360,13 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Tag width (empty = auto)</th>
+							<td scope="row">Tag width (empty = auto)</td>
 							<td>
 								<input type="number" name="Free_Quotation_options[fq_kk_sc_width]" id="activator1" value="<?php if(isset($options['fq_kk_sc_width'])){echo htmlentities($options['fq_kk_sc_width']);}else{};?>" size="2">px
 							</td>
 						</tr>
 						<tr>
-							<th scope="row">Tag text align</th>
+							<td scope="row">Tag text align</td>
 							<td>
 								<select name="Free_Quotation_options[fq_kk_sc_align]">
 									<option value="left" <?php if(isset($options['fq_kk_sc_align'])){ if($options['fq_kk_sc_align']=='left'){echo "selected=\"selected\""; }} ?> >left</option>
@@ -380,6 +416,10 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.1.4
+			<ul>
+				<li>CSS editor - now you can declare class or header value instead prepare own CSS style</li>
+			</ul>
 			3.1.3
 			<ul>
 				<li>CSS editor - add new option for header, body and signature</li>
