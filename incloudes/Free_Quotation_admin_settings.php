@@ -145,7 +145,7 @@ $table_name = $wpdb->prefix . 'free_quotation_kris_IV';
 						</tr>
 						<tr>
 							<td></td>
-							<td scope="row"><b>Do you want define below your own style?</b></td>
+							<td scope="row"><b>Do you want define below your own style (instead declared above)?</b></td>
 							<td>
 								<input name="Free_Quotation_options[fq_kk_option5]" type="checkbox" value="1" <?php if(isset($options['fq_kk_option5'])){checked($options['fq_kk_option5'], 1);}?> /><br>
 							</td>
