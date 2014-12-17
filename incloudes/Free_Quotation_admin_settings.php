@@ -416,6 +416,10 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.1.5
+			<ul>
+				<li>Compatible with WordPress 4.1.0</li>
+			</ul>
 			3.1.4
 			<ul>
 				<li>CSS editor - now you can declare class or header value instead prepare own CSS style</li>
