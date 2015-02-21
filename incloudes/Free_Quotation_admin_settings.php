@@ -416,6 +416,10 @@ jQuery(document).ready( function($){
 	  </ul>
 	  <div id="backlog_table_fq">
 	  <div id="tabs-1">
+			3.1.6
+			<ul>
+				<li>Compatible with WordPress 4.1.1</li>
+			</ul>
 			3.1.5
 			<ul>
 				<li>Compatible with WordPress 4.1.0</li>
